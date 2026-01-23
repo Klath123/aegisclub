@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
 import LetterGlitch from "../components/LetterGlitch";
 import DecryptedText from "../components/DecryptedText";
-import { Terminal, TypingAnimation, AnimatedSpan } from "../components/terminal";
-import { BorderBeam } from "../components/BorderBeam";
+// import { Terminal, TypingAnimation, AnimatedSpan } from "../components/terminal";
+// import { BorderBeam } from "../components/BorderBeam";
 //import { InfiniteMovingImages } from "../components/InfiniteMovingImages";
 
 const Home = () => {
     const [animationPhase, setAnimationPhase] = useState<'welcome' | 'navbar' | 'aegis' | 'complete'>('welcome');
     const [showNeonGlow, setShowNeonGlow] = useState(false);
-    const [showNavbarElements, setShowNavbarElements] = useState(false);
+    // const [showNavbarElements, setShowNavbarElements] = useState(false);
     const [showTagline, setShowTagline] = useState(false);
 
     useEffect(() => {
         // Phase 1: Welcome to appears, breathes, and fades (2 seconds total)
         const welcomeTimer = setTimeout(() => {
             setAnimationPhase('aegis');
-            setShowNavbarElements(true);
+            // setShowNavbarElements(true);
         }, 2000);
 
         return () => clearTimeout(welcomeTimer);
