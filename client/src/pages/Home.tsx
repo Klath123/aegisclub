@@ -28,7 +28,7 @@ const Home = () => {
                 setShowNeonGlow(true);
                 setShowTagline(true);
                 setAnimationPhase('complete');
-            }, 1000);
+            }, 0);
 
             return () => clearTimeout(neonTimer);
         }
