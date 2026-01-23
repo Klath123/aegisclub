@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import MemberCard from "@/components/MemberCard";
 import { members } from "@/constants/Members";
 import {
@@ -11,22 +11,63 @@ import {
   dividerVariants,
 } from "@/styles/Animations";
 
-type YearFilter = "All" | "2nd" | "3rd" | "4th";
+type MainCategory = "Faculty" | "Team" | null;
+type TeamCategory = "Tech" | "Operations" | "Media" | "Cultural";
+type YearFilter = "2nd" | "3rd" | "4th" | null;
 
 const Members = () => {
-  const [activeFilter, setActiveFilter] = useState<YearFilter>("All");
+  const [mainCategory, setMainCategory] = useState<MainCategory | null>(null);
+  const [teamCategory, setTeamCategory] = useState<TeamCategory | null>(null);
+  const [yearFilter, setYearFilter] = useState<YearFilter>(null);
+  const [showTeamFilters, setShowTeamFilters] = useState(false); // Start collapsed on page load
 
-  // Filter members based on selected year
-  const filteredMembers =
-    activeFilter === "All"
-      ? members
-      : members.filter((member) => member.year === activeFilter);
+  // Filter members based on all selections
+  const getFilteredMembers = () => {
+    // If no main category is selected, return empty array
+    if (!mainCategory) {
+      return [];
+    }
+
+    let filtered = members;
+
+    if (mainCategory === "Faculty") {
+      // Show only faculty members
+      filtered = members.filter((member) => member.role === "Faculty");
+
+      // Sort to show HOD first
+      filtered = filtered.sort((a, b) => {
+        if (a.position?.toLowerCase().includes("hod")) return -1;
+        if (b.position?.toLowerCase().includes("hod")) return 1;
+        return 0;
+      });
+    } else {
+      // Team category - require a specific team to be selected
+      if (!teamCategory) {
+        // No specific team selected yet - show nothing
+        return [];
+      }
+
+      // Filter by role and specific team
+      filtered = members.filter(
+        (member) => member.role === "Student" && member.team === teamCategory,
+      );
+
+      // Filter by year if selected
+      if (yearFilter) {
+        filtered = filtered.filter((member) => member.year === yearFilter);
+      }
+    }
+
+    return filtered;
+  };
+
+  const filteredMembers = getFilteredMembers();
 
   return (
     <div className="min-h-screen">
       <section className="py-24 px-4">
         <div className="container mx-auto max-w-7xl">
-          {/* Section header with animations */}
+          {/* Section header */}
           <div className="text-center mb-16">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-white mb-4"
@@ -36,7 +77,7 @@ const Members = () => {
               variants={testimonialHeading}
             >
               <motion.span
-                className="text-red-500 font-pacifico"
+                className="text-blue-500 font-pacifico"
                 variants={decorativeElement}
                 initial="hidden"
                 whileInView="visible"
@@ -49,7 +90,8 @@ const Members = () => {
 
             <div className="flex justify-center">
               <motion.div
-                className="h-1 w-32 bg-red-500 mb-8"
+                className="h-1 bg-blue-500 mb-8"
+                style={{ width: "150px", transformOrigin: "center" }}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -69,41 +111,149 @@ const Members = () => {
               cybersecurity and technology.
             </motion.p>
 
-            {/* Filter Tabs */}
+            {/* Main Category Filter (Faculty / Team) */}
             <motion.div
-              className="flex justify-center gap-4 mb-12"
+              className="flex justify-center gap-4 mb-8"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={simpleFadeIn}
             >
-              {(["All", "2nd", "3rd", "4th"] as YearFilter[]).map((filter) => (
+              {(["Faculty", "Team"] as MainCategory[]).map((category) => (
                 <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
+                  key={category}
+                  onClick={() => {
+                    if (category === "Faculty") {
+                      setMainCategory("Faculty");
+                      setShowTeamFilters(false);
+                      setTeamCategory(null);
+                      setYearFilter(null);
+                    } else {
+                      // Team button clicked
+                      if (mainCategory === "Team") {
+                        // Already on Team - toggle the filters
+                        setShowTeamFilters(!showTeamFilters);
+                        if (showTeamFilters) {
+                          // Collapsing - reset filters
+                          setTeamCategory(null);
+                          setYearFilter(null);
+                        }
+                      } else {
+                        // Switching from Faculty to Team
+                        setMainCategory("Team");
+                        setShowTeamFilters(true);
+                      }
+                    }
+                  }}
                   className={`
-                    px-6 py-2.5 rounded-full font-medium transition-all duration-300
+                    px-8 py-3 rounded-full font-semibold transition-all duration-300
                     ${
-                      activeFilter === filter
-                        ? "bg-emerald-500 text-zinc-900 shadow-lg shadow-emerald-500/40 cursor-default"
-                        : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white hover:shadow-md hover:shadow-zinc-500/20"
+                      mainCategory === category
+                        ? "bg-blue-500 text-white shadow-lg shadow-blue-500/50"
+                        : "bg-zinc-800 text-gray-300 hover:bg-zinc-700 hover:text-white"
                     }
                   `}
                 >
-                  {filter === "All" ? "Present Team" : `${filter} Year`}
+                  {category}
                 </button>
               ))}
             </motion.div>
+
+            {/* Team Category Filter (only for Team) - with expand/collapse animation */}
+            <AnimatePresence>
+              {mainCategory === "Team" && showTeamFilters && (
+                <motion.div
+                  key="team-categories"
+                  className="flex flex-wrap justify-center gap-3 mb-6 overflow-hidden"
+                  initial={{ opacity: 0, height: 0, marginBottom: 0 }}
+                  animate={{
+                    opacity: 1,
+                    height: "auto",
+                    marginBottom: "1.5rem",
+                  }}
+                  exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  {(
+                    [
+                      "Tech",
+                      "Operations",
+                      "Media",
+                      "Cultural",
+                    ] as TeamCategory[]
+                  ).map((team) => (
+                    <motion.button
+                      key={team}
+                      onClick={() => {
+                        setTeamCategory(teamCategory === team ? null : team);
+                        setYearFilter(null);
+                      }}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className={`
+                        px-6 py-2.5 rounded-full font-medium transition-all duration-300
+                        ${
+                          teamCategory === team
+                            ? "bg-blue-500 text-white shadow-md shadow-blue-500/50"
+                            : "bg-zinc-800/50 text-gray-400 hover:bg-zinc-700 hover:text-white border border-zinc-700"
+                        }
+                      `}
+                    >
+                      {team}
+                    </motion.button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Year Filter (only when Team is selected AND a team category is chosen) */}
+            <AnimatePresence>
+              {mainCategory === "Team" && teamCategory && (
+                <motion.div
+                  key="year-filters"
+                  className="flex justify-center gap-3 overflow-hidden"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  {(["2nd", "3rd", "4th"] as YearFilter[]).map(
+                    (year, index) => (
+                      <motion.button
+                        key={year}
+                        onClick={() =>
+                          setYearFilter(yearFilter === year ? null : year)
+                        }
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        className={`
+                        px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
+                        ${
+                          yearFilter === year
+                            ? "bg-blue-500 text-white shadow-md shadow-blue-500/50"
+                            : "bg-zinc-800/30 text-gray-500 hover:bg-zinc-700 hover:text-white border border-zinc-700/50"
+                        }
+                      `}
+                      >
+                        {year} Year
+                      </motion.button>
+                    ),
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
-          {/* Members grid with equal height cards */}
+          {/* Members grid */}
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={container}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            key={activeFilter} // Re-animate when filter changes
+            key={`${mainCategory}-${teamCategory}-${yearFilter}`}
           >
             {filteredMembers.length > 0 ? (
               filteredMembers.map((member) => (
@@ -119,7 +269,11 @@ const Members = () => {
             ) : (
               <div className="col-span-full text-center py-12">
                 <p className="text-gray-400 text-lg">
-                  No members found for {activeFilter} year
+                  {!mainCategory
+                    ? "Please select Faculty or Team to view members"
+                    : mainCategory === "Team" && !teamCategory
+                      ? "Please select a team (Tech, Operations, Media, or Cultural)"
+                      : "No members found for the selected filters"}
                 </p>
               </div>
             )}
