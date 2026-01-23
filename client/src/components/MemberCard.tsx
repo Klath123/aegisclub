@@ -32,7 +32,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, aria, icon }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="text-gray-400 hover:text-red-400 transition-colors duration-200"
+    className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-110"
     aria-label={aria}
     onClick={(e) => e.stopPropagation()}
   >
@@ -45,7 +45,7 @@ interface SocialFooterProps {
 }
 
 const SocialFooter: React.FC<SocialFooterProps> = ({ socialLinks }) => (
-  <div className="pt-4 pb-4 mt-auto border-t border-gray-700/50 w-full bg-[#1e293b] z-20">
+  <div className="w-full">
     <div className="flex items-center justify-center gap-4">
       {socialLinks?.linkedin && (
         <SocialLink
@@ -83,39 +83,8 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
   const [imageError, setImageError] = useState(false);
   const showPlaceholder = imageError || !member.imageUrl;
 
-  // Helper function to convert Google Drive view link to download link
-  const getDownloadUrl = (url: string | undefined) => {
-    if (!url) return "";
-
-    // Check if it's a Google Drive link
-    if (url.includes("drive.google.com")) {
-      // Extract file ID from different Google Drive URL formats
-      let fileId = "";
-
-      // Format: https://drive.google.com/file/d/FILE_ID/view
-      const viewMatch = url.match(/\/file\/d\/([^\/]+)/);
-      if (viewMatch) {
-        fileId = viewMatch[1];
-      }
-
-      // Format: https://drive.google.com/open?id=FILE_ID
-      const openMatch = url.match(/[?&]id=([^&]+)/);
-      if (openMatch) {
-        fileId = openMatch[1];
-      }
-
-      // If we found a file ID, return the direct download link
-      if (fileId) {
-        return `https://drive.google.com/uc?export=download&id=${fileId}`;
-      }
-    }
-
-    // If not a Google Drive link or couldn't parse, return original URL
-    return url;
-  };
-
   return (
-    <div className="group w-full h-full min-h-[420px] flex flex-col bg-[#2d3e50] rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden border-l-4 border-red-500">
+    <div className="group w-full h-full min-h-[480px] flex flex-col bg-white/5 backdrop-blur-sm rounded-2xl hover:bg-white/10 transition-all duration-300 relative overflow-hidden border border-white/10 hover:border-white/20 shadow-lg hover:shadow-2xl">
       <div className="flex-grow relative z-0" style={{ perspective: "1000px" }}>
         <div
           className="relative w-full h-full transition-all duration-500"
@@ -126,19 +95,25 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
             .group:focus-within .relative > div[style*="preserve-3d"] {
               transform: rotateY(180deg);
             }
+            /* Prevent flip when hovering social links */
+            .group:has(.social-footer:hover) .relative > div[style*="preserve-3d"] {
+              transform: rotateY(0deg) !important;
+            }
           `}</style>
 
+          {/* Front Side */}
           <div
-            className="absolute inset-0 w-full h-full flex flex-col bg-[#2d3e50]"
+            className="absolute inset-0 w-full h-full flex flex-col"
             style={{
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
             }}
           >
-            <div className="flex flex-col flex-grow p-6 gap-3 items-center justify-center">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-gray-600 shadow-lg mb-4">
+            <div className="flex flex-col flex-grow p-6 gap-4 items-center justify-center">
+              {/* Rectangular Photo */}
+              <div className="w-full h-full max-h-[300px] rounded-2xl overflow-hidden shadow-xl mb-2">
                 {showPlaceholder ? (
-                  <div className="flex items-center justify-center w-full h-full bg-gray-600 text-gray-100 text-3xl font-bold">
+                  <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-800 text-white text-4xl font-bold">
                     {member.name
                       .split(" ")
                       .map((n) => n[0])
@@ -154,60 +129,69 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
                 )}
               </div>
 
+              {/* Name and Position */}
               <div className="text-center">
-                <h3 className="text-2xl font-bold text-white mb-1">
+                <h3 className="text-xl font-bold text-white mb-1">
                   {member.name}
                 </h3>
                 {member.position && (
-                  <p className="text-sm font-medium text-red-400 mt-1">
+                  <p className="text-sm font-medium text-gray-400">
                     {member.position}
                   </p>
                 )}
               </div>
-              <div className="w-16 h-0.5 bg-gray-600 mx-auto mt-2"></div>
+            </div>
+
+            {/* Social Links on Front - with click protection */}
+            <div
+              className="social-footer pt-4 pb-4 border-t border-white/10 w-full"
+              onMouseEnter={(e) => e.stopPropagation()}
+              onMouseLeave={(e) => e.stopPropagation()}
+            >
+              <SocialFooter socialLinks={member.socialLinks} />
             </div>
           </div>
 
+          {/* Back Side - About Only */}
           <div
-            className="absolute inset-0 w-full h-full flex flex-col bg-[#2d3e50] items-center justify-center gap-6 px-6"
+            className="absolute inset-0 w-full h-full flex flex-col bg-gradient-to-br from-zinc-800/90 to-zinc-900/90 backdrop-blur-md"
             style={{
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
             }}
           >
-            <h3 className="text-xl font-bold text-white">Resume</h3>
+            <style>{`
+              .custom-scrollbar::-webkit-scrollbar {
+                width: 6px;
+              }
+              .custom-scrollbar::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+              }
+              .custom-scrollbar::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 10px;
+              }
+              .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.5);
+              }
+            `}</style>
 
-            {member.resumeUrl ? (
-              <>
-                <a
-                  href={member.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full text-center px-4 py-3 rounded-md bg-red-500 text-white font-semibold hover:bg-red-600 transition-colors duration-200"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  View Resume
-                </a>
+            <div className="flex flex-col flex-grow p-6 h-full justify-center">
+              <h3 className="text-xl font-bold text-white text-center mb-4">
+                About
+              </h3>
 
-                <a
-                  href={getDownloadUrl(member.resumeUrl)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full text-center px-4 py-3 rounded-md border-2 border-red-500 text-red-400 font-semibold hover:bg-red-500 hover:text-white transition-colors duration-200"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Download Resume
-                </a>
-              </>
-            ) : (
-              <p className="text-sm text-gray-400">Resume not available</p>
-            )}
+              <div className="overflow-y-auto custom-scrollbar pr-2 relative max-h-[340px]">
+                <p className="text-gray-300 text-sm leading-relaxed text-justify">
+                  {member.bio || "No details available."}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <SocialFooter socialLinks={member.socialLinks} />
     </div>
   );
 };

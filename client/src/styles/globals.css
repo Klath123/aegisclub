@@ -5,80 +5,89 @@
 
 /* Proza Libre Font - Local Files */
 @font-face {
-  font-family: 'Proza Libre1';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-Regular.ttf') format('truetype');
+  font-family: "Proza Libre1";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Regular.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre2';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-Italic.ttf') format('truetype');
+  font-family: "Proza Libre2";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Italic.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre3';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-Medium.ttf') format('truetype');
+  font-family: "Proza Libre3";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Medium.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre4';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-MediumItalic.ttf') format('truetype');
+  font-family: "Proza Libre4";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-MediumItalic.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre5';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-SemiBold.ttf') format('truetype');
+  font-family: "Proza Libre5";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-SemiBold.ttf")
+    format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre6';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-SemiBoldItalic.ttf') format('truetype');
+  font-family: "Proza Libre6";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-SemiBoldItalic.ttf")
+    format("truetype");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre7';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-Bold.ttf') format('truetype');
+  font-family: "Proza Libre7";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre8';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-BoldItalic.ttf') format('truetype');
+  font-family: "Proza Libre8";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-BoldItalic.ttf")
+    format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre9';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-ExtraBold.ttf') format('truetype');
+  font-family: "Proza Libre9";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-ExtraBold.ttf")
+    format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Proza Libre10';
-  src: url('../assets/Fonts/ProzaLibre/ProzaLibre-ExtraBoldItalic.ttf') format('truetype');
+  font-family: "Proza Libre10";
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-ExtraBoldItalic.ttf")
+    format("truetype");
   font-weight: 800;
   font-style: italic;
   font-display: swap;
@@ -86,8 +95,8 @@
 
 /* Qontra Font - Local File */
 @font-face {
-  font-family: 'Qontra1';
-  src: url('../assets/Fonts/Qontra/Qontra.otf') format('opentype');
+  font-family: "Qontra1";
+  src: url("../assets/Fonts/Qontra/Qontra.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -95,16 +104,16 @@
 
 /* Ikaros Font - Local Files */
 @font-face {
-  font-family: 'Ikaros1';
-  src: url('../assets/Fonts/Ikaros/Ikaros-Light.otf') format('opentype');
+  font-family: "Ikaros1";
+  src: url("../assets/Fonts/Ikaros/Ikaros-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Ikaros2';
-  src: url('../assets/Fonts/Ikaros/Ikaros-Regular.otf') format('opentype');
+  font-family: "Ikaros2";
+  src: url("../assets/Fonts/Ikaros/Ikaros-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -112,9 +121,19 @@
 
 /* Ailerons Font - Local File */
 @font-face {
-  font-family: 'Ailerons';
-  src: url('../assets/Fonts/Ailerons/Ailerons Regular.ttf') format('truetype');
+  font-family: "Ailerons";
+  src: url("../assets/Fonts/Ailerons/Ailerons Regular.ttf") format("truetype");
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Pacifico Font - used in 'meet' word of members page */
+@font-face {
+  font-family: "Pacifico";
+  src: url("../assets/Fonts/Pacifico-Regular/Pacifico-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -134,7 +153,11 @@
 }
 
 :root {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
   line-height: 1.6;
   font-weight: 400;
 
@@ -250,9 +273,9 @@ body {
   }
 }
 
-
 .animate-scroll {
-  animation: scroll var(--animation-duration) var(--animation-direction) linear infinite;
+  animation: scroll var(--animation-duration) var(--animation-direction) linear
+    infinite;
 }
 
 /* Gallery hover pause functionality */
@@ -267,7 +290,6 @@ body {
 .gallery-hover-fast:hover .animate-scroll {
   animation-play-state: paused;
 }
-
 
 /* Breathe animation for "Welcome to" text */
 @keyframes breathe {
@@ -329,7 +351,8 @@ body {
 }
 
 @keyframes neon-pulse {
-  0%, 100% {
+  0%,
+  100% {
     text-shadow:
       0 1px 2px rgba(0, 0, 0, 0.6),
       0 0 6px rgba(168, 85, 247, 0.45),
@@ -343,7 +366,6 @@ body {
       0 0 18px rgba(168, 85, 247, 0.35);
   }
 }
-
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -467,7 +489,7 @@ body {
 
 /* Agent name (clean, premium) */
 .agent-name {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   transition: color 0.3s ease;
@@ -504,9 +526,15 @@ body {
 
 /* Robot float (idle) */
 @keyframes robotFloat {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .animate-float {
@@ -515,9 +543,15 @@ body {
 
 /* Robot nod (on arrival) */
 @keyframes nod {
-  0% { transform: translateY(0); }
-  40% { transform: translateY(6px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .animate-nod {
@@ -540,10 +574,24 @@ body {
 }
 
 @keyframes bounceSoft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .animate-bounce-soft {
   animation: bounceSoft 1.4s ease-in-out infinite;
+}
+
+.font-pacifico {
+  font-family: "Pacifico", cursive;
+  -webkit-text-stroke: 0.5px currentColor;
+  text-shadow:
+    0 0 1px currentColor,
+    0 0 1px currentColor,
+    0 0 1px currentColor;
 }
