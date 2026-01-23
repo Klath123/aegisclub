@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout.tsx";
 import Home from "./pages/Home.tsx";
 import TerminalLoader from "./components/TerminalLoader.tsx";
+import Sandbox from "./pages/Sandbox";
+import Glitchcraft from "./pages/Glitchcraft.tsx";
 
 // Lazy load pages that aren't immediately needed
 const About = lazy(() => import("./pages/About.tsx"));
@@ -49,6 +51,8 @@ function App() {
           <Route path="members" element={<Members />} />
           <Route path="contact" element={<Contact />} />
           <Route path="achievements" element={<Achievements />} />
+          <Route path="/sandbox" element={<Sandbox />} />
+          <Route path="/glitchcraft" element={<Glitchcraft />} />
         </Route>
       </Routes>
     </Suspense>
