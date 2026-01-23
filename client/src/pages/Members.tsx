@@ -13,13 +13,11 @@ import {
 
 type MainCategory = "Faculty" | "Team" | null;
 type TeamCategory = "Tech" | "Operations" | "Media" | "Cultural";
-type YearFilter = "2nd" | "3rd" | "4th" | null;
 
 const Members = () => {
-  const [mainCategory, setMainCategory] = useState<MainCategory | null>(null);
-  const [teamCategory, setTeamCategory] = useState<TeamCategory | null>(null);
-  const [yearFilter, setYearFilter] = useState<YearFilter>(null);
-  const [showTeamFilters, setShowTeamFilters] = useState(false); // Start collapsed on page load
+  const [mainCategory, setMainCategory] = useState<MainCategory>("Team");
+  const [teamCategory, setTeamCategory] = useState<TeamCategory | null>("Tech");
+  const [showTeamFilters, setShowTeamFilters] = useState(true);
 
   // Filter members based on all selections
   const getFilteredMembers = () => {
@@ -41,21 +39,20 @@ const Members = () => {
         return 0;
       });
     } else {
-      // Team category - require a specific team to be selected
-      if (!teamCategory) {
-        // No specific team selected yet - show nothing
-        return [];
+      // Team category - show all students or filtered by team
+      filtered = members.filter((member) => member.role === "Student");
+
+      // Filter by specific team if selected
+      if (teamCategory) {
+        filtered = filtered.filter((member) => member.team === teamCategory);
       }
 
-      // Filter by role and specific team
-      filtered = members.filter(
-        (member) => member.role === "Student" && member.team === teamCategory,
-      );
-
-      // Filter by year if selected
-      if (yearFilter) {
-        filtered = filtered.filter((member) => member.year === yearFilter);
-      }
+      // Sort by team: Tech first, then alphabetically
+      filtered = filtered.sort((a, b) => {
+        if (a.team === "Tech" && b.team !== "Tech") return -1;
+        if (a.team !== "Tech" && b.team === "Tech") return 1;
+        return (a.team ?? "").localeCompare(b.team ?? "");
+      });
     }
 
     return filtered;
@@ -127,7 +124,6 @@ const Members = () => {
                       setMainCategory("Faculty");
                       setShowTeamFilters(false);
                       setTeamCategory(null);
-                      setYearFilter(null);
                     } else {
                       // Team button clicked
                       if (mainCategory === "Team") {
@@ -136,12 +132,12 @@ const Members = () => {
                         if (showTeamFilters) {
                           // Collapsing - reset filters
                           setTeamCategory(null);
-                          setYearFilter(null);
                         }
                       } else {
                         // Switching from Faculty to Team
                         setMainCategory("Team");
                         setShowTeamFilters(true);
+                        setTeamCategory("Tech");
                       }
                     }
                   }}
@@ -186,7 +182,6 @@ const Members = () => {
                       key={team}
                       onClick={() => {
                         setTeamCategory(teamCategory === team ? null : team);
-                        setYearFilter(null);
                       }}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -206,44 +201,6 @@ const Members = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-
-            {/* Year Filter (only when Team is selected AND a team category is chosen) */}
-            <AnimatePresence>
-              {mainCategory === "Team" && teamCategory && (
-                <motion.div
-                  key="year-filters"
-                  className="flex justify-center gap-3 overflow-hidden"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                  {(["2nd", "3rd", "4th"] as YearFilter[]).map(
-                    (year, index) => (
-                      <motion.button
-                        key={year}
-                        onClick={() =>
-                          setYearFilter(yearFilter === year ? null : year)
-                        }
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className={`
-                        px-5 py-2 rounded-full text-sm font-medium transition-all duration-300
-                        ${
-                          yearFilter === year
-                            ? "bg-blue-500 text-white shadow-md shadow-blue-500/50"
-                            : "bg-zinc-800/30 text-gray-500 hover:bg-zinc-700 hover:text-white border border-zinc-700/50"
-                        }
-                      `}
-                      >
-                        {year} Year
-                      </motion.button>
-                    ),
-                  )}
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
 
           {/* Members grid */}
@@ -253,7 +210,7 @@ const Members = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            key={`${mainCategory}-${teamCategory}-${yearFilter}`}
+            key={`${mainCategory}-${teamCategory}`}
           >
             {filteredMembers.length > 0 ? (
               filteredMembers.map((member) => (

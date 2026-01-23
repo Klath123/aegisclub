@@ -98,15 +98,23 @@ const Home = () => {
 
 
                         {/* Tagline at the bottom - Appears after AEGIS settles in */}
-                        <div className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter text-white text-center mt-6 sm:mt-8 md:mt-10 min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] transition-opacity duration-700 ${showTagline ? 'opacity-100' : 'opacity-0'}`} style={{ fontFamily: '"Proza Libre9", sans-serif' }}>
+                        <div
+                            className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 
+  font-bold tracking-tighter text-white text-center 
+  mt-6 sm:mt-8 md:mt-10 
+  min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] 
+  transition-opacity duration-300 
+  ${showTagline ? "opacity-100" : "opacity-0"}`}
+                            style={{ fontFamily: '"Proza Libre9", sans-serif' }}
+                        >
                             {showTagline && (
                                 <DecryptedText
                                     key="tagline-decrypt"
                                     text="Decrypt . Decode . Decipher"
                                     animateOn="view"
                                     revealDirection="center"
-                                    speed={75}
-                                    scrambleSpeed={35}
+                                    speed={35}          // ⬇️ faster reveal
+                                    scrambleSpeed={15}  // ⬇️ faster scramble
                                     className="drop-shadow-[0_0_18px_rgba(255,255,255,0.65)]"
                                 />
                             )}

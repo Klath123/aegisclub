@@ -152,47 +152,74 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
             </div>
           </div>
 
-          {/* Back Side - About Only */}
-          <div
-            className="absolute inset-0 w-full h-full flex flex-col bg-gradient-to-br from-zinc-800/90 to-zinc-900/90 backdrop-blur-md"
-            style={{
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-              transform: "rotateY(180deg)",
-            }}
-          >
-            <style>{`
-              .custom-scrollbar::-webkit-scrollbar {
-                width: 6px;
-              }
-              .custom-scrollbar::-webkit-scrollbar-track {
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 10px;
-              }
-              .custom-scrollbar::-webkit-scrollbar-thumb {
-                background: rgba(255, 255, 255, 0.3);
-                border-radius: 10px;
-              }
-              .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-                background: rgba(255, 255, 255, 0.5);
-              }
-            `}</style>
+          {/* Back Side - About */}
+<div
+  className="absolute inset-0 w-full h-full flex flex-col 
+  bg-gradient-to-br from-[#0f172a]/95 via-[#020617]/95 to-[#020617]/95 
+  backdrop-blur-xl"
+  style={{
+    backfaceVisibility: "hidden",
+    WebkitBackfaceVisibility: "hidden",
+    transform: "rotateY(180deg)",
+  }}
+>
+  <div className="relative flex flex-col h-full p-8">
 
-            <div className="flex flex-col flex-grow p-6 h-full justify-center">
-              <h3 className="text-xl font-bold text-white text-center mb-4">
-                About
-              </h3>
+   {/* Subtle static ambient accents */}
+<div className="absolute top-[-40px] right-[-40px] w-56 h-56 bg-blue-500/8 blur-3xl rounded-full" />
+<div className="absolute bottom-[-40px] left-[-40px] w-56 h-56 bg-blue-500/6 blur-3xl rounded-full" />
 
-              <div className="overflow-y-auto custom-scrollbar pr-2 relative max-h-[340px]">
-                <p className="text-gray-300 text-sm leading-relaxed text-justify">
-                  {member.bio || "No details available."}
-                </p>
-              </div>
-            </div>
+{/* Header */}
+<div className="text-center mb-6 relative z-10">
+  <h3 className="text-2xl font-semibold text-blue-400 tracking-tight">
+    About Me
+  </h3>
+
+  {/* Static underline */}
+  <div className="mt-2 w-12 h-[2px] bg-blue-400 mx-auto rounded-full" />
+</div>
+
+
+    {/* Bio */}
+    <div className="relative z-10 flex-grow overflow-y-auto pr-3 custom-scrollbar">
+  <p className="
+    text-[0.95rem]
+    leading-7
+    text-gray-200
+    text-left
+    tracking-normal
+    font-normal
+    whitespace-pre-line
+  ">
+    {member.bio || "No details available."}
+  </p>
+</div>
+
+
+    {/* Footer tags */}
+    {(member.team || member.year) && (
+      <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap justify-center gap-3 text-xs">
+        {member.team && (
+          <span className="px-3 py-1 rounded-full 
+          bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+            {member.team}
+          </span>
+        )}
+        {member.year && (
+          <span className="px-3 py-1 rounded-full 
+          bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+            {member.year} Year
+          </span>
+        )}
+      </div>
+    )}
+  </div>
+</div>
+
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
