@@ -1,41 +1,34 @@
 import { useState, useEffect } from "react";
 import LetterGlitch from "../components/LetterGlitch";
 import DecryptedText from "../components/DecryptedText";
-import { Terminal, TypingAnimation, AnimatedSpan } from "../components/terminal";
-import { BorderBeam } from "../components/BorderBeam";
-import { InfiniteMovingImages } from "../components/InfiniteMovingImages";
+// import { Terminal, TypingAnimation, AnimatedSpan } from "../components/terminal";
+// import { BorderBeam } from "../components/BorderBeam";
+//import { InfiniteMovingImages } from "../components/InfiniteMovingImages";
 
 const Home = () => {
     const [animationPhase, setAnimationPhase] = useState<'welcome' | 'navbar' | 'aegis' | 'complete'>('welcome');
     const [showNeonGlow, setShowNeonGlow] = useState(false);
-    const [showNavbarElements, setShowNavbarElements] = useState(false);
+    // const [showNavbarElements, setShowNavbarElements] = useState(false);
+    const [showTagline, setShowTagline] = useState(false);
 
     useEffect(() => {
         // Phase 1: Welcome to appears, breathes, and fades (2 seconds total)
         const welcomeTimer = setTimeout(() => {
-            setAnimationPhase('navbar');
-            setShowNavbarElements(true);
+            setAnimationPhase('aegis');
+            // setShowNavbarElements(true);
         }, 2000);
 
         return () => clearTimeout(welcomeTimer);
     }, []);
 
     useEffect(() => {
-        // Phase 2: After navbar/eyebrow appear with blur (1 second), show AEGIS and tagline
-        if (animationPhase === 'navbar') {
-            const aegisTimer = setTimeout(() => {
-                setAnimationPhase('aegis');
-            }, 1000);
-
-            return () => clearTimeout(aegisTimer);
-        }
-
-        // Phase 3: After AEGIS animation completes, activate neon glow
+        // Phase 2: After AEGIS appears with blur, activate neon glow and tagline
         if (animationPhase === 'aegis') {
             const neonTimer = setTimeout(() => {
                 setShowNeonGlow(true);
+                setShowTagline(true);
                 setAnimationPhase('complete');
-            }, 500);
+            }, 1000);
 
             return () => clearTimeout(neonTimer);
         }
@@ -60,7 +53,7 @@ const Home = () => {
                     </div>
 
                     {/* Eyebrow Line - Absolute position in hero section - Appears after welcome with blur */}
-                    {showNavbarElements && (
+                    {/* {showNavbarElements && (
                         <div
                             className="absolute top-24 left-1/2 -translate-x-1/2 z-20 inline-block px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-xl border fade-in-blur"
                             style={{
@@ -75,7 +68,7 @@ const Home = () => {
                                 »Official Cybersecurity Club«
                             </p>
                         </div>
-                    )}
+                    )} */}
 
                     <div className="z-10 flex flex-col items-center justify-center max-w-6xl mx-auto relative w-full">
 
@@ -91,52 +84,45 @@ const Home = () => {
                                 </h1>
                             )}
 
-                            {/* Phase 2 & 3: "AEGIS" with DecryptedText animation and optional neon glow */}
+                            {/* Phase 2: "AEGIS" appears with fade-in-blur effect and optional neon glow */}
                             {(animationPhase === 'aegis' || animationPhase === 'complete') && (
                                 <h1
-                                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] 2xl:text-[18rem] font-black tracking-tighter text-purple-500 text-center leading-none transition-all duration-1000 ${showNeonGlow ? 'neon-glow-active' : ''
+                                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] 2xl:text-[18rem] font-black tracking-tighter text-white text-center leading-none transition-all duration-1000 drop-shadow-[0_0_0px_rgba(255,255,255,0)] fade-in-blur ${showNeonGlow ? 'neon-glow-active' : ''
                                         }`}
-                                    style={{ fontFamily: '"ikaros2", sans-serif', fontWeight: 300 }}
+                                    style={{ fontFamily: '"ikaros2", sans-serif', fontWeight: 300, WebkitTextStroke: '2px #000000' }}
                                 >
-                                    <DecryptedText
-                                        text="AEGIS"
-                                        animateOn="view"
-                                        revealDirection="center"
-                                        speed={100}
-                                        scrambleSpeed={35}
-                                        characters="ABCDEFGHJKLMNPQRSTUVWXYZ123456789!@#$%&*^"
-                                        className="drop-shadow-[0_0_5px_rgba(168,85,247,0.8)]"
-                                    />
+                                    AEGIS
                                 </h1>
                             )}
                         </div>
 
-                        {/* Tagline at the bottom - Appears with AEGIS with fade-in-blur effect */}
-                        {(animationPhase === 'aegis' || animationPhase === 'complete') && (
-                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter text-white text-center mt-6 sm:mt-8 md:mt-10 fade-in-blur" style={{ fontFamily: '"Proza Libre9", sans-serif' }}>
+
+                        {/* Tagline at the bottom - Appears after AEGIS settles in */}
+                        <div className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter text-white text-center mt-6 sm:mt-8 md:mt-10 min-h-[3rem] sm:min-h-[4rem] md:min-h-[5rem] lg:min-h-[6rem] transition-opacity duration-700 ${showTagline ? 'opacity-100' : 'opacity-0'}`} style={{ fontFamily: '"Proza Libre9", sans-serif' }}>
+                            {showTagline && (
                                 <DecryptedText
+                                    key="tagline-decrypt"
                                     text="Decrypt . Decode . Decipher"
                                     animateOn="view"
                                     revealDirection="center"
                                     speed={75}
                                     scrambleSpeed={35}
-                                    characters="ABCDEFGHJKLMNPQRSTUVWXYZ123456789!@#$%"
                                     className="drop-shadow-[0_0_18px_rgba(255,255,255,0.65)]"
                                 />
-                            </h2>
-                        )}
+                            )}
+                        </div>
                     </div>
 
                 </div>
 
                 {/* Rest of the page with matching dark background */}
-                <div className="bg-[#0a0a0f] relative">
+                {/* <div className="bg-[#0a0a0f] relative">
                     {/* About Us Section with BorderBeam */}
-                    <section className="min-h-screen py-20 px-4 sm:px-6 md:px-8 z-10">
+                {/* <section className="min-h-screen py-20 px-4 sm:px-6 md:px-8 z-10">
                         <div className="max-w-7xl mx-auto">
                             <div className="relative w-full p-8 sm:p-12 md:p-16 bg-black/40 backdrop-blur-md rounded-3xl border border-purple-500/30 overflow-hidden">
                                 {/* Main Heading with Decrypt Animation */}
-                                <div className="text-center mb-16">
+                {/* <div className="text-center mb-16">
                                     <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-8" style={{ fontFamily: '"Ikaros1", sans-serif' }}>
                                         <DecryptedText
                                             text="ABOUT US"
@@ -148,12 +134,12 @@ const Home = () => {
                                             encryptedClassName="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
                                         />
                                     </h2>
-                                </div>
+                                </div> */}
 
-                                {/* Terminal Content Sections */}
-                                <div className="space-y-16">
+                {/* Terminal Content Sections */}
+                {/* <div className="space-y-16">
                                     {/* // WHO WE ARE Terminal */}
-                                    <div className="flex flex-col items-center">
+                {/* <div className="flex flex-col items-center">
                                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6" style={{ fontFamily: '"Proza Libre1", sans-serif' }}>
                                             <DecryptedText
                                                 text="// WHO WE ARE"
@@ -187,10 +173,10 @@ const Home = () => {
                                                 colorTo="#c1c0c3ff"
                                             />
                                         </div>
-                                    </div>
+                                    </div> */}
 
-                                    {/* // OUR MISSION Terminal */}
-                                    <div className="flex flex-col items-center">
+                {/* // OUR MISSION Terminal */}
+                {/* <div className="flex flex-col items-center">
                                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6" style={{ fontFamily: '"Proza Libre1", sans-serif' }}>
                                             <DecryptedText
                                                 text="// OUR MISSION"
@@ -227,10 +213,10 @@ const Home = () => {
                                                 colorTo="#c1c0c3ff"
                                             />
                                         </div>
-                                    </div>
+                                    </div> */}
 
-                                    {/* Initiatives & Events Terminal */}
-                                    {/* <div className="flex flex-col items-center">
+                {/* Initiatives & Events Terminal */}
+                {/* <div className="flex flex-col items-center">
                                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6" style={{ fontFamily: '"Proza Libre1", sans-serif' }}>
                                             <DecryptedText
                                                 text="// INITIATIVES & FLAGSHIP EVENTS"
@@ -269,8 +255,8 @@ const Home = () => {
                                         </div>
                                     </div> */}
 
-                                    {/* What We Do Terminal */}
-                                    {/* <div className="flex flex-col items-center">
+                {/* What We Do Terminal */}
+                {/* <div className="flex flex-col items-center">
                                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6" style={{ fontFamily: '"Proza Libre1", sans-serif' }}>
                                             <DecryptedText
                                                 text="// WHAT WE DO"
@@ -302,10 +288,10 @@ const Home = () => {
                                             />
                                         </div>
                                     </div> */}
-                                </div>
+                {/* </div> */}
 
-                                {/* Border Beams for main container */}
-                                <BorderBeam
+                {/* Border Beams for main container */}
+                {/* <BorderBeam
                                     duration={18}
                                     size={325}
                                     borderWidth={3}
@@ -314,10 +300,10 @@ const Home = () => {
                                 />
                             </div>
                         </div>
-                    </section>
+                    </section> */}
 
-                    {/* Event Highlights Gallery */}
-                    {/* <section className="py-20 px-4 sm:px-6 md:px-8 z-10">
+                {/* Event Highlights Gallery */}
+                {/* <section className="py-20 px-4 sm:px-6 md:px-8 z-10">
                         <div className="max-w-7xl mx-auto">
                             <div className="text-center mb-16">
                                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold font-mono tracking-tighter text-white mb-4">
@@ -369,8 +355,8 @@ const Home = () => {
                         </div>
                     </section> */}
 
-                    {/* Event Photos Gallery */}
-                    <section className="py-20 px-4 sm:px-6 md:px-8 z-10">
+                {/* Event Photos Gallery */}
+                {/* <section className="py-20 px-4 sm:px-6 md:px-8 z-10">
                         <div className="max-w-7xl mx-auto">
                             <div className="text-center mb-16">
                                 <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-4" style={{ fontFamily: '"Ikaros1", sans-serif' }}>
@@ -390,7 +376,7 @@ const Home = () => {
                             </div>
 
                             {/* First Row - Moving Right */}
-                            <div className="mb-[0px]">
+                {/* <div className="mb-[0px]">
                                 <InfiniteMovingImages
                                     images={[
                                         {
@@ -412,10 +398,10 @@ const Home = () => {
                                     direction="right"
                                     speed="normal"
                                 />
-                            </div>
+                            </div> */}
 
-                            {/* Second Row - Moving Left */}
-                            <InfiniteMovingImages
+                {/* Second Row - Moving Left */}
+                {/* <InfiniteMovingImages
                                 images={[
                                     {
                                         src: "/event-4.jpg",
@@ -437,8 +423,7 @@ const Home = () => {
                                 speed="normal"
                             />
                         </div>
-                    </section>
-                </div >
+                    </section> */}
             </div >
 
         </>
