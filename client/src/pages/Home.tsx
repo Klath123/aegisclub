@@ -78,7 +78,7 @@ const Home = () => {
                             {animationPhase === 'welcome' && (
                                 <h1
                                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-wide text-gray-300 text-center breathe-animation whitespace-nowrap"
-                                    style={{ fontFamily: '"Ailerons", sans-serif', fontWeight: 100 }}
+                                    style={{ fontFamily: '"ikaros2", sans-serif', fontWeight: 100 }}
                                 >
                                     Welcome to
                                 </h1>
@@ -87,9 +87,9 @@ const Home = () => {
                             {/* Phase 2: "AEGIS" appears with fade-in-blur effect and optional neon glow */}
                             {(animationPhase === 'aegis' || animationPhase === 'complete') && (
                                 <h1
-                                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] 2xl:text-[18rem] font-black tracking-tighter text-white text-center leading-none transition-all duration-1000 drop-shadow-[0_0_0px_rgba(255,255,255,0)] fade-in-blur ${showNeonGlow ? 'neon-glow-active' : ''
+                                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] 2xl:text-[18rem] font-black tracking-tighter text-white text-center leading-none transition-all duration-1000 drop-shadow-[0_0_2px_rgba(255,255,255,0.2)] fade-in-blur ${showNeonGlow ? 'neon-glow-active' : ''
                                         }`}
-                                    style={{ fontFamily: '"ikaros2", sans-serif', fontWeight: 300, WebkitTextStroke: '2px #000000' }}
+                                    style={{ fontFamily: '"ikaros2", sans-serif', fontWeight: 300, WebkitTextStroke: '1px #000000' }}
                                 >
                                     AEGIS
                                 </h1>

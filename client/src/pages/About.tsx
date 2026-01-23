@@ -26,6 +26,9 @@ const About = () => {
         <>
             {/* Page with dark background */}
             <div className="bg-[#0a0a0f] relative min-h-screen">
+                {/* Grid Pattern Background */}
+                <div className="fixed inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#0ea5e9_1px,transparent_1px),linear-gradient(to_bottom,#0ea5e9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
+
                 {/* About Us Section with BorderBeam */}
                 <section className="min-h-screen pb-20 px-4 sm:px-6 md:px-8 pt-28 md:pt-32 z-10">
                     <div className="max-w-7xl mx-auto">
