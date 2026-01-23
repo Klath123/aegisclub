@@ -209,7 +209,7 @@ function IntroSection({ onVisible }: { onVisible: () => void }) {
 
 /* ---------------- CARD COMPONENT (With Slow Zoom) ---------------- */
 
-function CinematicSection({ data, index, onVisible }: { data: any; index: number; onVisible: () => void }) {
+function CinematicSection({ data, onVisible }: { data: any; index: number; onVisible: () => void }) {
   const styles = THEMES[data.theme] || THEMES.cyan;
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
