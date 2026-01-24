@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Lock, Code, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -259,10 +259,9 @@ const EventsPage = () => {
       
       <div className="relative z-10">
         {/* Header Section */}
-        <section className="min-h-[40vh] flex flex-col items-center justify-center px-4 pt-32 md:pt-28 pb-4 md:pb-6">
-
+        <section className="min-h-[40vh] flex flex-col items-center justify-center px-4 pt-32 md:pt-28 pb-10 md:pb-14">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight font-heading text-white">
+            <h1 className="text-6xl md:text-7xl lg:text-7xl font-bold mb-6 tracking-tight font-heading text-white">
   EVENTS
 </h1>
 
