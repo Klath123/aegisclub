@@ -37,43 +37,6 @@ interface EventCardProps {
   onLeave: () => void;
 }
 
-// Glitch Text Component
-interface GlitchTextProps {
-  text: string;
-  className?: string;
-}
-
-const GlitchText = ({ text, className = "" }: GlitchTextProps) => {
-  const [displayText, setDisplayText] = useState<string>(text);
-  
-  useEffect(() => {
-    const glitchInterval = setInterval(() => {
-      const chars = '!<>-_\\/[]{}—=+*^?#________';
-      let iterations = 0;
-      
-      const glitchTimer = setInterval(() => {
-        setDisplayText(
-          text.split('').map((_char, index) => {
-            if (index < iterations) return text[index];
-            return chars[Math.floor(Math.random() * chars.length)];
-          }).join('')
-        );
-        
-        iterations += 1/2;
-        
-        if (iterations >= text.length) {
-          clearInterval(glitchTimer);
-          setDisplayText(text);
-        }
-      }, 30);
-    }, 5000);
-    
-    return () => clearInterval(glitchInterval);
-  }, [text]);
-  
-  return <span className={className}>{displayText}</span>;
-};
-
 // Event Card Component
 const EventCard = ({ event, isActive, onHover, onLeave }: EventCardProps) => {
   const navigate = useNavigate();
@@ -230,11 +193,6 @@ const EventCard = ({ event, isActive, onHover, onLeave }: EventCardProps) => {
 // Main Events Component
 const EventsPage = () => {
   const [activeCard, setActiveCard] = useState<string | null>(null);
-  const [mounted, setMounted] = useState<boolean>(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const eventsData: Event[] = [
     {
@@ -291,32 +249,25 @@ const EventsPage = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Grid Pattern Background */}
-      <div className="fixed inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#0ea5e9_1px,transparent_1px),linear-gradient(to_bottom,#0ea5e9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
-      
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+
       {/* Animated Floating Gradient Orbs */}
       <div className="fixed top-20 left-10 w-96 h-96 bg-cyan-600/20 rounded-full blur-[128px] animate-pulse"></div>
       <div className="fixed bottom-20 right-10 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px] animate-pulse" style={{ animationDelay: '1s' }}></div>
       <div className="fixed top-1/2 left-1/3 w-72 h-72 bg-blue-600/15 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
       
       <div className="relative z-10">
-        {/* Header Section - Fixed for Mobile Navbar */}
-        <section className="min-h-[35vh] flex flex-col items-center justify-center px-4 pt-24 md:pt-10 pb-10 md:pb-14">
+        {/* Header Section */}
+        <section className="min-h-[40vh] flex flex-col items-center justify-center px-4 pt-32 md:pt-28 pb-4 md:pb-6">
+
           <div className="max-w-5xl mx-auto text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight font-heading"
-            >
-              <span className="text-white drop-shadow-[0_0_30px_rgba(6,182,212,0.6)]">
-                {mounted ? <GlitchText text="EVENTS" /> : "EVENTS"}
-              </span>
-            </motion.h1>
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight font-heading text-white">
+  EVENTS
+</h1>
+
             
-            <p className="text-base md:text-lg text-slate-400 tracking-wide font-body">
-              Enter the grid. Test your limits.
-            </p>
+      
           </div>
         </section>
         

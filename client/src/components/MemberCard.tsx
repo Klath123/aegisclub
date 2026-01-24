@@ -40,186 +40,145 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, aria, icon }) => (
   </a>
 );
 
-interface SocialFooterProps {
-  socialLinks: Member["socialLinks"];
-}
-
-const SocialFooter: React.FC<SocialFooterProps> = ({ socialLinks }) => (
+const SocialFooter: React.FC<{ socialLinks: Member["socialLinks"] }> = ({ socialLinks }) => (
   <div className="w-full">
     <div className="flex items-center justify-center gap-4">
       {socialLinks?.linkedin && (
-        <SocialLink
-          href={socialLinks.linkedin}
-          aria="LinkedIn"
-          icon={<LinkedInIcon />}
-        />
+        <SocialLink href={socialLinks.linkedin} aria="LinkedIn" icon={<LinkedInIcon />} />
       )}
       {socialLinks?.github && (
-        <SocialLink
-          href={socialLinks.github}
-          aria="GitHub"
-          icon={<GitHubIcon />}
-        />
+        <SocialLink href={socialLinks.github} aria="GitHub" icon={<GitHubIcon />} />
       )}
       {socialLinks?.email && (
-        <SocialLink
-          href={`mailto:${socialLinks.email}`}
-          aria="Email"
-          icon={<MailIcon />}
-        />
+        <SocialLink href={`mailto:${socialLinks.email}`} aria="Email" icon={<MailIcon />} />
       )}
-      {!socialLinks?.linkedin &&
-        !socialLinks?.github &&
-        !socialLinks?.email && (
-          <span className="text-xs text-gray-500">
-            No social links available
-          </span>
-        )}
+      {!socialLinks?.linkedin && !socialLinks?.github && !socialLinks?.email && (
+        <span className="text-xs text-gray-500">No social links available</span>
+      )}
     </div>
   </div>
 );
 
 const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
   const [imageError, setImageError] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
+  
   const showPlaceholder = imageError || !member.imageUrl;
+  const initials = member.name.split(" ").map((n) => n[0]).join("");
 
   return (
-    <div className="group w-full h-full min-h-[480px] flex flex-col bg-white/5 backdrop-blur-sm rounded-2xl hover:bg-white/10 transition-all duration-300 relative overflow-hidden border border-white/10 hover:border-white/20 shadow-lg hover:shadow-2xl">
-      <div className="flex-grow relative z-0" style={{ perspective: "1000px" }}>
-        <div
-          className="relative w-full h-full transition-all duration-500"
-          style={{ transformStyle: "preserve-3d" }}
-        >
-          <style>{`
-            .group:hover .relative > div[style*="preserve-3d"], 
-            .group:focus-within .relative > div[style*="preserve-3d"] {
-              transform: rotateY(180deg);
-            }
-            /* Prevent flip when hovering social links */
-            .group:has(.social-footer:hover) .relative > div[style*="preserve-3d"] {
-              transform: rotateY(0deg) !important;
-            }
-          `}</style>
+    <>
+      <style>{`
+        .card-flip-container {
+          perspective: 1000px;
+        }
+        .card-flip-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+        }
+        .card-flip-inner.flipped {
+          transform: rotateY(180deg);
+        }
+        .card-face {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        .card-back {
+          transform: rotateY(180deg);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(96, 165, 250, 0.3);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(96, 165, 250, 0.5);
+        }
+      `}</style>
 
+      <div className="card-flip-container w-full h-full min-h-[480px] cursor-pointer" onClick={() => setIsFlipped(!isFlipped)}>
+        <div className={`card-flip-inner ${isFlipped ? 'flipped' : ''}`}>
+          
           {/* Front Side */}
-          <div
-            className="absolute inset-0 w-full h-full flex flex-col"
-            style={{
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-            }}
-          >
+          <div className="card-face flex flex-col bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-lg overflow-hidden">
             <div className="flex flex-col flex-grow p-6 gap-4 items-center justify-center">
-              {/* Rectangular Photo */}
               <div className="w-full h-full max-h-[300px] rounded-2xl overflow-hidden shadow-xl mb-2">
                 {showPlaceholder ? (
                   <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-800 text-white text-4xl font-bold">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
+                    {initials}
                   </div>
                 ) : (
                   <img
                     src={member.imageUrl}
-                    alt={`${member.name}`}
+                    alt={member.name}
                     className="w-full h-full object-cover"
                     onError={() => setImageError(true)}
                   />
                 )}
               </div>
 
-              {/* Name and Position */}
               <div className="text-center">
-                <h3 className="text-xl font-bold text-white mb-1">
-                  {member.name}
-                </h3>
+                <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
                 {member.position && (
-                  <p className="text-sm font-medium text-gray-400">
-                    {member.position}
-                  </p>
+                  <p className="text-sm font-medium text-gray-400">{member.position}</p>
                 )}
               </div>
             </div>
 
-            {/* Social Links on Front - with click protection */}
-            <div
-              className="social-footer pt-4 pb-4 border-t border-white/10 w-full"
-              onMouseEnter={(e) => e.stopPropagation()}
-              onMouseLeave={(e) => e.stopPropagation()}
-            >
+            <div className="pt-4 pb-4 border-t border-white/10 w-full" onClick={(e) => e.stopPropagation()}>
               <SocialFooter socialLinks={member.socialLinks} />
             </div>
           </div>
 
-          {/* Back Side - About */}
-<div
-  className="absolute inset-0 w-full h-full flex flex-col 
-  bg-gradient-to-br from-[#0f172a]/95 via-[#020617]/95 to-[#020617]/95 
-  backdrop-blur-xl"
-  style={{
-    backfaceVisibility: "hidden",
-    WebkitBackfaceVisibility: "hidden",
-    transform: "rotateY(180deg)",
-  }}
->
-  <div className="relative flex flex-col h-full p-8">
+          {/* Back Side */}
+          <div className="card-face card-back flex flex-col bg-gradient-to-br from-[#0f172a]/95 via-[#020617]/95 to-[#020617]/95 backdrop-blur-xl rounded-2xl border border-white/10 shadow-lg overflow-hidden">
+            <div className="relative flex flex-col h-full p-8">
+              <div className="absolute top-[-40px] right-[-40px] w-56 h-56 bg-blue-500/8 blur-3xl rounded-full" />
+              <div className="absolute bottom-[-40px] left-[-40px] w-56 h-56 bg-blue-500/6 blur-3xl rounded-full" />
 
-   {/* Subtle static ambient accents */}
-<div className="absolute top-[-40px] right-[-40px] w-56 h-56 bg-blue-500/8 blur-3xl rounded-full" />
-<div className="absolute bottom-[-40px] left-[-40px] w-56 h-56 bg-blue-500/6 blur-3xl rounded-full" />
+              <div className="text-center mb-6 relative z-10">
+                <h3 className="text-2xl font-semibold text-blue-400 tracking-tight">About Me</h3>
+                <div className="mt-2 w-12 h-[2px] bg-blue-400 mx-auto rounded-full" />
+              </div>
 
-{/* Header */}
-<div className="text-center mb-6 relative z-10">
-  <h3 className="text-2xl font-semibold text-blue-400 tracking-tight">
-    About Me
-  </h3>
+              <div className="relative z-10 flex-grow overflow-y-auto pr-3 custom-scrollbar">
+                <p className="text-[0.95rem] leading-7 text-gray-200 text-left tracking-normal font-normal whitespace-pre-line">
+                  {member.bio || "No details available."}
+                </p>
+              </div>
 
-  {/* Static underline */}
-  <div className="mt-2 w-12 h-[2px] bg-blue-400 mx-auto rounded-full" />
-</div>
-
-
-    {/* Bio */}
-    <div className="relative z-10 flex-grow overflow-y-auto pr-3 custom-scrollbar">
-  <p className="
-    text-[0.95rem]
-    leading-7
-    text-gray-200
-    text-left
-    tracking-normal
-    font-normal
-    whitespace-pre-line
-  ">
-    {member.bio || "No details available."}
-  </p>
-</div>
-
-
-    {/* Footer tags */}
-    {(member.team || member.year) && (
-      <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap justify-center gap-3 text-xs">
-        {member.team && (
-          <span className="px-3 py-1 rounded-full 
-          bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
-            {member.team}
-          </span>
-        )}
-        {member.year && (
-          <span className="px-3 py-1 rounded-full 
-          bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
-            {member.year} Year
-          </span>
-        )}
-      </div>
-    )}
-  </div>
-</div>
-
+              {(member.team || member.year) && (
+                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap justify-center gap-3 text-xs relative z-10">
+                  {member.team && (
+                    <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                      {member.team}
+                    </span>
+                  )}
+                  {member.year && (
+                    <span className="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                      {member.year} Year
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
+
         </div>
       </div>
-    // </div>
+    </>
   );
 };
 
