@@ -61,8 +61,11 @@ const Members = () => {
   const filteredMembers = getFilteredMembers();
 
   return (
-    <div className="min-h-screen">
-      <section className="py-24 px-4">
+    <div className="min-h-screen relative">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+
+      <section className="py-24 px-4 relative z-10">
         <div className="container mx-auto max-w-7xl">
           {/* Section header */}
           <div className="text-center mb-16">
