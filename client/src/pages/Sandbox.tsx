@@ -13,16 +13,19 @@ const SandboxRecap = () => {
   const [currentImg, setCurrentImg] = useState(0);
 
   const images = [
-    'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200',
-    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200',
-    'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=1200',
-    'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200'
+    ' https://res.cloudinary.com/dyiohvauq/image/upload/v1769344673/aegis/events/sandbox.jpg',
+     "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334612/13/part_2/img_5078.webp",
+        // "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334618/13/part_2/img_5098%281%29.webp",
+                "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334601/13/part_2/img_5071.webp",
+        // "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334622/13/part_2/img_5098.webp",
+                "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334674/13/part_2/img_5127.webp"
+
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImg((prev) => (prev + 1) % images.length);
-    }, 4000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 

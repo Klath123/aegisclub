@@ -1,17 +1,31 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+
+type EventId = 'sandbox' | 'glitchcraft';
+type Filter = 'all' | EventId;
+
+type Event = {
+  id: EventId;
+  name: string;
+  photos: string[];
+};
+
+const optimizeCloudinary = (url: string) => {
+  // Inserts f_auto,q_auto,w_auto,dpr_auto after /upload/
+  return url.replace(
+    '/upload/',
+    '/upload/f_auto,q_auto,w_auto,dpr_auto/'
+  );
+};
 
 const EventsGallery = () => {
-  const [selectedEvent, setSelectedEvent] = useState<'all' | 'sandbox' | 'glitchcraft'>('all');
+  const [selectedEvent, setSelectedEvent] = useState<Filter>('all');
 
-  const events = [
+  const events: Event[] = [
     {
       id: 'sandbox',
       name: 'Sandbox 2025',
-      color: 'cyan',
       photos: [
-        "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334565/13/part_2/img_4999.webp",
-        "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334576/13/part_2/img_5036.webp",
-        "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334584/13/part_2/img_5041.webp",
+        
         "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334592/13/part_2/img_5045.webp",
         "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334595/13/part_2/img_5051.webp",
         "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334601/13/part_2/img_5071.webp",
@@ -26,7 +40,6 @@ const EventsGallery = () => {
     {
       id: 'glitchcraft',
       name: 'Glitchcraft 2025',
-      color: 'purple',
       photos: [
         "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334195/13/part_1/b6f701fe-c302-48ac-a0d5-2f3b68ab3e33.webp",
         "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334231/13/part_1/img_1232.webp",
@@ -44,20 +57,30 @@ const EventsGallery = () => {
     }
   ];
 
-  const allPhotos = events.flatMap(event =>
-    event.photos.map(photo => ({ ...event, photo }))
-  );
+  const photos = useMemo(() => {
+    if (selectedEvent === 'all') {
+      return events.flatMap(event =>
+        event.photos.map(photo => ({
+          event: event.name,
+          src: optimizeCloudinary(photo)
+        }))
+      );
+    }
 
-  const filteredPhotos =
-    selectedEvent === 'all'
-      ? allPhotos
-      : allPhotos.filter(p => p.id === selectedEvent);
+    const event = events.find(e => e.id === selectedEvent);
+    return event
+      ? event.photos.map(photo => ({
+          event: event.name,
+          src: optimizeCloudinary(photo)
+        }))
+      : [];
+  }, [selectedEvent]);
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Subtle grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_0.5px,transparent_0.5px),linear-gradient(to_bottom,#ffffff08_0.5px,transparent_0.5px)] bg-[size:40px_40px] pointer-events-none" />
-
+      {/* Grid */}
+      {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_0.5px,transparent_0.5px),linear-gradient(to_bottom,#ffffff08_0.5px,transparent_0.5px)] bg-[size:40px_40px] pointer-events-none" /> */}
+<div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
 
         {/* Header */}
@@ -86,7 +109,7 @@ const EventsGallery = () => {
           {events.map(event => (
             <button
               key={event.id}
-              onClick={() => setSelectedEvent(event.id as any)}
+              onClick={() => setSelectedEvent(event.id)}
               className={`px-6 py-2 rounded-full text-sm font-semibold transition ${
                 selectedEvent === event.id
                   ? 'bg-blue-500 text-white'
@@ -98,25 +121,26 @@ const EventsGallery = () => {
           ))}
         </div>
 
-        {/* Image Grid */}
+        {/* Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filteredPhotos.map((item, index) => (
+          {photos.map((photo, index) => (
             <div
-              key={index}
+              key={`${photo.src}-${index}`}
               className="relative aspect-square rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800"
             >
               <img
-                src={item.photo}
-                alt={item.name}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                src={photo.src}
+                alt={photo.event}
                 loading="lazy"
+                decoding="async"
+                fetchPriority={index < 6 ? 'high' : 'auto'}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
           ))}
         </div>
 
-        {/* Empty */}
-        {filteredPhotos.length === 0 && (
+        {photos.length === 0 && (
           <div className="text-center py-24">
             <p className="text-slate-500 text-lg">No photos available</p>
           </div>
