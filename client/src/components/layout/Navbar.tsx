@@ -1,5 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
-import { Calendar, Users, Trophy, Menu, X, Info } from "lucide-react";
+import {
+  Calendar,
+  Users,
+  Trophy,
+  Menu,
+  X,
+  Info,
+  Camera // ✅ NEW
+} from "lucide-react";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -7,10 +15,11 @@ const Navbar = () => {
   const location = useLocation();
 
   const navItems = [
-     { label: "About Us", to: "/about", icon: Info }, // ✅ added
+    { label: "About Us", to: "/about", icon: Info },
     { label: "Events", to: "/events", icon: Calendar },
     { label: "Members", to: "/members", icon: Users },
-    { label: "Achievements", to: "/achievements", icon: Trophy }
+    { label: "Achievements", to: "/achievements", icon: Trophy },
+    { label: "Gallery", to: "/gallery", icon: Camera } // ✅ ADDED
   ];
 
   return (
@@ -41,20 +50,28 @@ const Navbar = () => {
             className="hidden md:flex gap-2 text-sm"
             style={{ fontFamily: '"Proza Libre3", sans-serif' }}
           >
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.to}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-colors duration-200 ${
-                  location.pathname === item.to
-                    ? "text-cyan-400 bg-cyan-400/10"
-                    : "text-white/80 hover:text-white hover:bg-blue-500/10"
-                }`}
-              >
-                <item.icon className="w-4 h-4 text-cyan-400/70" />
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.to;
+
+              return (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-colors duration-200 ${
+                    isActive
+                      ? "text-cyan-400 bg-cyan-400/10"
+                      : "text-white/80 hover:text-white hover:bg-blue-500/10"
+                  }`}
+                >
+                  <item.icon
+                    className={`w-4 h-4 ${
+                      isActive ? "text-cyan-400" : "text-cyan-400/70"
+                    }`}
+                  />
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* CTA */}
@@ -79,24 +96,32 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* MOBILE NAV MENU */}
+        {/* MOBILE NAV */}
         {open && (
           <div className="md:hidden mt-4 flex flex-col gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
-                  location.pathname === item.to
-                    ? "text-cyan-400 bg-cyan-400/10"
-                    : "text-white/80 hover:bg-blue-500/10"
-                }`}
-              >
-                <item.icon className="w-5 h-5 text-cyan-400/70" />
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.to;
+
+              return (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
+                    isActive
+                      ? "text-cyan-400 bg-cyan-400/10"
+                      : "text-white/80 hover:bg-blue-500/10"
+                  }`}
+                >
+                  <item.icon
+                    className={`w-5 h-5 ${
+                      isActive ? "text-cyan-400" : "text-cyan-400/70"
+                    }`}
+                  />
+                  {item.label}
+                </Link>
+              );
+            })}
 
             <Link
               to="/contact"
