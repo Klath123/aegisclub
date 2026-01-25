@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Terminal, Lock } from 'lucide-react';
+import { Terminal, Lock, Shield, Flag } from 'lucide-react';
 import EventCard from '@/components/EventCard';
 import type { Event } from '@/components/EventCard';
 
@@ -60,6 +60,62 @@ const EventsPage = () => {
       },
       metadata: {
         focusAreas: ['Cryptography', 'Pattern Analysis', 'Logic Puzzles', 'Reverse Thinking']
+      }
+    },
+     {
+      id: 3,
+      title: 'Internal CTF',
+      type: 'CAPTURE THE FLAG',
+      duration: '6 hours',
+      mode: 'INPERSON',
+      date: '18th September 2024',
+      location: 'Dayananda Sagar College of Engineering, Bangalore',
+      eligibility: '2nd and 3rd year engineering students',
+      thumbnail:
+        "https://res.cloudinary.com/dyiohvauq/image/upload/v1769350431/internal/part_1/7687d504-2a05-4545-ad4b-6445536680f7.webp",
+      description:
+        'An internal CTF competition challenging students to think critically and apply real-world cybersecurity skills. Participants tackled challenges in cryptography, web exploitation, forensics, and reverse engineering, fostering problem-solving, teamwork, and practical security awareness.',
+      missionId: 'AEGIS-CTF-2024',
+      icon: Shield,
+      color: {
+        primary: 'text-emerald-400',
+        secondary: 'text-emerald-300',
+        gradient:
+          'bg-gradient-to-r from-emerald-600/20 to-teal-600/20 hover:from-emerald-600/30 hover:to-teal-600/30',
+        glow: 'shadow-emerald-500/20',
+        border: 'border-emerald-500/20',
+        bg: 'bg-slate-900/40'
+      },
+      metadata: {
+        focusAreas: ['Cryptography', 'Web Exploitation', 'Forensics', 'Reverse Engineering']
+      }
+    },
+    {
+      id: 3,
+      title: 'Decipher',
+      type: 'CAPTURE THE FLAG',
+      duration: '8 hours',
+      mode: 'INPERSON',
+      date: '10th July 2024',
+      location: 'Dayananda sagar college of engineering, Bangalore',
+      eligibility: 'Open to all students',
+      // Using a placeholder thumbnail since one wasn't provided for this specific event card context
+      thumbnail: ' https://res.cloudinary.com/dyiohvauq/image/upload/v1769352096/aegis/events/decipher.jpg', 
+      description:
+        'Get ready for an electrifying hour of brain-teasing fun at Decipher! Hosted by the Department of CSE (Cyber Security), this Capture The Flag (CTF) event promises to challenge your wits and keep you on the edge of your seat. In the world of cyber, the Flag is the prize!',
+      missionId: 'DECIPHER-CTF-2024',
+      icon: Flag,
+      color: {
+        primary: 'text-indigo-400',
+        secondary: 'text-indigo-300',
+        gradient:
+          'bg-gradient-to-r from-indigo-600/20 to-violet-600/20 hover:from-indigo-600/30 hover:to-violet-600/30',
+        glow: 'shadow-indigo-500/20',
+        border: 'border-indigo-500/20',
+        bg: 'bg-slate-900/40'
+      },
+      metadata: {
+        focusAreas: ['CTF Challenges', 'Brain Teasers', 'Problem Solving', 'Cyber Security']
       }
     }
   ];
