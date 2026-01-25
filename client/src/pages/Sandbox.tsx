@@ -1,224 +1,197 @@
-import { MapPin, Calendar, Trophy, MessageCircle } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Trophy, Users, Code, Coffee, ExternalLink, PlayCircle, Camera, MessageSquare, Quote, Cpu, MapPin, ChevronRight, Gift } from "lucide-react";
 
-const Sandbox = () => {
+const SandboxHighlights = () => {
+  const [currentImg, setCurrentImg] = useState(0);
+  
+  // Slideshow images
+  const images = [
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=1200",
+    "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1200"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      <div className="fixed inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#0ea5e9_1px,transparent_1px),linear-gradient(to_bottom,#0ea5e9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
-      
-      <div className="fixed top-20 left-10 w-96 h-96 bg-cyan-600/20 rounded-full blur-[128px] animate-pulse"></div>
-      <div className="fixed bottom-20 right-10 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-      <div className="fixed top-1/2 left-1/3 w-72 h-72 bg-blue-600/15 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+    <div className="min-h-screen bg-[#020617] text-slate-200 p-4 md:p-8 pt-28">
+      {/* Background Glows */}
+      <div className="fixed top-0 left-1/4 w-96 h-96 bg-cyan-500/10 blur-[120px] -z-10"></div>
+      <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 blur-[120px] -z-10"></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+      <div className="max-w-7xl mx-auto space-y-6">
         
-        {/* Hero Section */}
-        <section className="text-center space-y-6 py-12">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold text-white">
-            SANDBOX
-          </h1>
-          <p className="text-cyan-400 text-lg font-medium">
-            March 7th - 8th, 2026
-          </p>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            The ultimate 24-hour cybersecurity hackathon returns. Join brilliant minds from around the globe to build innovative solutions, compete for amazing prizes, and push the boundaries of technology.
-          </p>
-        </section>
-
-        {/* Terminal Info Block */}
-        <section className="bg-gradient-to-br from-gray-900 to-black border border-cyan-500/30 rounded-2xl p-8 shadow-lg shadow-cyan-500/10">
-          <div className="flex gap-2 mb-4">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        {/* Header Area */}
+        <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              </span>
+              ARCHIVE_RELEASE // 2026
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter">
+              THE <span className="text-cyan-500">SANDBOX</span> RECAP
+            </h1>
           </div>
-          <div className="font-mono text-sm space-y-2">
-            <div className="text-gray-500">root@aegis:~$</div>
-            <div className="text-green-400">+ DATE</div>
-            <div className="text-white ml-4">March 7th - 8th, 2026</div>
-            <div className="text-green-400">+ LOCATION</div>
-            <div className="text-white ml-4">Dayananda Sagar College of Engineering, Bengaluru</div>
-            <div className="text-green-400">+ DURATION</div>
-            <div className="text-white ml-4">24 hours</div>
-            <div className="text-green-400">+ PRIZE POOL</div>
-            <div className="text-cyan-400 ml-4 text-2xl font-bold">₹ XX,XXX+</div>
+          <div className="text-left md:text-right border-l-2 md:border-l-0 md:border-r-2 border-cyan-500/30 px-4">
+            <p className="text-white font-bold italic">"Hack the Future"</p>
+            <p className="text-slate-500 text-sm font-mono">DSCE BENGALURU // MARCH 07-08</p>
           </div>
-        </section>
+        </header>
 
-        {/* Prize Pool Highlight */}
-        <section className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-2xl p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Trophy className="text-cyan-400 w-8 h-8" />
-            <h2 className="text-3xl font-bold">Prize Pool</h2>
-          </div>
-          <p className="text-5xl font-bold text-cyan-400 mb-2">
-            ₹ XX,XXX+
-          </p>
-          <p className="text-gray-400">
-            Exciting prizes, goodies, and recognition for top performers.
-          </p>
-        </section>
-
-        {/* Focus Areas */}
-        <section className="space-y-8">
-          <h2 className="text-3xl font-bold mb-6">Focus Areas</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {[
-              "Web Security",
-              "Networking",
-              "System Hardening",
-              "Cryptography",
-              "Pattern Analysis",
-              "Logic Puzzles",
-              "Reverse Thinking",
-              "Hackathon"
-            ].map((area) => (
-              <div
-                key={area}
-                className="bg-gray-900/50 border border-cyan-500/20 rounded-lg px-4 py-3 text-center hover:border-cyan-500/50 hover:bg-cyan-500/5 transition"
-              >
-                <span className="text-cyan-400 font-medium">{area}</span>
-              </div>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[minmax(140px,auto)]">
+          
+          {/* 1. Image Slideshow (Span 8x4) */}
+          <div className="md:col-span-8 md:row-span-4 bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden relative group">
+            {images.map((img, idx) => (
+              <img 
+                key={idx}
+                src={img} 
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === currentImg ? 'opacity-60 scale-105' : 'opacity-0'}`}
+                alt="Hackathon event moment"
+              />
             ))}
-          </div>
-        </section>
-
-        {/* Tracks Grid */}
-        <section className="space-y-8">
-          <h2 className="text-3xl font-bold">Competition Tracks</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Threat Detection & Incident Response",
-                desc: "Master the art of identifying threats and responding swiftly to cyber attacks."
-              },
-              {
-                title: "Software Supply Chain Security",
-                desc: "Secure development lifecycles and safeguard software supply chains."
-              },
-              {
-                title: "Data Privacy & Protection",
-                desc: "Design systems that protect sensitive data and comply with privacy laws."
-              },
-              {
-                title: "Gamification in Cybersecurity",
-                desc: "Build games or simulations that teach cybersecurity skills."
-              },
-              {
-                title: "Application Security",
-                desc: "Fortify web and mobile applications against modern exploits."
-              },
-              {
-                title: "Web3 Security",
-                desc: "Secure blockchain technologies, smart contracts, and dApps."
-              },
-              {
-                title: "Dark Web Monitoring",
-                desc: "Analyze dark web activity for threat intelligence and early warnings."
-              },
-              {
-                title: "Open Innovation",
-                desc: "Bring bold, creative cybersecurity ideas to life."
-              }
-            ].map((track) => (
-              <div
-                key={track.title}
-                className="bg-gray-900/50 border border-gray-700 rounded-xl p-6 hover:border-cyan-500/50 transition group"
-              >
-                <h3 className="font-bold text-lg mb-2 group-hover:text-cyan-400 transition">
-                  {track.title}
-                </h3>
-                <p className="text-gray-400 text-sm">{track.desc}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent z-10"></div>
+            <div className="absolute bottom-8 left-8 z-20">
+              <div className="flex gap-2 mb-4">
+                {images.map((_, i) => (
+                  <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === currentImg ? 'w-8 bg-cyan-500' : 'w-2 bg-slate-600'}`}></div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Discord Community */}
-        <section className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-2xl p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <MessageCircle className="text-blue-400 w-8 h-8" />
-            <h2 className="text-3xl font-bold">Join the Community</h2>
-          </div>
-          <p className="text-gray-300 mb-6">
-            All announcements, updates, and discussions happen on Discord. Connect with fellow participants, mentors, and organizers.
-          </p>
-          <a
-            href="https://discord.com/invite/y5Ej8t63ny"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-700 transition font-medium"
-          >
-            Join Discord Server
-          </a>
-        </section>
-
-        {/* Schedule */}
-        <section className="bg-gray-900/50 border border-gray-700 rounded-2xl p-8">
-          <div className="flex items-center gap-3 mb-4">
-            <Calendar className="text-cyan-400 w-8 h-8" />
-            <h2 className="text-3xl font-bold">Event Schedule</h2>
-          </div>
-          <p className="text-gray-400">
-            Detailed schedule will be announced soon. Stay tuned on Discord for updates!
-          </p>
-        </section>
-
-        {/* Venue */}
-        <section className="space-y-6">
-          <div className="flex items-center gap-3">
-            <MapPin className="text-cyan-400 w-8 h-8" />
-            <h2 className="text-3xl font-bold">Venue</h2>
+              <button className="flex items-center gap-3 bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-cyan-400 transition-all">
+                <PlayCircle size={20} /> Watch Aftermovie
+              </button>
+            </div>
           </div>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-2xl overflow-hidden">
-            <img
-              src="/sandbox-venue.png"
-              alt="Dayananda Sagar College of Engineering"
-              className="w-full h-auto"
-            />
-            <div className="p-6">
-              <p className="font-bold text-xl text-white mb-2">
-                Dayananda Sagar College of Engineering
+          {/* 2. Prize Pool (Span 4x2) */}
+          <div className="md:col-span-4 md:row-span-2 bg-gradient-to-br from-yellow-500/20 to-orange-500/10 border border-yellow-500/20 rounded-3xl p-6 flex flex-col justify-between overflow-hidden relative group">
+            <Gift className="absolute -top-4 -right-4 text-yellow-500/10 group-hover:scale-110 transition-transform" size={120} />
+            <div className="text-yellow-500 font-mono text-xs tracking-widest">TOTAL_REWARDS</div>
+            <div>
+              <p className="text-5xl font-black text-white">₹ XX,XXX<span className="text-yellow-500">+</span></p>
+              <p className="text-slate-400 text-sm mt-1">Distributed across 8 categories</p>
+            </div>
+          </div>
+
+          {/* 3. Quick Stats (Span 4x2) */}
+          <div className="md:col-span-4 md:row-span-2 bg-slate-900 border border-slate-800 rounded-3xl p-6 grid grid-cols-2 gap-4">
+            <div className="flex flex-col justify-center">
+              <p className="text-slate-500 text-[10px] font-mono">HACKERS</p>
+              <p className="text-2xl font-bold text-white tracking-tighter">500+</p>
+            </div>
+            <div className="flex flex-col justify-center">
+              <p className="text-slate-500 text-[10px] font-mono">PROJECTS</p>
+              <p className="text-2xl font-bold text-white tracking-tighter">84</p>
+            </div>
+            <div className="flex flex-col justify-center">
+              <p className="text-slate-500 text-[10px] font-mono">COFFEE</p>
+              <p className="text-2xl font-bold text-white tracking-tighter">1.2k</p>
+            </div>
+            <div className="flex flex-col justify-center">
+              <p className="text-slate-500 text-[10px] font-mono">REWARDS</p>
+              <p className="text-2xl font-bold text-white tracking-tighter">15+</p>
+            </div>
+          </div>
+
+          {/* 4. Grand Winner Spotlight (Span 7x4) */}
+          <div className="md:col-span-7 md:row-span-4 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px]"></div>
+            <div className="relative z-10 flex flex-col h-full justify-between">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-yellow-500/10 rounded-lg text-yellow-500">
+                    <Trophy size={24} />
+                  </div>
+                  <span className="text-xs font-mono font-bold tracking-widest text-slate-400">GRAND_PRIZE_WINNER</span>
+                </div>
+                <h3 className="text-5xl font-black text-white">PROJECT AEGIS</h3>
+                <p className="text-slate-400 text-lg max-w-md">
+                  A decentralized autonomous security protocol that self-heals smart contracts using zero-knowledge proofs.
+                </p>
+              </div>
+              <div className="flex gap-4 items-center">
+                <div className="flex -space-x-3">
+                  {[1,2,3,4].map(i => <div key={i} className="w-10 h-10 rounded-full bg-slate-800 border-2 border-[#020617] flex items-center justify-center text-[10px] font-bold">U{i}</div>)}
+                </div>
+                <button className="text-cyan-400 font-bold flex items-center gap-1 hover:gap-3 transition-all">
+                  Case Study <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* 5. Location/Venue (Span 5x4) */}
+          <div className="md:col-span-5 md:row-span-4 bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden group relative">
+            <div className="p-8 relative z-10 bg-gradient-to-b from-slate-900 via-slate-900/80 to-transparent h-full">
+              <div className="p-2 bg-cyan-500/10 rounded-lg text-cyan-500 w-fit mb-4">
+                <MapPin size={24} />
+              </div>
+              <h4 className="text-2xl font-bold text-white mb-2">VenueDSCE</h4>
+              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                Shavige Malleshwara Hills, <br />
+                Kumaraswamy Layout, Bengaluru.
               </p>
-              <p className="text-gray-400 mb-4">
-                Shavige Malleshwara Hills, Kumaraswamy Layout, Bengaluru, Karnataka
-              </p>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyan-400 hover:text-cyan-300 transition inline-flex items-center gap-2"
-              >
-                Open in Google Maps →
-              </a>
+              <button className="px-4 py-2 border border-slate-700 rounded-xl text-xs font-bold hover:bg-slate-800 transition-colors flex items-center gap-2">
+                Open Maps <ExternalLink size={14} />
+              </button>
+            </div>
+            {/* Subtle Map Background Decal */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none group-hover:opacity-30 transition-opacity">
+               <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [bg-size:16px_16px]"></div>
             </div>
           </div>
-        </section>
 
-        {/* Contact Section */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold">Get in Touch</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-gray-900/50 border border-cyan-500/30 rounded-xl p-6 hover:border-cyan-500/50 transition">
-              <p className="font-bold text-lg text-cyan-400 mb-1">Shreyas Reddy B</p>
-              <p className="text-gray-300">+91 70195 19888</p>
-            </div>
-
-            <div className="bg-gray-900/50 border border-cyan-500/30 rounded-xl p-6 hover:border-cyan-500/50 transition">
-              <p className="font-bold text-lg text-cyan-400 mb-1">Sahil Raj</p>
-              <p className="text-gray-300">+91 80517 85892</p>
-            </div>
-
-            <div className="bg-gray-900/50 border border-cyan-500/30 rounded-xl p-6 hover:border-cyan-500/50 transition">
-              <p className="font-bold text-lg text-cyan-400 mb-1">R Aswin</p>
-              <p className="text-gray-300">+91 99888 84477</p>
+          {/* 6. Runner Ups (Span 6x2) */}
+          <div className="md:col-span-6 md:row-span-2 bg-slate-900 border border-slate-800 rounded-3xl p-6">
+            <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">Silver & Bronze Tiers</p>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center p-3 rounded-2xl bg-slate-800/30 border border-slate-700/50">
+                <span className="font-bold text-slate-300">02. TEAM SENTINEL</span>
+                <span className="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-1 rounded">₹ XX,XXX</span>
+              </div>
+              <div className="flex justify-between items-center p-3 rounded-2xl bg-slate-800/30 border border-slate-700/50">
+                <span className="font-bold text-slate-300">03. CYBER KNIGHTS</span>
+                <span className="text-[10px] bg-purple-500/10 text-purple-400 px-2 py-1 rounded">₹ XX,XXX</span>
+              </div>
             </div>
           </div>
-        </section>
 
+          {/* 7. Gallery Link (Span 3x2) */}
+          <div className="md:col-span-3 md:row-span-2 bg-indigo-600/10 border border-indigo-500/20 rounded-3xl p-6 flex flex-col justify-between group cursor-pointer hover:bg-indigo-600/20 transition-all">
+            <Camera className="text-indigo-400" size={32} />
+            <div>
+              <h4 className="font-bold text-white">200+ Shots</h4>
+              <p className="text-indigo-400 text-xs">View Full Gallery</p>
+            </div>
+          </div>
+
+          {/* 8. Quote (Span 3x2) */}
+          <div className="md:col-span-3 md:row-span-2 bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col justify-center italic text-slate-400 text-sm">
+            <Quote className="text-slate-700 mb-2" size={20} />
+            "The energy was unmatched. The future of security is in good hands."
+          </div>
+
+        </div>
+
+        {/* Footer */}
+        <footer className="pt-20 pb-10 text-center border-t border-slate-800/50">
+          <p className="text-slate-500 text-sm font-mono tracking-tighter uppercase">
+            Designed for Sandbox 2026 // DSCE Bengaluru
+          </p>
+        </footer>
       </div>
     </div>
   );
 };
 
-export default Sandbox;
+export default SandboxHighlights;
