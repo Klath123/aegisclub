@@ -64,7 +64,7 @@ const achievementsData = [
     subtitle: "National Level and State Level",
     rank: "Silver & Bronze",
     date: "2024-2025",
-    description:"Won bronze medal in the senior women's foil individualcategory,Represented VTU in the All India Inter UniversityFencing Championship at Amritsar, Punjab and ranked top10,Awarded for representing VTU at the national level infencing during the years 2024 and 2025,Won Silver medalin the senior women's foil individual category,RepresentedKarnataka in the 31st Junior National FencingChampionship in the foil women's category and ranked top 16",
+    description:"Won bronze medal in the senior women's foil individual category, Represented VTU in the All India Inter University Fencing Championship at Amritsar, Punjab and ranked top 10, Awarded for representing VTU at the national level in fencing during the years 2024 and 2025, Won Silver medal in the senior women's foil individual category, Represented Karnataka in the 31st Junior National Fencing Championship in the foil women's category and ranked top 16",
     members: ["Letitia Gilbert"],
     image: "/achivmembers/", 
     theme: "amber",
@@ -102,7 +102,7 @@ const THEMES: any = {
 export default function Achievements() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeTheme, setActiveTheme] = useState("default");
-  const [activeIndex, setActiveIndex] = useState(-1); // -1 = Intro, 0-N = Cards
+  const [activeIndex, setActiveIndex] = useState(-1);
 
   // --- NAVBAR TOGGLE MAGIC ---
   useEffect(() => {
@@ -197,10 +197,9 @@ export default function Achievements() {
            style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} />
 
 
-      {/* 3. NEW FEATURE: FLOATING NAVIGATION DOCK */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-full transition-all duration-300 hover:bg-black/60 shadow-2xl">
+      {/* 3. NAVIGATION DOCK (Hidden on Mobile, Visible on Desktop) */}
+      <div className="hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-50 items-center gap-2 px-4 py-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-full transition-all duration-300 hover:bg-black/60 shadow-2xl">
          
-         {/* Home/Intro Button */}
          <button 
            onClick={scrollToStart}
            className={`w-6 h-6 flex items-center justify-center rounded-full transition-all duration-300 ${activeIndex === -1 ? 'text-white scale-110' : 'text-neutral-500 hover:text-white'}`}
@@ -210,7 +209,6 @@ export default function Achievements() {
 
          <div className="w-px h-4 bg-white/20 mx-1" />
 
-         {/* Segmented Bars */}
          {achievementsData.map((_, i) => (
            <button
              key={i}
@@ -293,7 +291,7 @@ function IntroSection({ onVisible }: { onVisible: () => void }) {
   );
 }
 
-/* ---------------- CARD COMPONENT ---------------- */
+/* ---------------- CARD COMPONENT (FIXED MOBILE SCROLL) ---------------- */
 
 function CinematicSection({ data, onVisible }: { data: any; index: number; onVisible: () => void }) {
   const styles = THEMES[data.theme] || THEMES.cyan;
@@ -322,18 +320,23 @@ function CinematicSection({ data, onVisible }: { data: any; index: number; onVis
   return (
     <div ref={ref} className="h-[100dvh] md:min-w-screen w-full md:w-screen flex-shrink-0 snap-start relative flex flex-col md:flex-row border-b md:border-b-0 md:border-r border-white/5 bg-transparent">
       
-      {/* --- INFO SECTION --- */}
-      <div className="flex-1 w-full md:w-[40%] md:h-full relative z-20 flex flex-col justify-center p-6 md:p-16 backdrop-blur-sm border-b md:border-b-0 md:border-r border-white/5 order-2 md:order-1 min-h-[60%] md:min-h-auto">
+      {/* --- INFO SECTION (SCROLLABLE TEXT) --- */}
+      <div className="flex-1 w-full md:w-[40%] h-full relative z-20 flex flex-col backdrop-blur-sm border-b md:border-b-0 md:border-r border-white/5 order-2 md:order-1 overflow-hidden">
          
+         {/* Background Number */}
          <div className={`absolute top-2 left-4 md:top-12 md:left-12 opacity-10 pointer-events-none transition-opacity duration-1000 ${isVisible ? 'opacity-20' : 'opacity-0'}`}>
             <span className={`text-6xl md:text-[10rem] font-black tracking-tighter text-white font-mono`}>
               {data.id}
             </span>
          </div>
 
-         <div className="relative flex flex-col justify-between h-full py-4 md:py-0">
+         {/* Scrollable Container for Text Content */}
+         <div 
+            className="w-full h-full overflow-y-auto relative z-10 p-6 md:p-16 flex flex-col md:justify-center"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }} // Hide Scrollbar
+         >
            
-           <div className={`space-y-3 md:space-y-5 ${getAnimClass('delay-100')}`}>
+           <div className={`space-y-3 md:space-y-5 mb-4 ${getAnimClass('delay-100')}`}>
               <span className={`inline-block px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border rounded-full ${styles.text} ${styles.border}`}>
                 {data.subtitle}
               </span>
@@ -345,14 +348,15 @@ function CinematicSection({ data, onVisible }: { data: any; index: number; onVis
               </h2>
            </div>
 
-           <div className={`my-auto py-4 ${getAnimClass('delay-300')}`}>
-             <p className="text-neutral-400 text-xs md:text-sm leading-relaxed max-w-md border-l-2 border-white/10 pl-4 md:pl-6 line-clamp-4 md:line-clamp-none">
+           {/* Description - NO LINE CLAMP, SCROLLABLE */}
+           <div className={`py-4 ${getAnimClass('delay-300')}`}>
+             <p className="text-neutral-400 text-xs md:text-sm leading-relaxed max-w-md border-l-2 border-white/10 pl-4 md:pl-6">
                {data.description}
              </p>
            </div>
 
            {/* --- STATS & ACHIEVED BY SECTION --- */}
-           <div className={getAnimClass('delay-500')}>
+           <div className={`mt-4 ${getAnimClass('delay-500')}`}>
               
               {/* Rank & Date Row */}
               <div className="flex items-center gap-4 mb-6 text-xs md:text-sm font-mono border-b border-white/10 pb-4 w-full max-w-md">
@@ -370,13 +374,11 @@ function CinematicSection({ data, onVisible }: { data: any; index: number; onVis
               {/* Names List */}
               <p className="text-[10px] uppercase text-neutral-600 tracking-widest mb-3 md:mb-4">Achieved By</p>
               
-              <div className="flex flex-wrap gap-2 md:gap-4 group/list">
+              <div className="flex flex-wrap gap-2 md:gap-4 pb-12 md:pb-0">
                  {data.members.map((m: string, i: number) => (
                    <div 
                       key={i} 
-                      className={`flex items-center gap-2 md:gap-3 cursor-default transition-all duration-300
-                        group-hover/list:opacity-30 hover:!opacity-100
-                      `}
+                      className={`flex items-center gap-2 md:gap-3 cursor-default transition-all duration-300 hover:opacity-100`}
                    >
                       <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-current ${styles.text.split(' ')[0]}`} />
                       <span className="text-xs md:text-sm font-mono text-neutral-300 hover:text-white transition-colors">{m}</span>
