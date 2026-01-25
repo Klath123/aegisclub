@@ -15,7 +15,7 @@ const Achievements = lazy(() => import("./pages/Achievements.tsx"));
 const Members = lazy(() => import("./pages/Members.tsx"));
 const SandboxDetail = lazy(() => import("./pages/Sandbox.tsx"));
 const GlitchcraftDetail = lazy(() => import("./components/GlitchcraftDetail.tsx"));
-const EventsPage = lazy(() => import("./pages/Events.tsx"));
+// const EventsPage = lazy(() => import("./pages/Events.tsx"));
 
 // Loader fallback
 const PageLoader = () => (
