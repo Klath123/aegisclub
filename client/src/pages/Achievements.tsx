@@ -80,17 +80,7 @@ const achievementsData = [
     image: "/achivmembers/sih.JPG",
     theme: "amber",
   },
-  {
-    id: "08",
-    title: "IEEE Hyderabad Cybersecurity",
-    subtitle: "Hackathon",
-    rank: "Winner",
-    date: "2024",
-    description: "Winner of AIRS (Automated Incidence Response System) track in IEEE Hyderabad Cybersecurity hackathon 2024.",
-    members: ["Samarth BC", "Nikita K", "Dhruti GP", "Nikhita T"],
-    image: "/achivmembers/sih.JPG",
-    theme: "amber",
-  },
+ 
 ];
 
 /* ---------------- THEME CONFIG ---------------- */
