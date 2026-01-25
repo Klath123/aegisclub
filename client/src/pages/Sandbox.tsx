@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Trophy, Users, Code, Coffee, ExternalLink, PlayCircle, Camera, MessageSquare, Quote, Cpu, MapPin, ChevronRight, Gift } from "lucide-react";
+import  { useState, useEffect } from "react";
+import { Trophy,  ExternalLink, PlayCircle, Camera,  Quote,  MapPin, ChevronRight, Gift } from "lucide-react";
 
-const SandboxHighlights = () => {
+const Sandbox = () => {
   const [currentImg, setCurrentImg] = useState(0);
   
   // Slideshow images
@@ -194,4 +194,4 @@ const SandboxHighlights = () => {
   );
 };
 
-export default SandboxHighlights;
+export default Sandbox;
