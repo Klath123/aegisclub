@@ -6,6 +6,8 @@ import TerminalLoader from "./components/TerminalLoader.tsx";
 import Sandbox from "./pages/Sandbox";
 import Glitchcraft from "./pages/Glitchcraft.tsx";
 import EventsGallery from "./pages/Gallery.tsx";
+import NotFound from "./pages/NotFound";
+
 
 // Lazy loaded pages
 const About = lazy(() => import("./pages/About.tsx"));
@@ -60,7 +62,7 @@ function App() {
           <Route path="sandbox" element={<Sandbox />} />
           <Route path="glitchcraft" element={<Glitchcraft />} />
           <Route path="gallery" element={<EventsGallery />} />
-
+    <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>
