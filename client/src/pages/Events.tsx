@@ -69,6 +69,7 @@ const EventsPage = () => {
       duration: '6 hours',
       mode: 'INPERSON',
       date: '18th September 2024',
+      showCTA: true,
       location: 'Dayananda Sagar College of Engineering, Bangalore',
       eligibility: '2nd and 3rd year engineering students',
       thumbnail:

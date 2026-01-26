@@ -1,119 +1,94 @@
-import { Github, Linkedin, Instagram } from "lucide-react";
-import { FaXTwitter } from "react-icons/fa6";
+import { MapPin, Mail, Phone, Linkedin, Instagram } from "lucide-react";
 
-export const Footer = () => {
+const Footer = () => {
   return (
-    <footer className="
-      relative z-20
-      bg-black/70 backdrop-blur-xl
-      border-t border-blue-500/20
-      px-6 py-8
-    ">
-      {/* subtle glow line */}
-      <div className="
-        absolute top-0 left-1/2 -translate-x-1/2
-        w-[70%] h-[1px]
-        bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent
-      " />
+    <footer className="relative bg-[#0a0a0f] border-t border-zinc-800 text-gray-300">
+      {/* subtle grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col items-center gap-6">
-
-          {/* Social Icons */}
-          <div className="flex gap-4">
-            <a
-              href="https://github.com/aegis-club"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="
-                group
-                p-2.5 rounded-xl
-                bg-white/5 border border-white/10
-                text-slate-300
-                transition-all duration-300
-                hover:text-cyan-400
-                hover:bg-blue-500/10
-                hover:-translate-y-0.5
-                hover:shadow-lg hover:shadow-cyan-500/20
-              "
-            >
-              <Github className="w-5 h-5" />
-            </a>
-
-            <a
-              href="https://twitter.com/aegis_club"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X (Twitter)"
-              className="
-                group
-                p-2.5 rounded-xl
-                bg-white/5 border border-white/10
-                text-slate-300
-                transition-all duration-300
-                hover:text-cyan-400
-                hover:bg-blue-500/10
-                hover:-translate-y-0.5
-                hover:shadow-lg hover:shadow-cyan-500/20
-              "
-            >
-              <FaXTwitter className="w-5 h-5" />
-            </a>
-
-            <a
-              href="https://instagram.com/aegis_club"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="
-                group
-                p-2.5 rounded-xl
-                bg-white/5 border border-white/10
-                text-slate-300
-                transition-all duration-300
-                hover:text-cyan-400
-                hover:bg-blue-500/10
-                hover:-translate-y-0.5
-                hover:shadow-lg hover:shadow-cyan-500/20
-              "
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-
-            <a
-              href="https://linkedin.com/company/aegis-club"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="
-                group
-                p-2.5 rounded-xl
-                bg-white/5 border border-white/10
-                text-slate-300
-                transition-all duration-300
-                hover:text-cyan-400
-                hover:bg-blue-500/10
-                hover:-translate-y-0.5
-                hover:shadow-lg hover:shadow-cyan-500/20
-              "
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div>
-
-          {/* Text */}
-          <div className="text-center space-y-1">
-            <p className="text-sm text-slate-300 font-mono">
-              Made with <span className="text-red-500">❤</span> by Aegis Club
-            </p>
-            <p className="text-xs text-slate-500">
-              © {new Date().getFullYear()} All rights reserved
-            </p>
-          </div>
-
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Column 1: About */}
+        <div>
+          <h3 className="text-xl font-semibold text-white mb-4">AEGIS</h3>
+          <p className="text-sm text-gray-400 leading-relaxed">
+            AEGIS is the official Cyber Security Club of the Department of Cyber Security,
+            Dayananda Sagar College of Engineering. We build, break, defend, and repeat.
+          </p>
         </div>
+        {/* Column 2: Navigation + Map */}
+        <div>
+          <h3 className="text-xl font-semibold text-white mb-4">Navigate</h3>
+          <ul className="space-y-3 text-sm">
+            <li>
+              <a href="/about" className="hover:text-blue-400 transition">About</a>
+            </li>
+            <li>
+              <a href="/events" className="hover:text-blue-400 transition">Events</a>
+            </li>
+            <li>
+              <a href="/members" className="hover:text-blue-400 transition">Members</a>
+            </li>
+            <li>
+              <a href="/contact" className="hover:text-blue-400 transition">Contact</a>
+            </li>
+            <li>
+              <a
+                href="https://maps.app.goo.gl/gaDFj5JwREW7jxNL7"
+                target="_blank"
+                className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition"
+              >
+                <MapPin size={16} className="text-blue-400" />
+                Cyber Security Department, College Campus
+              </a>
+            </li>
+          </ul>
+        </div>
+        {/* Column 3: Contact */}
+        <div>
+          <h3 className="text-xl font-semibold text-white mb-4">Contact</h3>
+          <div className="space-y-3 text-sm">
+            <p className="flex items-center gap-2">
+              <Mail size={16} className="text-blue-400" />
+              <a
+                href="mailto:aegis-cscyber@dayanandsagar.edu"
+                className="hover:text-blue-400 transition"
+              >
+                aegis-cscyber@dayanandsagar.edu
+              </a>
+            </p>
+
+            <p className="flex items-center gap-2">
+              <Phone size={16} className="text-blue-400" />
+              +91 99804 70040
+            </p>
+
+            <div className="flex gap-4 pt-3">
+              <a
+                href="https://www.linkedin.com/company/aegis-cs-cyber-dsce/"
+                target="_blank"
+                className="p-2 rounded-lg bg-zinc-900 border border-zinc-700 hover:border-blue-500 hover:text-blue-400 transition"
+              >
+                <Linkedin size={20} />
+              </a>
+
+              <a
+                href="https://www.instagram.com/dsce_cscy"
+                target="_blank"
+                className="p-2 rounded-lg bg-zinc-900 border border-zinc-700 hover:border-pink-500 hover:text-pink-400 transition"
+              >
+                <Instagram size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-zinc-800 text-center py-6 text-sm text-gray-500">
+        © {new Date().getFullYear()} AEGIS Cyber Security Club · DSCE
       </div>
     </footer>
   );
 };
+export default Footer;

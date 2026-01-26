@@ -108,7 +108,7 @@ const THEMES: { [key: string]: Theme } = {
 export default function Achievements() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeTheme, setActiveTheme] = useState("default");
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [, setActiveIndex] = useState(-1);
 
   // --- STANDARD SCROLL HANDLERS ---
   useEffect(() => {
@@ -143,21 +143,21 @@ export default function Achievements() {
   }, []);
 
   // --- JUMP TO CARD LOGIC ---
-  const scrollToCard = (index: number) => {
-    const container = containerRef.current;
-    if (!container) return;
+  // const scrollToCard = (index: number) => {
+  //   const container = containerRef.current;
+  //   if (!container) return;
     
-    const width = window.innerWidth;
-    container.scrollTo({
-        left: width * (index + 1),
-        behavior: 'smooth'
-    });
-  };
+  //   const width = window.innerWidth;
+  //   container.scrollTo({
+  //       left: width * (index + 1),
+  //       behavior: 'smooth'
+  //   });
+  // };
 
-  const scrollToStart = () => {
-    const container = containerRef.current;
-    if (container) container.scrollTo({ left: 0, behavior: 'smooth' });
-  };
+  // const scrollToStart = () => {
+  //   const container = containerRef.current;
+  //   if (container) container.scrollTo({ left: 0, behavior: 'smooth' });
+  // };
 
   const theme = THEMES[activeTheme] || THEMES.default;
 

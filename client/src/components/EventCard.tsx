@@ -16,6 +16,8 @@ interface Event {
   location: string;
   eligibility: string;
   icon: any;
+  showCTA?: boolean;   // controls visibility
+disableCTA?: boolean; // controls disabled state (optional)
   color: {
     primary: string;
     secondary: string;
