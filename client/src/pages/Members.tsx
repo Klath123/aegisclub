@@ -7,7 +7,6 @@ import {
   container,
   item,
   testimonialHeading,
-  decorativeElement,
   dividerVariants,
 } from "@/styles/Animations";
 
@@ -15,9 +14,9 @@ type MainCategory = "Faculty" | "Co-Convener" | "Team" | null;
 type TeamCategory = "Tech" | "Operations" | "Media" | "Cultural";
 
 const Members = () => {
-  const [mainCategory, setMainCategory] = useState<MainCategory>(null);
-  const [teamCategory, setTeamCategory] = useState<TeamCategory | null>(null);
-  const [showTeamFilters, setShowTeamFilters] = useState(false);
+  const [mainCategory, setMainCategory] = useState<MainCategory>("Team");
+  const [teamCategory, setTeamCategory] = useState<TeamCategory | null>("Tech");
+  const [showTeamFilters, setShowTeamFilters] = useState(true);
 
   // Filter members based on main selection and team selection
   const getFilteredMembers = () => {
@@ -86,22 +85,16 @@ const Members = () => {
           {/* Section header */}
           <div className="text-center mb-16">
             <motion.h2
-              className="text-4xl md:text-5xl font-bold text-white mb-4"
+              className="text-4xl md:text-5xl font-bold text-blue-500  mb-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={testimonialHeading}
             >
-              <motion.span
-                className="text-blue-500 font-pacifico"
-                variants={decorativeElement}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                Meet{" "}
-              </motion.span>
-              the Team Behind Aegis
+              Meet{" "}
+              <span className="text-white">
+                the Team Behind Aegis
+              </span>
             </motion.h2>
 
             <div className="flex justify-center">
@@ -332,14 +325,15 @@ const Members = () => {
 
                 {/* 4th Year Section */}
                 {fourthYears.length > 0 && (
-                  <div>
+                  <div className="w-full">
                     <motion.h3
-                      className="text-2xl font-bold text-blue-400 mb-8 pl-4 border-l-4 border-blue-500"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      className="text-3xl font-bold text-white mb-10 text-center relative inline-block left-1/2 -translate-x-1/2"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                     >
                       4th Year
+                      <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
                     </motion.h3>
                     <motion.div 
                       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -364,14 +358,15 @@ const Members = () => {
 
                 {/* 3rd Year Section */}
                 {thirdYears.length > 0 && (
-                  <div>
+                  <div className="w-full">
                     <motion.h3
-                      className="text-2xl font-bold text-blue-400 mb-8 pl-4 border-l-4 border-blue-500"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      className="text-3xl font-bold text-white mb-10 text-center relative inline-block left-1/2 -translate-x-1/2"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                     >
                       3rd Year
+                      <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
                     </motion.h3>
                     <motion.div 
                       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -396,14 +391,15 @@ const Members = () => {
 
                 {/* 2nd Year Section */}
                 {secondYears.length > 0 && (
-                  <div>
+                  <div className="w-full">
                     <motion.h3
-                      className="text-2xl font-bold text-blue-400 mb-8 pl-4 border-l-4 border-blue-500"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      className="text-3xl font-bold text-white mb-10 text-center relative inline-block left-1/2 -translate-x-1/2"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                     >
                       2nd Year
+                      <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
                     </motion.h3>
                     <motion.div 
                       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   simpleFadeIn,
   testimonialHeading,
-  decorativeElement,
   dividerVariants,
   container,
   item,
@@ -37,13 +36,10 @@ const Contact = () => {
               viewport={{ once: true }}
               variants={testimonialHeading}
             >
-              <motion.span
-                className="text-blue-500 font-pacifico"
-                variants={decorativeElement}
-              >
-                Contact{" "}
-              </motion.span>
-              AEGIS
+              Contact{" "}
+              <span className="text-blue-500">
+                AEGIS
+              </span>
             </motion.h2>
 
             <div className="flex justify-center">
@@ -74,7 +70,7 @@ const Contact = () => {
             </h3>
 
             <p className="text-gray-300 mb-2">
-              Accredited by NAAC with ‘A’ Grade · Autonomous · VTU Belagavi
+              Accredited by NAAC with 'A' Grade · Autonomous · VTU Belagavi
             </p>
             <p className="text-gray-400 mb-4">
               ISO 9001-2015 Certified Institution

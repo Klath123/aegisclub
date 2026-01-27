@@ -21,6 +21,7 @@ const EventsPage = () => {
       description:
         'The ultimate 24-hour international hackathon returns! Join brilliant minds from around the globe to build innovative solutions, compete for amazing prizes, and push the boundaries of technology.',
       missionId: 'RECURZIVE-V2',
+      showCTA: true,
       icon: Terminal,
       color: {
         primary: 'text-cyan-400',
@@ -38,7 +39,7 @@ const EventsPage = () => {
     {
       id: 2,
       title: 'Glitchcraft',
-      type: 'EVENT',
+      type: 'TECH FEST',
       duration: '12 hours',
       mode: 'Online',
       date: '27 February, 2025',
@@ -69,7 +70,7 @@ const EventsPage = () => {
       duration: '6 hours',
       mode: 'INPERSON',
       date: '18th September 2024',
-      showCTA: true,
+      showCTA: false,
       location: 'Dayananda Sagar College of Engineering, Bangalore',
       eligibility: '2nd and 3rd year engineering students',
       thumbnail:
@@ -98,6 +99,7 @@ const EventsPage = () => {
       duration: '8 hours',
       mode: 'INPERSON',
       date: '10th July 2024',
+      showCTA: false,
       location: 'Dayananda sagar college of engineering, Bangalore',
       eligibility: 'Open to all students',
       // Using a placeholder thumbnail since one wasn't provided for this specific event card context

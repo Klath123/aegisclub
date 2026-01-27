@@ -17,7 +17,7 @@ interface Event {
   eligibility: string;
   icon: any;
   showCTA?: boolean;   // controls visibility
-disableCTA?: boolean; // controls disabled state (optional)
+  disableCTA?: boolean; // controls disabled state (optional)
   color: {
     primary: string;
     secondary: string;
@@ -103,26 +103,33 @@ const EventCard = ({ event, onHover, onLeave }: EventCardProps) => {
             </div>
           </div>
 
-          {/* CTA */}
-          <motion.button
-            whileHover={{ y: -1 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() =>
-              navigate(`/${event.title.toLowerCase().replace(' ', '-')}`)
-            }
-            className="
-              mt-auto w-full py-2.5
-              bg-blue-600/90 text-white
-              rounded-lg font-medium text-sm
-              transition-all duration-200
-              flex items-center justify-center gap-2
-              hover:bg-blue-600
-              focus:outline-none focus:ring-2 focus:ring-blue-500/40
-            "
-          >
-            <span>Want to know more</span>
-            <ArrowRight className="w-4 h-4" />
-          </motion.button>
+          {/* CTA - only show if showCTA is not false */}
+          {event.showCTA !== false && (
+            <motion.button
+              whileHover={!event.disableCTA ? { y: -1 } : {}}
+              whileTap={!event.disableCTA ? { scale: 0.98 } : {}}
+              onClick={() =>
+                !event.disableCTA &&
+                navigate(`/${event.title.toLowerCase().replace(' ', '-')}`)
+              }
+              disabled={event.disableCTA}
+              className={`
+                mt-auto w-full py-2.5
+                rounded-lg font-medium text-sm
+                transition-all duration-200
+                flex items-center justify-center gap-2
+                focus:outline-none
+                ${
+                  event.disableCTA
+                    ? 'bg-gray-600/50 text-gray-400 cursor-not-allowed'
+                    : 'bg-blue-600/90 text-white hover:bg-blue-600 focus:ring-2 focus:ring-blue-500/40'
+                }
+              `}
+            >
+              <span>Want to know more</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.button>
+          )}
         </div>
       </div>
     </motion.div>
