@@ -782,6 +782,37 @@ export const members: Member[] = [
 //   },
   // 3rd Year Members
   {
+  id: 36,
+  name: "Abhinav Pandey",
+  position: "Member",
+  role: "Student",
+  team: "Operations",
+  year: "3rd",
+  imageUrl:
+    "https://res.cloudinary.com/dyiohvauq/image/upload/v1769537409/aegis/Operations/3rd/abhinav.jpg",
+  bio: "Surviving on trauma and caffeine.",
+  socialLinks: {
+    linkedin: "https://www.linkedin.com/in/abhi017z",
+    github: "https://github.com/abhi017z",
+    email: "abhi17pandey10@gmail.com",
+  },
+},
+{
+  id: 37,
+  name: "Adarshyogi Mathapati",
+  position: "Member",
+  role: "Student",
+  team: "Operations",
+  year: "3rd",
+  imageUrl:
+    "https://res.cloudinary.com/dyiohvauq/image/upload/v1769537460/aegis/Operations/2nd/adrsh.webp",
+  bio: "A dedicated operations team member with strong organizational and coordination skills.",
+  socialLinks: {
+    email: "adarshyogi.m.s@gmail.com",
+  },
+},
+
+  {
     id: 17,
     name: "Preeti",
     position: "Member",
