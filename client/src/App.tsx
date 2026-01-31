@@ -1,8 +1,7 @@
-import { useState, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout.tsx";
 import Home from "./pages/Home.tsx";
-import TerminalLoader from "./components/TerminalLoader.tsx";
 import Sandbox from "./pages/Sandbox";
 import Glitchcraft from "./pages/Glitchcraft.tsx";
 import EventsGallery from "./pages/Gallery.tsx";
@@ -27,18 +26,6 @@ const PageLoader = () => (
 );
 
 function App() {
-  const hasSeenLoader = localStorage.getItem("aegis_loader_seen") === "true";
-  const [loaderComplete, setLoaderComplete] = useState(hasSeenLoader);
-
-  const handleLoaderComplete = () => {
-    localStorage.setItem("aegis_loader_seen", "true");
-    setLoaderComplete(true);
-  };
-
-  if (!loaderComplete) {
-    return <TerminalLoader onComplete={handleLoaderComplete} />;
-  }
-
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
@@ -62,7 +49,7 @@ function App() {
           <Route path="sandbox" element={<Sandbox />} />
           <Route path="glitchcraft" element={<Glitchcraft />} />
           <Route path="gallery" element={<EventsGallery />} />
-    <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>
