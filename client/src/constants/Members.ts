@@ -80,7 +80,8 @@ export const members: Member[] = [
     role: "Faculty",
     team: undefined,
     year: undefined,
-    imageUrl: "", // Add image URL if available
+    imageUrl:
+      "https://res.cloudinary.com/dyiohvauq/image/upload/v1770028241/uploads/wtbmlzqkeflq4mwzi2r7.png", // Add image URL if available
     // bio: "Qualification: M.Tech, Ph.D",
     socialLinks: {},
   },
