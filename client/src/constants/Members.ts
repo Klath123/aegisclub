@@ -1360,7 +1360,7 @@ export const members: Member[] = [
     team: "Cultural",
     year: "3rd",
     imageUrl:
-      "https://res.cloudinary.com/dyiohvauq/image/upload/v1769292697/aegis/Cultural/3rd/ananya.webp",
+      "https://res.cloudinary.com/dyiohvauq/image/upload/v1770024034/uploads/qbrey2atxpwb5cicmjlb.webp",
     bio: "Taking part in cultural activities, showing creativity and teamwork while supporting club programs ",
     socialLinks: { email: "reddypoojitha875@gmail.com" },
   },
