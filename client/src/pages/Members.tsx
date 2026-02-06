@@ -52,22 +52,18 @@ const Members = () => {
 
   // Helper to structure team members into sections
   const getTeamSections = () => {
-    if (mainCategory !== "Team")
+    if (mainCategory !== "Team" && mainCategory !== "Founder Leads")
       return { leads: [], fourthYears: [], thirdYears: [], secondYears: [] };
 
-    // if (mainCategory === "Founder Leads")
-    //   return { leads: [], fourthYears: [], thirdYears: [], secondYears: [] };
-    const leads = filteredMembers.filter(
-      (m) =>
-        m.position?.toLowerCase().includes("lead") ||
-        m.position?.toLowerCase().includes("co-lead"),
-    );
+    const leads = filteredMembers.filter((m) => {
+      const pos = m.position?.toLowerCase() || "";
+      return pos === "lead" || pos === "co-lead";
+    });
 
-    const nonLeads = filteredMembers.filter(
-      (m) =>
-        !m.position?.toLowerCase().includes("lead") &&
-        !m.position?.toLowerCase().includes("co-lead"),
-    );
+    const nonLeads = filteredMembers.filter((m) => {
+      const pos = m.position?.toLowerCase() || "";
+      return pos !== "lead" && pos !== "co-lead";
+    });
 
     const fourthYears = nonLeads.filter((m) => m.year === "4th");
     const thirdYears = nonLeads.filter((m) => m.year === "3rd");

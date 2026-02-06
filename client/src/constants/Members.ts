@@ -81,7 +81,7 @@ export const members: Member[] = [
     team: undefined,
     year: undefined,
     imageUrl:
-      "https://res.cloudinary.com/dyiohvauq/image/upload/v1770028241/uploads/wtbmlzqkeflq4mwzi2r7.png", // Add image URL if available
+      "https://res.cloudinary.com/dyiohvauq/image/upload/v1770363188/uploads/gta8l52teotgccjcirjt.jpg", // Add image URL if available
     // bio: "Qualification: M.Tech, Ph.D",
     socialLinks: {},
   },
@@ -124,8 +124,8 @@ export const members: Member[] = [
 
   {
     id: 100,
-    name: "Shreyas Reddy B",
-    position: "Co-Convener, Aegis",
+    name: "Kewal",
+    position: "Lead",
     role: "Founder Leads",
     team: undefined, // Or assign a team if known, but Co-Convener is a main role
     year: "4th",
@@ -141,7 +141,7 @@ export const members: Member[] = [
   {
     id: 100,
     name: "Shreyas Reddy B",
-    position: "Co-Convener, Aegis",
+    position: "Co-Lead",
     role: "Founder Leads",
     team: undefined, // Or assign a team if known, but Co-Convener is a main role
     year: "4th",
@@ -155,13 +155,48 @@ export const members: Member[] = [
     },
   },
 
+  //tech
+  {
+    id: 312,
+    name: "Sahil Raj",
+    position: "Technical Lead",
+    role: "Founder Leads",
+    team: undefined,
+    year: "4th",
+    imageUrl:
+      "https://res.cloudinary.com/dyiohvauq/image/upload/v1770363573/uploads/whsqx3sbpesi76odv5pr.jpg",
+    bio: "buidling",
+    socialLinks: {
+      linkedin:
+        "https://www.linkedin.com/in/sahil-raj-in?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+      github: "github.com/sahil-raj",
+      email: "sahilrajaaru@gmail.com",
+    },
+  },
+  {
+    id: 302,
+    name: "R Aswin",
+    position: "Technical Co-Lead",
+    role: "Founder Leads",
+    team: undefined,
+    year: "4th",
+    imageUrl:
+      "https://res.cloudinary.com/dyiohvauq/image/upload/v1769533739/aegis/Tech/4th/ashwin.webp",
+    bio: "in pursuit of odyssey and craft",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/r-aswin242004",
+      github: "https://github.com/Aswinr24",
+      email: "aswinr242004@gmail.com",
+    },
+  },
+
   // OPERATIONS
   {
     id: 29,
     name: "Likitha Yogesh",
-    position: "Member", // Was Lead
-    role: "Student",
-    team: "Operations",
+    position: "Operations Lead",
+    role: "Founder Leads",
+    team: undefined,
     year: "4th",
     imageUrl:
       "https://res.cloudinary.com/dyiohvauq/image/upload/v1769534365/aegis/Operations/4th/likitha.webp",
@@ -170,6 +205,20 @@ export const members: Member[] = [
       linkedin: "https://www.linkedin.com/in/likitha-yogesh-b61b25261",
       github: "https://github.com/LikithaYogesh",
       email: "likithayogesh17@gmail.com",
+    },
+  },
+  {
+    id: 3000,
+    name: "Arantha Shreya",
+    position: "Operations Co-Lead",
+    role: "Founder Leads",
+    team: undefined,
+    year: "4th",
+    imageUrl:
+      "https://res.cloudinary.com/dyiohvauq/image/upload/v1770363321/uploads/br6xwgzzeslv1k17gsfy.jpg",
+    bio: "",
+    socialLinks: {
+      email: "aranthashreya@gmail.com",
     },
   },
   {
@@ -222,9 +271,9 @@ export const members: Member[] = [
   {
     id: 14,
     name: "Shyam S Bharadwaj",
-    position: "Member", // Was Lead
-    role: "Student",
-    team: "Media",
+    position: "Media Lead",
+    role: "Founder Leads",
+    team: undefined,
     year: "4th",
     imageUrl:
       "https://res.cloudinary.com/dyiohvauq/image/upload/v1769534808/aegis/Media/4th/shyam.webp",
@@ -238,9 +287,9 @@ export const members: Member[] = [
   {
     id: 15,
     name: "Sanjit",
-    position: "Member", // Was Co-Lead
-    role: "Student",
-    team: "Media",
+    position: "Media Co-Lead",
+    role: "Founder Leads",
+    team: undefined,
     year: "4th",
     imageUrl:
       "https://drive.google.com/uc?export=view&id=1OwbBUhcOVVbe7qXyqRsJ2XnZT3Ok27Rs",
@@ -320,9 +369,9 @@ export const members: Member[] = [
   {
     id: 1, // T Harika
     name: "T Harika",
-    position: "Member", // Was Lead
-    role: "Student",
-    team: "Cultural",
+    position: "Cultural Lead",
+    role: "Founder Leads",
+    team: undefined,
     year: "4th",
     imageUrl:
       "https://res.cloudinary.com/dyiohvauq/image/upload/v1769535645/aegis/Cultural/4th/harika.webp",
@@ -346,9 +395,9 @@ export const members: Member[] = [
   {
     id: 101, // Adyuth V
     name: "Adyuth V",
-    position: "Member",
-    role: "Student",
-    team: "Cultural",
+    position: "Cultural Co-Lead",
+    role: "Founder Leads",
+    team: undefined,
     year: "4th",
     imageUrl: "",
     bio: "I am very enthusiastic and fun loving",
@@ -446,22 +495,7 @@ export const members: Member[] = [
       // twitter: "https://x.com/shreyasreddyb",
     },
   },
-  {
-    id: 302,
-    name: "R Aswin",
-    position: "Member",
-    role: "Student",
-    team: "Tech",
-    year: "4th",
-    imageUrl:
-      "https://res.cloudinary.com/dyiohvauq/image/upload/v1769533739/aegis/Tech/4th/ashwin.webp",
-    bio: "in pursuit of odyssey and craft",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/r-aswin242004",
-      github: "https://github.com/Aswinr24",
-      email: "aswinr242004@gmail.com",
-    },
-  },
+
   {
     id: 303,
     name: "Sanjay",
