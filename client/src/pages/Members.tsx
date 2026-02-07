@@ -10,7 +10,7 @@ import {
   dividerVariants,
 } from "@/styles/Animations";
 
-type MainCategory = "Faculty" | "Co-Convener" | "Team" | null;
+type MainCategory = "Faculty" | "Founder Leads" | "Team" | null;
 type TeamCategory = "Tech" | "Operations" | "Media" | "Cultural";
 
 const Members = () => {
@@ -34,14 +34,14 @@ const Members = () => {
         });
     }
 
-    if (mainCategory === "Co-Convener") {
-      return members.filter((member) => member.role === "Co-Convener");
+    if (mainCategory === "Founder Leads") {
+      return members.filter((member) => member.role === "Founder Leads");
     }
 
     if (mainCategory === "Team") {
       if (!teamCategory) return [];
       return members.filter(
-        (member) => member.role === "Student" && member.team === teamCategory
+        (member) => member.role === "Student" && member.team === teamCategory,
       );
     }
 
@@ -52,20 +52,18 @@ const Members = () => {
 
   // Helper to structure team members into sections
   const getTeamSections = () => {
-    if (mainCategory !== "Team")
+    if (mainCategory !== "Team" && mainCategory !== "Founder Leads")
       return { leads: [], fourthYears: [], thirdYears: [], secondYears: [] };
 
-    const leads = filteredMembers.filter(
-      (m) =>
-        m.position?.toLowerCase().includes("lead") ||
-        m.position?.toLowerCase().includes("co-lead")
-    );
+    const leads = filteredMembers.filter((m) => {
+      const pos = m.position?.toLowerCase() || "";
+      return pos === "lead" || pos === "co-lead";
+    });
 
-    const nonLeads = filteredMembers.filter(
-      (m) =>
-        !m.position?.toLowerCase().includes("lead") &&
-        !m.position?.toLowerCase().includes("co-lead")
-    );
+    const nonLeads = filteredMembers.filter((m) => {
+      const pos = m.position?.toLowerCase() || "";
+      return pos !== "lead" && pos !== "co-lead";
+    });
 
     const fourthYears = nonLeads.filter((m) => m.year === "4th");
     const thirdYears = nonLeads.filter((m) => m.year === "3rd");
@@ -79,7 +77,7 @@ const Members = () => {
   return (
     <div className="min-h-screen relative">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none"></div>
-      
+
       <section className="py-24 px-4 relative z-10">
         <div className="container mx-auto max-w-7xl">
           {/* Section header */}
@@ -91,10 +89,7 @@ const Members = () => {
               viewport={{ once: true }}
               variants={testimonialHeading}
             >
-              Meet{" "}
-              <span className="text-white">
-                the Team Behind Aegis
-              </span>
+              Meet <span className="text-white">the Team Behind Aegis</span>
             </motion.h2>
 
             <div className="flex justify-center">
@@ -128,7 +123,7 @@ const Members = () => {
               viewport={{ once: true }}
               variants={simpleFadeIn}
             >
-              {(["Faculty", "Co-Convener", "Team"] as MainCategory[]).map(
+              {(["Faculty", "Founder Leads", "Team"] as MainCategory[]).map(
                 (category) => (
                   <button
                     key={category}
@@ -164,7 +159,7 @@ const Members = () => {
                   >
                     {category}
                   </button>
-                )
+                ),
               )}
             </motion.div>
 
@@ -174,21 +169,31 @@ const Members = () => {
                 <motion.div
                   className="flex flex-wrap justify-center gap-3 mb-6"
                   initial={{ opacity: 0, height: 0, marginBottom: 0 }}
-                  animate={{ opacity: 1, height: "auto", marginBottom: "1.5rem" }}
+                  animate={{
+                    opacity: 1,
+                    height: "auto",
+                    marginBottom: "1.5rem",
+                  }}
                   exit={{ opacity: 0, height: 0, marginBottom: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  {(["Tech", "Operations", "Media", "Cultural"] as TeamCategory[]).map(
-                    (team) => (
-                      <motion.button
-                        key={team}
-                        onClick={() => {
-                          setTeamCategory(teamCategory === team ? null : team);
-                        }}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3 }}
-                        className={`
+                  {(
+                    [
+                      "Tech",
+                      "Operations",
+                      "Media",
+                      "Cultural",
+                    ] as TeamCategory[]
+                  ).map((team) => (
+                    <motion.button
+                      key={team}
+                      onClick={() => {
+                        setTeamCategory(teamCategory === team ? null : team);
+                      }}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className={`
                           px-6 py-2.5 rounded-full font-medium transition-all duration-300
                           ${
                             teamCategory === team
@@ -196,11 +201,10 @@ const Members = () => {
                               : "bg-zinc-800/50 text-gray-400 hover:bg-zinc-700 hover:text-white border border-zinc-700"
                           }
                         `}
-                      >
-                        {team}
-                      </motion.button>
-                    )
-                  )}
+                    >
+                      {team}
+                    </motion.button>
+                  ))}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -220,26 +224,7 @@ const Members = () => {
             {/* 2. Faculty View with Head separated */}
             {mainCategory === "Faculty" && (
               <div className="space-y-12">
-                {/* Head Section */}
-                {filteredMembers
-                  .filter((m) => {
-                    const pos = m.position?.toLowerCase() || "";
-                    return pos.includes("hod") || pos.includes("head");
-                  })
-                  .map((head) => (
-                    <div key={head.id} className="flex justify-center">
-                      <motion.div
-                        className="w-full md:w-[350px]"
-                        variants={item}
-                        whileHover="hover"
-                      >
-                        <MemberCard member={head} />
-                      </motion.div>
-                    </div>
-                  ))}
-
-                {/* Other Faculty Grid */}
-                <motion.div 
+                <motion.div
                   className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                   variants={container}
                   initial="hidden"
@@ -249,7 +234,40 @@ const Members = () => {
                   {filteredMembers
                     .filter((m) => {
                       const pos = m.position?.toLowerCase() || "";
-                      return !pos.includes("hod") && !pos.includes("head");
+                      return (
+                        // pos.includes("hod") ||
+                        // pos.includes("head") ||
+                        pos.includes("convenor")
+                      );
+                    })
+                    .map((member) => (
+                      <motion.div
+                        key={member.id}
+                        className="h-full"
+                        variants={item}
+                        whileHover="hover"
+                      >
+                        <MemberCard member={member} />
+                      </motion.div>
+                    ))}
+                </motion.div>
+
+                {/* Other Faculty Grid */}
+                <motion.div
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  variants={container}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
+                >
+                  {filteredMembers
+                    .filter((m) => {
+                      const pos = m.position?.toLowerCase() || "";
+                      return (
+                        !pos.includes("hod") &&
+                        !pos.includes("head") &&
+                        !pos.includes("co-convenor")
+                      );
                     })
                     .map((member) => (
                       <motion.div
@@ -266,8 +284,8 @@ const Members = () => {
             )}
 
             {/* 3. Co-Convener View */}
-            {mainCategory === "Co-Convener" && (
-              <motion.div 
+            {/* {mainCategory === "Co-Convener" && (
+              <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
                 variants={container}
                 initial="hidden"
@@ -285,6 +303,84 @@ const Members = () => {
                   </motion.div>
                 ))}
               </motion.div>
+            )} */}
+
+            {/* 2. Founder Leads View with Head separated */}
+            {mainCategory === "Founder Leads" && (
+              <div className="space-y-20">
+                {/* Leads Section */}
+                {leads.length > 0 && (
+                  <div className="w-full">
+                    <motion.h3
+                      className="text-3xl font-bold text-white mb-10 text-center relative inline-block left-1/2 -translate-x-1/2"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      Current Leads
+                      <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
+                    </motion.h3>
+                    <motion.div
+                      className="flex flex-wrap justify-center gap-8"
+                      variants={container}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.1 }}
+                    >
+                      {leads.map((member) => (
+                        <motion.div
+                          key={member.id}
+                          className="w-full md:w-[350px]"
+                          variants={item}
+                          whileHover="hover"
+                        >
+                          <MemberCard member={member} />
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  </div>
+                )}
+
+                {/* Founder Team Leads Section */}
+                {fourthYears.length > 0 && (
+                  <div className="w-full">
+                    <motion.h3
+                      className="text-3xl font-bold text-white mb-10 text-center relative inline-block left-1/2 -translate-x-1/2"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      Founder Team Leads
+                      <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
+                    </motion.h3>
+                    <motion.div
+                      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                      variants={container}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.1 }}
+                    >
+                      {fourthYears.map((member) => (
+                        <motion.div
+                          key={member.id}
+                          className="h-full"
+                          variants={item}
+                          whileHover="hover"
+                        >
+                          <MemberCard member={member} />
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  </div>
+                )}
+
+                {/* Empty State for Founder Leads */}
+                {leads.length === 0 && fourthYears.length === 0 && (
+                  <div className="text-center text-gray-400 text-lg py-12">
+                    No founder leads found.
+                  </div>
+                )}
+              </div>
             )}
 
             {/* 4. Team Sections */}
@@ -302,7 +398,7 @@ const Members = () => {
                       Current Leads
                       <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
                     </motion.h3>
-                    <motion.div 
+                    <motion.div
                       className="flex flex-wrap justify-center gap-8"
                       variants={container}
                       initial="hidden"
@@ -335,7 +431,7 @@ const Members = () => {
                       4th Year
                       <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
                     </motion.h3>
-                    <motion.div 
+                    <motion.div
                       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                       variants={container}
                       initial="hidden"
@@ -368,7 +464,7 @@ const Members = () => {
                       3rd Year
                       <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
                     </motion.h3>
-                    <motion.div 
+                    <motion.div
                       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                       variants={container}
                       initial="hidden"
@@ -401,7 +497,7 @@ const Members = () => {
                       2nd Year
                       <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
                     </motion.h3>
-                    <motion.div 
+                    <motion.div
                       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                       variants={container}
                       initial="hidden"
