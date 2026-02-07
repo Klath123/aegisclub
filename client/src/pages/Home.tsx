@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import LetterGlitch from "../components/LetterGlitch";
 import DecryptedText from "../components/DecryptedText";
 // import { Terminal, TypingAnimation, AnimatedSpan } from "../components/terminal";
@@ -10,6 +11,7 @@ const Home = () => {
     const [showNeonGlow, setShowNeonGlow] = useState(false);
     // const [showNavbarElements, setShowNavbarElements] = useState(false);
     const [showTagline, setShowTagline] = useState(false);
+    const [showEventBanners, setShowEventBanners] = useState(false);
 
     useEffect(() => {
         // Phase 1: Welcome to appears, breathes, and fades (2 seconds total)
@@ -27,6 +29,7 @@ const Home = () => {
             const neonTimer = setTimeout(() => {
                 setShowNeonGlow(true);
                 setShowTagline(true);
+                setShowEventBanners(true); // Show event banners after welcome animation
                 setAnimationPhase('complete');
             }, 0);
 
@@ -38,7 +41,7 @@ const Home = () => {
         <>
             <div className="relative">
                 {/* Hero Section with LetterGlitch Background - Full viewport height minus navbar */}
-                <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 pt-20 md:pt-24 overflow-hidden">
+                <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 pt-20 md:pt-24 overflow-visible">
                     {/* LetterGlitch Background - Only for Hero Section */}
                     <div className="absolute inset-0 z-0">
                         <LetterGlitch
@@ -70,7 +73,7 @@ const Home = () => {
                         </div>
                     )} */}
 
-                    <div className="z-10 flex flex-col items-center justify-center max-w-6xl mx-auto relative w-full">
+                    <div className="z-10 flex flex-col items-center justify-center mx-auto relative w-full">
 
                         {/* Overlapping Animated Headings - Fixed height container to prevent shifting */}
                         <div className="relative flex items-center justify-center w-full" style={{ height: '200px' }}>
@@ -86,15 +89,80 @@ const Home = () => {
 
                             {/* Phase 2: "AEGIS" appears with fade-in-blur effect and optional neon glow */}
                             {(animationPhase === 'aegis' || animationPhase === 'complete') && (
-                                <h1
-                                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] 2xl:text-[18rem] font-black tracking-tighter text-white text-center leading-none transition-all duration-1000 drop-shadow-[0_0_2px_rgba(255,255,255,0.2)] fade-in-blur ${showNeonGlow ? 'neon-glow-active' : ''
-                                        }`}
-                                    style={{ fontFamily: '"ikaros2", sans-serif', fontWeight: 300, WebkitTextStroke: '1px #000000' }}
-                                >
-                                    AEGIS
-                                </h1>
+                                <>
+                                    {/* GLITCHCRAFT Banner - Left Side */}
+                                    {showEventBanners && (
+                                        <Link
+                                            to="/glitchcraft"
+                                            className="absolute left-1/2 -translate-x-1/2 top-auto bottom-[-260px] md:left-8 md:bottom-auto md:top-1/2 md:-translate-x-0 md:-translate-y-1/2 md:-rotate-[8deg] lg:left-10 xl:left-2 w-52 h-28 sm:w-56 sm:h-32 md:w-60 md:h-34 lg:w-72 lg:h-40 xl:w-96 xl:h-48 fade-in-blur cursor-pointer group z-20"
+                                            style={{
+                                                transition: 'all 0.3s ease',
+                                            }}
+                                        >
+                                            <div className="relative w-full h-full">
+                                                <img
+                                                    src="/glitchcraft.png"
+                                                    alt="GLITCHCRAFT Event"
+                                                    className="w-full h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                                                    style={{
+                                                        filter: 'drop-shadow(0 0 20px rgba(100, 150, 255, 0.6)) drop-shadow(0 0 40px rgba(100, 150, 255, 0.4))',
+                                                    }}
+                                                />
+                                                <div
+                                                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                                    style={{
+                                                        background: 'radial-gradient(circle, rgba(100, 150, 255, 0.3) 0%, transparent 70%)',
+                                                        filter: 'blur(20px)',
+                                                        transform: 'scale(1.2)',
+                                                    }}
+                                                />
+                                            </div>
+                                        </Link>
+                                    )}
+
+                                    <h1
+                                        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] 2xl:text-[18rem] font-black tracking-tighter text-white text-center leading-none transition-all duration-1000 drop-shadow-[0_0_2px_rgba(255,255,255,0.2)] fade-in-blur ${showNeonGlow ? 'neon-glow-active' : ''
+                                            }`}
+                                        style={{ fontFamily: '"ikaros2", sans-serif', fontWeight: 300, WebkitTextStroke: '1px #000000' }}
+                                    >
+                                        AEGIS
+                                    </h1>
+
+                                    {/* SANDBOX Banner - Right Side */}
+                                    {showEventBanners && (
+                                        <a
+                                            href="https://aegis-sandbox-v.devfolio.co/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="absolute left-1/2 -translate-x-1/2 top-auto bottom-[-400px] md:left-auto md:right-8 md:bottom-auto md:top-1/2 md:translate-x-0 md:-translate-y-1/2 md:rotate-[8deg] lg:right-10 xl:right-2 w-52 h-28 sm:w-56 sm:h-32 md:w-60 md:h-34 lg:w-72 lg:h-40 xl:w-80 xl:h-48 fade-in-blur cursor-pointer group z-20"
+                                            style={{
+                                                transition: 'all 0.3s ease',
+                                            }}
+                                        >
+                                            <div className="relative w-full h-full">
+                                                <img
+                                                    src="/sandbox.png"
+                                                    alt="SANDBOX Event"
+                                                    className="w-full h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+                                                    style={{
+                                                        filter: 'drop-shadow(0 0 20px rgba(255, 200, 0, 0.6)) drop-shadow(0 0 40px rgba(255, 200, 0, 0.4))',
+                                                    }}
+                                                />
+                                                <div
+                                                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                                    style={{
+                                                        background: 'radial-gradient(circle, rgba(255, 200, 0, 0.3) 0%, transparent 70%)',
+                                                        filter: 'blur(20px)',
+                                                        transform: 'scale(1.2)',
+                                                    }}
+                                                />
+                                            </div>
+                                        </a>
+                                    )}
+                                </>
                             )}
                         </div>
+
 
 
                         {/* Tagline at the bottom - Appears after AEGIS settles in */}
