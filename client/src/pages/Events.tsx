@@ -9,6 +9,33 @@ const EventsPage = () => {
   const eventsData: Event[] = [
     {
       id: 1,
+      title: 'Glitchcraft 2.0',
+      type: 'TECH FEST',
+      duration: '12 hours',
+      mode: 'INPERSON',
+      date: '5th & 6th March, 2026',
+      location: 'Dayananda Sagar College of Engineering, Bangalore',
+      eligibility: 'Students from all over the world',
+      thumbnail:
+        'https://res.cloudinary.com/dyiohvauq/image/upload/v1769299403/aegis/events/glitchcraft.jpg',
+      description: 'Glitchcraft — Decode the glitch. Defend the future.',
+      missionId: 'GLITCHCRAFT-002',
+      icon: Lock,
+      color: {
+        primary: 'text-purple-400',
+        secondary: 'text-purple-300',
+        gradient:
+          'bg-gradient-to-r from-purple-600/20 to-blue-600/20 hover:from-purple-600/30 hover:to-blue-600/30',
+        glow: 'shadow-purple-500/20',
+        border: 'border-purple-500/20',
+        bg: 'bg-slate-900/40'
+      },
+      metadata: {
+        focusAreas: ['Cryptography', 'Pattern Analysis', 'Logic Puzzles', 'Reverse Thinking']
+      }
+    },
+    {
+      id: 2,
       title: 'SANDBOX',
       type: 'CYBER SECURITY HACKATHON',
       duration: '24 hours',
@@ -37,11 +64,11 @@ const EventsPage = () => {
       }
     },
     {
-      id: 2,
+      id: 3,
       title: 'Glitchcraft',
       type: 'TECH FEST',
       duration: '12 hours',
-      mode: 'Online',
+      mode: 'INPERSON',
       date: '27 February, 2025',
       location: 'Dayananda Sagar College of Engineering, Bangalore',
       eligibility: 'Students from all over the world',
@@ -64,8 +91,8 @@ const EventsPage = () => {
       }
     },
      {
-      id: 3,
-      title: 'Internal CTF',
+      id: 4,
+      title: 'AEGISInternal CTF',
       type: 'CAPTURE THE FLAG',
       duration: '6 hours',
       mode: 'INPERSON',
@@ -93,7 +120,7 @@ const EventsPage = () => {
       }
     },
     {
-      id: 3,
+      id: 5,
       title: 'Decipher',
       type: 'CAPTURE THE FLAG',
       duration: '8 hours',
