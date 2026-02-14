@@ -17,7 +17,7 @@ const EventsPage = () => {
       location: 'Dayananda Sagar College of Engineering, Bangalore',
       eligibility: 'Students from all over the world',
       thumbnail:
-        'https://res.cloudinary.com/dyiohvauq/image/upload/v1769299403/aegis/events/glitchcraft.jpg',
+        'https://res.cloudinary.com/dbe8rhiyq/image/upload/v1771049745/Gc26_vcl7db.jpg',
       description: 'Glitchcraft — Decode the glitch. Defend the future.',
       missionId: 'GLITCHCRAFT-002',
       icon: Lock,
@@ -36,7 +36,36 @@ const EventsPage = () => {
     },
     {
       id: 2,
-      title: 'SANDBOX',
+      title: 'SANDBOX V2.0',
+      type: 'CYBER SECURITY HACKATHON',
+      duration: '24 hours',
+      mode: 'INPERSON',
+      date: '7th & 8th March 2026',
+      location: 'Dayananda Sagar College of Engineering, Bangalore',
+      eligibility: 'Students from all over the world',
+      thumbnail:
+        'https://res.cloudinary.com/dbe8rhiyq/image/upload/v1771050995/Sandboxv2.0_f9wigw.jpg',
+      description:
+        'The ultimate 24-hour international hackathon returns! Join brilliant minds from around the globe to build innovative solutions, compete for amazing prizes, and push the boundaries of technology.',
+      missionId: 'RECURZIVE-V3',
+      showCTA: true,
+      icon: Terminal,
+      color: {
+        primary: 'text-cyan-400',
+        secondary: 'text-cyan-300',
+        gradient:
+          'bg-gradient-to-r from-cyan-600/20 to-blue-600/20 hover:from-cyan-600/30 hover:to-blue-600/30',
+        glow: 'shadow-cyan-500/20',
+        border: 'border-cyan-500/20',
+        bg: 'bg-slate-900/40'
+      },
+      metadata: {
+        focusAreas: ['Web Security', 'Networking', 'System Hardening', 'Hackathon']
+      }
+    },
+    {
+      id: 3,
+      title: 'SANDBOX V1.0 ',
       type: 'CYBER SECURITY HACKATHON',
       duration: '24 hours',
       mode: 'INPERSON',
@@ -64,7 +93,7 @@ const EventsPage = () => {
       }
     },
     {
-      id: 3,
+      id: 4,
       title: 'Glitchcraft',
       type: 'TECH FEST',
       duration: '12 hours',
@@ -91,8 +120,8 @@ const EventsPage = () => {
       }
     },
      {
-      id: 4,
-      title: 'AEGISInternal CTF',
+      id: 5,
+      title: 'AEGIS Internal CTF',
       type: 'CAPTURE THE FLAG',
       duration: '6 hours',
       mode: 'INPERSON',
@@ -120,7 +149,7 @@ const EventsPage = () => {
       }
     },
     {
-      id: 5,
+      id: 6,
       title: 'Decipher',
       type: 'CAPTURE THE FLAG',
       duration: '8 hours',

@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
   Trophy,
-  ExternalLink,
-  Camera,
-  MapPin,
   Gift,
   ArrowLeft,
   ArrowUpRight,
@@ -11,8 +8,9 @@ import {
   Gamepad2,
   Key,
   Film,
-  Music,
-  Video
+  Video,
+  UserPlus,
+  DollarSign, 
 } from 'lucide-react';
 
 const GlitchCraft2 = () => {
@@ -26,53 +24,53 @@ const GlitchCraft2 = () => {
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImg((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
+  const timer = setInterval(() => {
+    setCurrentImg((prev) => (prev + 1) % images.length);
+  }, 3000);
+  return () => clearInterval(timer);
+  }, [images.length]);
 
   const eventsList = [
     {
       title: "Decipher Blitz",
       category: "Cybersecurity",
       icon: <Terminal size={18} className="text-blue-400" />,
-      desc: "Standard CTF & Rapid-Fire battles. Test your hacking skills.",
+      desc: "Are you ready to test your cybersecurity skills? Think fast, solve puzzles, and capture flags in a high-stakes battle. Compete in Standard CTF and Rapid-Fire Challenge, racing against time and rivals to claim victory!",
       prize: "₹1,500 Pool"
     },
     {
       title: "Valorant Battle",
       category: "Esports",
       icon: <Gamepad2 size={18} className="text-purple-400" />,
-      desc: "Squad Mode survival. Compete for the Chicken Dinner.",
+      desc: "VALORANT is a tactical 5v5 FPS where precision shooting meets strategic ability usage. Every round is a test of teamwork, map control, and clutch decision-making.The Aegis club is organizing a competitive VALORANT tournament open to teams ready to battle it out for glory.",
       prize: "₹1,500 Pool"
     },
     {
       title: "Escape the Enigma",
       category: "Mystery",
       icon: <Key size={18} className="text-yellow-400" />,
-      desc: "Solve intricate puzzles and race against the clock.",
+      desc: "Think fast. Move faster. The door locks behind you, the timer starts, and it’s game on. This escape room throws you into an intense, immersive challenge packed with clever puzzles, hidden clues, and unexpected twists. Team up with your friends, test your logic, and see who keeps their cool under pressure. You’ll need sharp minds, bold moves, and strong teamwork to beat the clock. Bragging rights included — if you escape in time",
       prize: "₹1,500 Pool"
     },
     {
-      title: "CineMania",
-      category: "Quiz",
+      title: "Lens & Lore",
+      category: "Media",
       icon: <Film size={18} className="text-red-400" />,
-      desc: "Ultimate movie & series quiz for binge-watchers.",
+      desc: "Every corner has a story waiting to be told. Lens & Lore challenges you to capture the spirit, emotions, and unseen narratives of our campus through your creative vision. In just two hours, you must imagine, shoot, and craft a compelling visual story, either through a powerful photo sequence or a short cinematic video. It’s not about fancy gear; it’s about perspective, storytelling, and the magic you create within the moment.",
       prize: "₹1,500 Pool"
     },
     {
-      title: "Hack-A-Note",
-      category: "Music",
-      icon: <Music size={18} className="text-pink-400" />,
-      desc: "Solo or instrumental performances on the main stage.",
+      title: "Pitch Pe Paisa",
+      category: "Auction",
+      icon: <DollarSign size={18} className="text-pink-400" />,
+      desc: "Step into the thrill of the IPL with our high-energy IPL-Style Player Auction! Each team gets a fixed virtual budget and battles it out in a live bidding war to build the ultimate cricket squad. Strategy, smart spending, and sharp decision-making will decide who creates the most powerful lineup. Outbid, outsmart, and outplay– Only the smart bidders will lead the leaderboard Paisa bhi, Planning nhi, Pressure bhi!",
       prize: "₹1,500 Pool"
     },
     {
-      title: "Reelity Show",
-      category: "Creativity",
+      title: "Popcorn Panic",
+      category: "Quiz",
       icon: <Video size={18} className="text-green-400" />,
-      desc: "Create a captivating 30s reel. Show your editing skills.",
+      desc: "Get ready to put your binge-watching skills to the test! This exciting movie & series quiz will challenge your knowledge across genres, characters, dialogues, and iconic scenes. Team up with your friends and compete against fellow cinephiles.",
       prize: "₹1,500 Pool"
     }
   ];
@@ -117,7 +115,7 @@ const GlitchCraft2 = () => {
           </div>
 
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
-            A dynamic, multi-disciplinary festival designed to celebrate innovation, technical prowess, and creative expression. From CTFs to Art, we bridge the gap between academic excellence and industry needs.
+            A four-day festival unique convergence of technology and creativity, featuring carefully curated events that challenge both technical prowess and artistic expression. 
           </p>
         </header>
 
@@ -182,14 +180,13 @@ const GlitchCraft2 = () => {
           <div className="sm:col-span-2 lg:col-span-9 lg:row-span-3 bg-zinc-900 border border-blue-500/20 hover:border-blue-500/40 transition rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-6">
               <Trophy className="text-blue-400" size={18} />
-              <h3 className="text-lg font-semibold text-white">Event Highlights</h3>
+              <h3 className="text-lg font-semibold text-white">FLAGSHIP MISSIONS</h3>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {eventsList.map((event, index) => (
                 <div 
                   key={index} 
-                  className="group flex flex-col justify-between p-4 rounded-xl bg-zinc-800/30 border border-zinc-700/50 transition duration-300"
+                  className="group flex flex-col justify-between p-5 rounded-xl bg-zinc-800/30 border border-zinc-700/50 transition duration-300 min-h-[220px]"
                 >
                   <div>
                     <div className="flex justify-between items-start mb-3">
@@ -201,10 +198,10 @@ const GlitchCraft2 = () => {
                       </span>
                     </div>
                     
-                    <h4 className="text-sm font-bold text-white mb-1 transition-colors">
+                    <h4 className="text-base font-bold text-white mb-2 transition-colors">
                       {event.title}
                     </h4>
-                    <p className="text-xs text-slate-400 leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-xs text-slate-400 leading-relaxed mb-4">
                       {event.desc}
                     </p>
                   </div>
@@ -220,37 +217,35 @@ const GlitchCraft2 = () => {
             </div>
           </div>
 
-          {/* 5. Venue (3 cols, 2 rows) */}
-          <div className="sm:col-span-2 lg:col-span-3 lg:row-span-2 bg-zinc-900 border border-blue-500/20 hover:border-blue-500/40 transition rounded-2xl p-6 flex flex-col justify-between min-h-[240px]">
-            <div>
-              <MapPin className="text-blue-400 mb-4" size={22} />
-              <h4 className="text-lg font-semibold mb-2">DSCE</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">
-                Shavige Malleshwara Hills,<br />
-                Kumaraswamy Layout, Bengaluru
-              </p>
-            </div>
-            <button className="group inline-flex items-center gap-2 px-4 py-2 border border-blue-500/30 rounded-lg text-sm text-blue-400 hover:bg-blue-500/10 transition w-fit">
-              Open Maps
-              <ExternalLink size={14} className="opacity-70 group-hover:opacity-100 transition-opacity" />
-            </button>
-          </div>
-
-          {/* 6. Gallery Link (3 cols, 1 row) */}
+          {/* 5. Registation  (3 cols, 2 rows) */}
           <a
-            href="/gallery"
-            className="group sm:col-span-2 lg:col-span-3 lg:row-span-1 bg-zinc-900 border border-blue-500/20 hover:border-blue-500/40 transition rounded-2xl p-6 flex flex-col justify-between min-h-[140px] cursor-pointer"
-          >
-            <div className="flex items-center justify-between">
-              <Camera size={24} className="text-blue-400" />
-              <ArrowUpRight size={16} className="text-blue-400 opacity-60 group-hover:opacity-100 transition-opacity" />
-            </div>
-            <div>
-              <p className="text-xl font-semibold text-white">Gallery</p>
-              <p className="text-xs text-slate-500">View event photos</p>
-            </div>
-          </a>
-
+            href="/register"
+          className="group sm:col-span-2 lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/40 hover:border-blue-400 transition-all duration-500 rounded-2xl p-8 flex flex-col justify-center items-center gap-5 min-h-[240px] cursor-pointer relative overflow-hidden hover:shadow-[0_0_50px_rgba(59,130,246,0.4)]"
+        >
+          {/* Animated background pulse */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
+          
+          {/* Icon with scale and glow - NO ROTATION */}
+          <div className="relative p-4 rounded-full bg-blue-500/20 border border-blue-400/30 group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.6)]">
+            <UserPlus size={32} className="text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+          </div>
+          
+          {/* Text with slide up */}
+          <div className="text-center relative z-10">
+            <p className="text-3xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+              Register Now
+            </p>
+            <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+              Secure your spot for GlitchCraft 2.0
+            </p>
+          </div>
+          
+          {/* CTA with arrow animation */}
+          <div className="flex items-center gap-2 text-blue-400 text-sm font-medium relative z-10">
+            <span className="group-hover:tracking-wider transition-all duration-300">Join the mission</span>
+            <ArrowUpRight size={16} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-300" />
+          </div>
+        </a>
         </div>
 
         {/* Footer */}
