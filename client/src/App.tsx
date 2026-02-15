@@ -6,6 +6,8 @@ import Sandbox from "./pages/Sandbox";
 import Glitchcraft from "./pages/Glitchcraft.tsx";
 import EventsGallery from "./pages/Gallery.tsx";
 import NotFound from "./pages/NotFound";
+import GlitchCraft2 from './pages/GlitchCraft2';
+
 
 
 // Lazy loaded pages
@@ -48,6 +50,7 @@ function App() {
           {/* Standalone pages */}
           <Route path="sandbox" element={<Sandbox />} />
           <Route path="glitchcraft" element={<Glitchcraft />} />
+          <Route path="/glitchcraft-2.0" element={<GlitchCraft2 />} />
           <Route path="gallery" element={<EventsGallery />} />
           <Route path="*" element={<NotFound />} />
         </Route>
