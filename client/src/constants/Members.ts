@@ -92,8 +92,8 @@ export const members: Member[] = [
     role: "Faculty",
     team: undefined,
     year: undefined,
-    imageUrl:
-      "https://res.cloudinary.com/dyiohvauq/image/upload/v1769965206/uploads/gba8tbws0dvmspzvaikf.jpg", // Add image URL if available
+    imageUrl: 
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091863/WhatsApp_Image_2026-02-13_at_9.36.20_PM_mjce1v.jpg", // Add image URL if available
     // bio: "Qualification: M.Tech, (Ph.D)",
     socialLinks: {},
   },
@@ -119,18 +119,18 @@ export const members: Member[] = [
     imageUrl:
       "https://res.cloudinary.com/dyiohvauq/image/upload/v1769965454/uploads/aqdotq9xpvayzixabwzp.jpg", // Add image URL if available
     // bio: "Qualification: M.Tech",
-    socialLinks: {},
+    socialLinks: {linkedin : "https://www.linkedin.com/in/nida-afreen-rizvi-245112181/"},
   },
 
   {
     id: 100,
     name: "Kewal",
-    position: "Lead",
+    position: "Lead 2024-2025",
     role: "Founder Leads",
     team: undefined, // Or assign a team if known, but Co-Convener is a main role
     year: "4th",
     imageUrl:
-      "https://res.cloudinary.com/dyiohvauq/image/upload/v1769533680/aegis/Tech/4th/shreyas.jpg",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771164643/b054639e-4191-4ca2-8d8d-4564b9408b82_peakyk.jpg",
     bio: "Life, although it may only be an accumulation of anguish, is dear to me, and I will defend it",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/shreyasreddyb",
@@ -141,7 +141,7 @@ export const members: Member[] = [
   {
     id: 100,
     name: "Shreyas Reddy B",
-    position: "Co-Lead",
+    position: "Co-Lead 2024-2025",
     role: "Founder Leads",
     team: undefined, // Or assign a team if known, but Co-Convener is a main role
     year: "4th",
@@ -159,7 +159,7 @@ export const members: Member[] = [
   {
     id: 312,
     name: "Sahil Raj",
-    position: "Technical Lead",
+    position: "Technical Lead 2024-2025",
     role: "Founder Leads",
     team: undefined,
     year: "4th",
@@ -176,7 +176,7 @@ export const members: Member[] = [
   {
     id: 302,
     name: "R Aswin",
-    position: "Technical Co-Lead",
+    position: "Technical Co-Lead 2024-2025",
     role: "Founder Leads",
     team: undefined,
     year: "4th",
@@ -194,7 +194,7 @@ export const members: Member[] = [
   {
     id: 29,
     name: "Likitha Yogesh",
-    position: "Operations Lead",
+    position: "Operations Lead 2024-2025",
     role: "Founder Leads",
     team: undefined,
     year: "4th",
@@ -210,7 +210,7 @@ export const members: Member[] = [
   {
     id: 3000,
     name: "Arantha Shreya",
-    position: "Operations Co-Lead",
+    position: "Operations Co-Lead 2024-2025",
     role: "Founder Leads",
     team: undefined,
     year: "4th",
@@ -229,7 +229,7 @@ export const members: Member[] = [
     team: "Operations",
     year: "4th",
     imageUrl:
-      "https://drive.google.com/uc?export=view&id=1GxewdFt0AHxCWIsR14PVSkPusXW1iMZk",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091863/WhatsApp_Image_2026-02-13_at_9.36.29_PM_iuujgw.jpg",
     bio: "Just a 21-year-old figuring out life—one line of code (and one emcee script) at a time. Probably overthinking my next big idea while pretending I've got it all together!",
     socialLinks: {
       linkedin: "http://linkedin.com/in/amareshwar-sai-a42b5622b",
@@ -259,7 +259,7 @@ export const members: Member[] = [
     team: "Operations",
     year: "4th",
     imageUrl:
-      "https://drive.google.com/uc?export=view&id=1VehYemxRhk7QELmau9eTi9NaZrfLjS4D",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771097248/Nidhi_N_mcwnj3.png",
     bio: "Efficiently juggling tasks with a smile and a bit of magic.",
     socialLinks: {
       linkedin: "www.linkedin.com/in/nidhi-n-652a692b0",
@@ -271,7 +271,7 @@ export const members: Member[] = [
   {
     id: 14,
     name: "Shyam S Bharadwaj",
-    position: "Media Lead",
+    position: "Media Lead 2024-2025",
     role: "Founder Leads",
     team: undefined,
     year: "4th",
@@ -287,12 +287,12 @@ export const members: Member[] = [
   {
     id: 15,
     name: "Sanjit",
-    position: "Media Co-Lead",
+    position: "Media Co-Lead 2024-2025",
     role: "Founder Leads",
     team: undefined,
     year: "4th",
     imageUrl:
-      "https://drive.google.com/uc?export=view&id=1OwbBUhcOVVbe7qXyqRsJ2XnZT3Ok27Rs",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091864/WhatsApp_Image_2026-02-13_at_9.36.20_PM_1_ib17ue.jpg",
     bio: "An enthusiastic individual with a passion for coding and a knack for creativity. Actively engaged in multiple events, bringing innovative ideas and dedication to every project.",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/sanjitkamath",
@@ -308,7 +308,7 @@ export const members: Member[] = [
     team: "Media",
     year: "4th",
     imageUrl:
-      "https://drive.google.com/uc?export=view&id=1g4QESPDVSL0oW9DlBBayIo7qBBwhE8An",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091863/WhatsApp_Image_2026-02-13_at_9.36.26_PM_h0zlb6.jpg",
     bio: "I might seem lazy at times, but when it matters, I go all in.",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/divyanshi-chaudhary-103851259/",
@@ -340,7 +340,7 @@ export const members: Member[] = [
     team: "Media",
     year: "4th",
     imageUrl:
-      "https://drive.google.com/uc?export=view&id=1yvw325G7NAqPxGucb_EVzDSmlmULoCH8",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771096312/IMG-20251212-WA0002_-_Abhinav_Varma_lnaiwd.jpg",
     bio: "I am an intuitive learner who takes pride in seeing tasks through to completion. I'm supportive and always ready to contribute, and as a member of the content team, I bring creativity and precision to everything I work on.",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/abhinav-varma-28132a27a",
@@ -369,7 +369,7 @@ export const members: Member[] = [
   {
     id: 1, // T Harika
     name: "T Harika",
-    position: "Cultural Lead",
+    position: "Cultural Lead 2024-2025",
     role: "Founder Leads",
     team: undefined,
     year: "4th",
@@ -380,29 +380,18 @@ export const members: Member[] = [
       email: "hharikat@gmail.com",
     },
   },
-  {
-    id: 2, // UMME AAMINA
-    name: "UMME AAMINA",
-    position: "Member", // Was Co-Lead
-    role: "Student",
-    team: "Cultural",
-    year: "4th",
-    imageUrl:
-      "https://drive.google.com/uc?export=view&id=1ov1y0xyV3j1oN__fmqxL6KDGMitsK-Yd",
-    bio: "Co-lead of the Cultural Team. Just a girl who loves fashion and dance.",
-    socialLinks: { email: "ummeaamina19@gmail.com" },
-  },
-  {
-    id: 101, // Adyuth V
-    name: "Adyuth V",
-    position: "Cultural Co-Lead",
-    role: "Founder Leads",
-    team: undefined,
-    year: "4th",
-    imageUrl: "",
-    bio: "I am very enthusiastic and fun loving",
-    socialLinks: undefined,
-  },
+{
+  id: 2,
+  name: "UMME AAMINA",
+  position: "Cultural Co-Lead 2024-2025",
+  role: "Founder Leads",
+  team: undefined,
+  year: "4th",
+  imageUrl: "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091875/Aamina.jpg_vsfy0u.jpg",
+  bio: "Co-lead of the Cultural Team. Just a girl who loves fashion and dance.",
+  socialLinks: { email: "ummeaamina19@gmail.com" },
+},
+
   {
     id: 5, // Anubhuti jain
     name: "Anubhuti jain",
@@ -425,7 +414,7 @@ export const members: Member[] = [
     team: "Cultural",
     year: "4th",
     imageUrl:
-      "https://drive.google.com/uc?export=view&id=1btSftpDOL3uas_PWMrOrLjJelhgagUl0",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091863/WhatsApp_Image_2026-02-13_at_9.36.32_PM_d1g5dx.jpg",
     bio: "Passionate member of Aegis Cyber Club's Cultural team.",
     socialLinks: {
       email: "ttanurajput2568@gmail.com",
@@ -439,13 +428,14 @@ export const members: Member[] = [
     team: "Cultural",
     year: "4th",
     imageUrl:
-      "https://drive.google.com/uc?export=view&id=1hQLIjYlZojew8fizXabj78zTsHcDZJtq",
-    bio: "Efficiently juggling tasks with a smile and a bit of magic.1", // Placeholder bio if none
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771163193/1747065102090_uwcc9h.jpg",
+    bio: "", // Placeholder bio if none
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/nidhi-narayan-",
       email: "nidhinarayan2004@gmail.com",
     },
   },
+   
   {
     id: 1,
     name: "Samarth BC",
@@ -478,23 +468,23 @@ export const members: Member[] = [
       email: "kanishksingh778@gmail.com",
     },
   },
-  {
-    id: 301,
-    name: "Shreyas",
-    position: "Member",
-    role: "Student",
-    team: "Tech",
-    year: "4th",
-    imageUrl:
-      "https://res.cloudinary.com/dyiohvauq/image/upload/v1769533680/aegis/Tech/4th/shreyas.jpg",
-    bio: "Life, although it may only be an accumulation of anguish, is dear to me, and I will defend it",
-    socialLinks: {
-      linkedin: "https://www.linkedin.com/in/shreyasreddyb",
-      github: "https://github.com/shreyasreddyb",
-      email: "shreyasreddyb@gmail.com",
-      // twitter: "https://x.com/shreyasreddyb",
-    },
-  },
+  // {
+  //   id: 301,
+  //   name: "Shreyas",
+  //   position: "Member",
+  //   role: "Student",
+  //   team: "Tech",
+  //   year: "4th",
+  //   imageUrl:
+  //     "https://res.cloudinary.com/dyiohvauq/image/upload/v1769533680/aegis/Tech/4th/shreyas.jpg",
+  //   bio: "Life, although it may only be an accumulation of anguish, is dear to me, and I will defend it",
+  //   socialLinks: {
+  //     linkedin: "https://www.linkedin.com/in/shreyasreddyb",
+  //     github: "https://github.com/shreyasreddyb",
+  //     email: "shreyasreddyb@gmail.com",
+  //     // twitter: "https://x.com/shreyasreddyb",
+  //   },
+  // },
 
   {
     id: 303,
@@ -531,22 +521,22 @@ export const members: Member[] = [
   },
 
   // 4th Year Members
-  // {
-  //   id: 3,
-  //   name: "Ifrah Ashraf",
-  //   position: "Member",
-  //   role: "Student",
-  //   team: "Tech",
-  //   year: "4th",
-  //   imageUrl:
-  //     "https://drive.google.com/uc?export=view&id=1-vJeI4NhCK6ShfkczakNglXONlosN73d",
-  //   bio: "Hello world 👋🏼",
-  //   socialLinks: {
-  //     linkedin: "https://www.linkedin.com/in/ifrah-ashraf-6579a7278",
-  //     github: "https://github.com/ifrah-ashraf",
-  //     email: "ifrahashraf48@gmail.com",
-  //   },
-  // },
+  {
+    id: 3,
+    name: "Ifrah Ashraf",
+    position: "Member",
+    role: "Student",
+    team: "Tech",
+    year: "4th",
+    imageUrl:
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771164357/1734197038608_tnqwq9.jpg",
+    bio: "Hello world 👋🏼",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/ifrah-ashraf-6579a7278",
+      github: "https://github.com/ifrah-ashraf",
+      email: "ifrahashraf48@gmail.com",
+    },
+  },
 
   // 3rd Year Members
   {
@@ -628,38 +618,38 @@ export const members: Member[] = [
       email: "eshwarsaireddy07@gmail.com",
     },
   },
-  // {
-  //   id: 8,
-  //   name: "Ritisha Bhattacharjee",
-  //   position: "Member, Aegis",
-  //   role: "Student",
-  //   team: "Tech",
-  //   year: "3rd",
-  //   imageUrl:
-  //     "https://drive.google.com/uc?export=view&id=1tN_b7My9NKGHfoefk9l1Mal47fYYU4ee",
-  //   bio: "Passionate member of Aegis Cyber Club's Tech team.",
-  //   socialLinks: {
-  //     linkedin: "https://www.linkedin.com/in/ritisha-bhattacharjee-17b888282",
-  //     github: "https://www.github.com/ritishab0209",
-  //     email: "ritishab2003@gmail.com",
-  //   },
-  // },
-  // {
-  //   id: 9,
-  //   name: "Samruddha T H",
-  //   position: "Member, Aegis",
-  //   role: "Student",
-  //   team: "Tech",
-  //   year: "3rd",
-  //   imageUrl:
-  //     "https://drive.google.com/uc?export=view&id=15aSuWSjvQ9vmQVv8GN0my_PXtDd2Sk3C",
-  //   bio: "Cybersecurity enthusiast with a passion for building innovative tools",
-  //   socialLinks: {
-  //     linkedin: "https://www.linkedin.com/in/samruddhahonawade/",
-  //     github: "https://github.com/SamruddhaHonawade",
-  //     email: "samruddhahonawade@gmail.com",
-  //   },
-  // },
+  {
+    id: 8,
+    name: "Ritisha Bhattacharjee",
+    position: "Member, Aegis",
+    role: "Student",
+    team: "Tech",
+    year: "4th",
+    imageUrl:
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771164356/download_3_n9erlm.jpg",
+    bio: "Passionate member of Aegis Cyber Club's Tech team.",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/ritisha-bhattacharjee-17b888282",
+      github: "https://www.github.com/ritishab0209",
+      email: "ritishab2003@gmail.com",
+    },
+  },
+  {
+    id: 9,
+    name: "Samruddha T H",
+    position: "Member, Aegis",
+    role: "Student",
+    team: "Tech",
+    year: "4th",
+    imageUrl:
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771164357/Screenshot_2026-02-15_193428_noil4f.png",
+    bio: "Cybersecurity enthusiast with a passion for building innovative tools",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/samruddhahonawade/",
+      github: "https://github.com/SamruddhaHonawade",
+      email: "samruddhahonawade@gmail.com",
+    },
+  },
 
   // 2nd Year Members
   {
@@ -744,8 +734,8 @@ export const members: Member[] = [
     team: "Tech",
     year: "2nd",
     imageUrl:
-      "https://res.cloudinary.com/dyiohvauq/image/upload/v1769288901/aegis/Tech/2nd/shresth.webp",
-    bio: "Video Editor ",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091864/WhatsApp_Image_2026-02-13_at_9.47.44_PM_yjhgix.jpg",
+    bio: "Awaiting the next tech horizon, where innovation meets its epitome",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/shrestha-chandra-787452311",
       github: "https://github.com/Stxtics03",
@@ -815,7 +805,7 @@ export const members: Member[] = [
   //   team: "Operations",
   //   year: "4th",
   //   imageUrl:
-  //     "https://drive.google.com/uc?export=view&id=1GxewdFt0AHxCWIsR14PVSkPusXW1iMZk",
+  //     "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091863/WhatsApp_Image_2026-02-13_at_9.36.29_PM_iuujgw.jpg",
   //   bio: "Just a 21-year-old figuring out life—one line of code (and one emcee script) at a time. Probably overthinking my next big idea while pretending I've got it all together!",
   //   socialLinks: {
   //     linkedin: "http://linkedin.com/in/amareshwar-sai-a42b5622b",
@@ -927,49 +917,64 @@ export const members: Member[] = [
   //     email: "nidhinagesh01@gmail.com",
   //   },
   // },
-  // {
-  //   id: 25,
-  //   name: "Sachin I C",
-  //   position: "Member, Aegis",
-  //   role: "Student",
-  //   team: "Operations",
-  //   year: "3rd",
-  //   imageUrl:
-  //     "https://drive.google.com/uc?export=view&id=1-fte8jVPIFtxWFX_vqXFrZftaQRqOG5d",
-  //   bio: "Passionate member of Aegis Cyber Club's Operations team.",
-  //   socialLinks: { email: "sachinic2004@gmail.com" },
-  // },
-  // {
-  //   id: 26,
-  //   name: "Satwik",
-  //   position: "Member, Aegis",
-  //   role: "Student",
-  //   team: "Operations",
-  //   year: "3rd",
-  //   imageUrl:
-  //     "https://drive.google.com/uc?export=view&id=16iNzEGpLUZWLg3t4udtLW6eg-CA1rdea",
-  //   bio: "Passionate member of Aegis Cyber Club's Operations team.",
-  //   socialLinks: {
-  //     linkedin:
-  //       "https://www.linkedin.com/in/satwik-tomar-58112a215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-  //     email: "satwiktomar77@gmail.com",
-  //   },
-  // },
-  // {
-  //   id: 27,
-  //   name: "Vineeth S",
-  //   position: "Member, Aegis",
-  //   role: "Student",
-  //   team: "Operations",
-  //   year: "3rd",
-  //   imageUrl:
-  //     "https://drive.google.com/uc?export=view&id=1DnWiW597fmg314ouyGJ2RgRTvUDejL2B",
-  //   bio: "Passionate member of Aegis Cyber Club's Operations team.",
-  //   socialLinks: {
-  //     linkedin: "https://www.linkedin.com/in/vineeths23",
-  //     email: "vineeths2323@gmail.com",
-  //   },
-  // },
+{
+  id: 25,
+  name: "Sachin I C",
+  position: "Member, Aegis",
+  role: "Student",
+  team: "Operations",
+  year: "4th",
+  imageUrl: "https://drive.google.com/uc?export=view&id=1-fte8jVPIFtxWFX_vqXFrZftaQRqOG5d",
+  bio: "Passionate member of Aegis Cyber Club's Operations team.",
+  socialLinks: { email: "sachinic2004@gmail.com" },
+},
+
+  {
+    id: 26,
+    name: "Satwik",
+    position: "Member, Aegis",
+    role: "Student",
+    team: "Operations",
+    year: "4th",
+    imageUrl:
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771163995/1699198491369_kpyij5.jpg",
+    bio: "Passionate member of Aegis Cyber Club's Operations team.",
+    socialLinks: {
+      linkedin:
+        "https://www.linkedin.com/in/satwik-tomar-58112a215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      email: "satwiktomar77@gmail.com",
+    },
+  },
+  {
+    id: 27,
+    name: "Vineeth S",
+    position: "Member, Aegis",
+    role: "Student",
+    team: "Operations",
+    year: "4th",
+    imageUrl:
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771163997/download_2_tvchoc.jpg",
+    bio: "Passionate member of Aegis Cyber Club's Operations team.",
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/in/vineeths23",
+      email: "vineeths2323@gmail.com",
+    },
+  },
+ {
+  id: 904,
+  name: "Pratheek",
+  position: "Member",
+  role: "Student",
+  team: "Operations",
+  year: "4th",
+  imageUrl: "",
+  bio: "",
+  socialLinks: {
+    linkedin: undefined,
+    github: undefined,
+    email: "pratheeks236@gmail.com",
+  },
+},
 
   // 2nd Year Members
   {
@@ -1101,7 +1106,7 @@ export const members: Member[] = [
     imageUrl:
       "https://res.cloudinary.com/dyiohvauq/image/upload/v1769291281/aegis/Media/3rd/arfra.webp",
     bio: "An open-minded and energetic student who enjoys connecting with people and contributing positively to the club",
-    socialLinks: { email: "afrazahmed058@gmail.com" },
+    socialLinks: { linkedin : "https://www.linkedin.com/in/afraz-ahmed-8821172a2/" , email: "afrazahmed058@gmail.com" },
   },
 
   // {
@@ -1128,7 +1133,7 @@ export const members: Member[] = [
   //   team: "Media",
   //   year: "4th",
   //   imageUrl:
-  //     "https://drive.google.com/uc?export=view&id=1OwbBUhcOVVbe7qXyqRsJ2XnZT3Ok27Rs",
+  //     "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091864/WhatsApp_Image_2026-02-13_at_9.36.20_PM_1_ib17ue.jpg",
   //   bio: "An enthusiastic individual with a passion for coding and a knack for creativity. Actively engaged in multiple events, bringing innovative ideas and dedication to every project.",
   //   socialLinks: {
   //     linkedin:
@@ -1163,12 +1168,12 @@ export const members: Member[] = [
     team: "Media",
     year: "3rd",
     imageUrl:
-      "https://res.cloudinary.com/dyiohvauq/image/upload/v1769295982/aegis/Operations/3rd/adil.webp",
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771163449/Screenshot_2026-02-15_192034_ogc1cp.png",
     bio: "A tech enthusiast with a creative eye for photography and visual storytelling",
     socialLinks: { email: "adilnh8317@gmail.com" },
   },
 
-  //   {
+  // {
   //     id: 40,
   //     name: "Divyanshi",
   //     position: "Member, Aegis",
@@ -1176,7 +1181,7 @@ export const members: Member[] = [
   //     team: "Media",
   //     year: "3rd",
   //     imageUrl:
-  //       "https://drive.google.com/uc?export=view&id=1g4QESPDVSL0oW9DlBBayIo7qBBwhE8An",
+  //       "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091863/WhatsApp_Image_2026-02-13_at_9.36.26_PM_h0zlb6.jpg",
   //     bio: "I might seem lazy at times, but when it matters, I go all in.",
   //     socialLinks: {
   //       linkedin: "https://www.linkedin.com/in/divyanshi-chaudhary-103851259/",
@@ -1267,9 +1272,9 @@ export const members: Member[] = [
     team: "Media",
     year: "2nd",
     imageUrl:
-      "  https://res.cloudinary.com/dyiohvauq/image/upload/v1769292080/aegis/Media/2nd/shresht.webp",
-    bio: "Video Editor.",
-    socialLinks: { email: "shrstha.2005@gmail.com" },
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091864/WhatsApp_Image_2026-02-13_at_9.47.44_PM_yjhgix.jpg",
+    bio: "Trust the Smooth Operation in making the simply lovely edit",
+    socialLinks: {linkedin : "https://www.linkedin.com/in/shrestha-chandra-787452311/" , email: "shrstha.2005@gmail.com" },
   },
 
   {
@@ -1305,7 +1310,7 @@ export const members: Member[] = [
   {
     id: 58,
     name: "Srushti",
-    position: "co-lead",
+    position: "Co-lead",
     role: "Student",
     team: "Cultural",
     year: "3rd",
@@ -1330,6 +1335,17 @@ export const members: Member[] = [
   // bio: "I am a creative and curious learner, always eager to explore new ideas and bring them to life. With a knack for innovation and storytelling, I excel at blending knowledge with imagination.",
   // socialLinks: { email: "hharikat@gmail.com" },
   // },
+  {
+  id: 101,
+  name: "Adyuth V",
+  position: "Member",
+  role: "Student",
+  team: undefined,
+  year: "4th",
+  imageUrl: "https://res.cloudinary.com/deu1pbsug/image/upload/v1771139963/WhatsApp_Image_2026-02-15_at_11.41.50_AM_yrmgx1.jpg",
+  bio: "I am very enthusiastic and fun loving",
+  socialLinks: undefined,
+},
   // {
   // id: 50,
   // name: "UMME AAMINA",
@@ -1338,7 +1354,7 @@ export const members: Member[] = [
   // team: "Cultural",
   // year: "4th",
   // imageUrl:
-  // "https://drive.google.com/uc?export=view&id=1ov1y0xyV3j1oN__fmqxL6KDGMitsK-Yd",
+  // "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091875/Aamina.jpg_vsfy0u.jpg",
   // bio: "Co-lead of the Cultural Team. Just a girl who loves fashion and dance.",
   // socialLinks: { email: "ummeaamina19@gmail.com" },
   // },
@@ -1388,6 +1404,37 @@ export const members: Member[] = [
     },
   },
   {
+  id: 901,
+  name: "Pragathi BS",
+  position: "Member",
+  role: "Student",
+  team: "Cultural",
+  year: "3rd",
+  imageUrl: "https://res.cloudinary.com/deu1pbsug/image/upload/v1771163568/download_nt4ld3.jpg",
+  bio: "I’m Pragathi — a curious mind with a soft heart and creative dreams.",
+  socialLinks: {
+    linkedin: undefined,
+    github: undefined,
+    email: "pragathireddy105@gmail.com",
+  },
+},
+
+{
+  id: 902,
+  name: "Reshma Kotabal",
+  position: "Member",
+  role: "Student",
+  team: "Cultural",
+  year: "3rd",
+  imageUrl: "https://res.cloudinary.com/deu1pbsug/image/upload/v1771163608/download_1_ukyplu.jpg",
+  bio: "A good listener who loves music and travel. Most confused animal. Cultural team member.",
+  socialLinks: {
+    linkedin: "https://www.linkedin.com/in/reshma-kotabal-632781290",
+    github: "https://github.com/80500reshma",
+    email: "reshmamkotabal@gmail.com",
+  },
+},
+  {
     id: 54,
     name: "Mulakaledu Reddy Poojitha ",
     position: "Member",
@@ -1407,7 +1454,7 @@ export const members: Member[] = [
   // team: "Cultural",
   // year: "3rd",
   // imageUrl:
-  // "https://drive.google.com/uc?export=view&id=1q8_fddR8Xod9Ap2UgrZRAljsjKML4V3A",
+  // "https://res.cloudinary.com/deu1pbsug/image/upload/v1771094539/rakshith_fmwadf.jpg",
   // bio: "Awkwardly extroverted who mingles with everyone",
   // socialLinks: { email: "lohitharadhya164@gmail.com" },
   // },
@@ -1435,7 +1482,7 @@ export const members: Member[] = [
   // team: "Cultural",
   // year: "3rd",
   // imageUrl:
-  // "https://drive.google.com/uc?export=view&id=1btSftpDOL3uas_PWMrOrLjJelhgagUl0",
+  // "https://res.cloudinary.com/deu1pbsug/image/upload/v1771091863/WhatsApp_Image_2026-02-13_at_9.36.32_PM_d1g5dx.jpg",
   // bio: "Passionate member of Aegis Cyber Club's Cultural team.",
   // socialLinks: { email: "ttanurajput2568@gmail.com" },
   // },
@@ -1450,6 +1497,6 @@ export const members: Member[] = [
     imageUrl:
       "https://res.cloudinary.com/dyiohvauq/image/upload/v1769293306/aegis/Cultural/2nd/kazim.jpg",
     bio: "Chill dude who likes to stay active through badminton and wants to learn everything about cybersecurity.",
-    socialLinks: { email: "syedkazimraza2205@gmail.com" },
+    socialLinks: {  email: "syedkazimraza2205@gmail.com" },
   },
 ];
