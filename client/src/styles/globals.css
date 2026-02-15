@@ -6,8 +6,7 @@
 /* Proza Libre Font - Local Files */
 @font-face {
   font-family: "Proza Libre1";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Regular.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -15,8 +14,7 @@
 
 @font-face {
   font-family: "Proza Libre2";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Italic.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -24,8 +22,7 @@
 
 @font-face {
   font-family: "Proza Libre3";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Medium.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -33,8 +30,7 @@
 
 @font-face {
   font-family: "Proza Libre4";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-MediumItalic.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-MediumItalic.ttf") format("truetype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
@@ -42,8 +38,7 @@
 
 @font-face {
   font-family: "Proza Libre5";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-SemiBold.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -51,8 +46,7 @@
 
 @font-face {
   font-family: "Proza Libre6";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-SemiBoldItalic.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-SemiBoldItalic.ttf") format("truetype");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
@@ -68,8 +62,7 @@
 
 @font-face {
   font-family: "Proza Libre8";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-BoldItalic.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -77,8 +70,7 @@
 
 @font-face {
   font-family: "Proza Libre9";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-ExtraBold.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -86,8 +78,7 @@
 
 @font-face {
   font-family: "Proza Libre10";
-  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-ExtraBoldItalic.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/ProzaLibre/ProzaLibre-ExtraBoldItalic.ttf") format("truetype");
   font-weight: 800;
   font-style: italic;
   font-display: swap;
@@ -131,8 +122,7 @@
 /* Pacifico Font - used in 'meet' word of members page */
 @font-face {
   font-family: "Pacifico";
-  src: url("../assets/Fonts/Pacifico-Regular/Pacifico-Regular.ttf")
-    format("truetype");
+  src: url("../assets/Fonts/Pacifico-Regular/Pacifico-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -222,16 +212,16 @@ body {
 }
 
 .glass-card {
-  background: rgba(24, 24, 27, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(24, 24, 27, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  background: rgba(24, 24, 27, 0.6);
-  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(24, 24, 27, 0.8);
+  border-color: rgba(59, 130, 246, 0.8);
   transform: translateY(-4px);
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
@@ -274,8 +264,7 @@ body {
 }
 
 .animate-scroll {
-  animation: scroll var(--animation-duration) var(--animation-direction) linear
-    infinite;
+  animation: scroll var(--animation-duration) var(--animation-direction) linear infinite;
 }
 
 /* Gallery hover pause functionality */
@@ -351,6 +340,7 @@ body {
 }
 
 @keyframes neon-pulse {
+
   0%,
   100% {
     text-shadow:
@@ -451,6 +441,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
 /* =========================================================
    ACHIEVEMENTS PAGE – CUSTOM ADDITIONS (SCOPED & MINIMAL)
    ========================================================= */
@@ -461,6 +452,7 @@ body {
     opacity: 0;
     transform: translateY(18px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -477,6 +469,7 @@ body {
     opacity: 0;
     transform: scale(0.85);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -509,12 +502,10 @@ body {
   content: "";
   position: absolute;
   inset: -35%;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(103, 232, 249, 0.18),
-    transparent 60%
-  );
+  background: linear-gradient(120deg,
+      transparent 30%,
+      rgba(103, 232, 249, 0.18),
+      transparent 60%);
   transform: translateX(-120%);
   transition: transform 0.7s ease;
   pointer-events: none;
@@ -529,9 +520,11 @@ body {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-6px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -546,9 +539,11 @@ body {
   0% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(6px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -563,6 +558,7 @@ body {
     opacity: 0;
     transform: translateY(12px) scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -574,10 +570,12 @@ body {
 }
 
 @keyframes bounceSoft {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-4px);
   }
@@ -594,4 +592,43 @@ body {
     0 0 1px currentColor,
     0 0 1px currentColor,
     0 0 1px currentColor;
+}
+
+/* =========================================================
+   REGISTRATION FORM STYLES
+   ========================================================= */
+
+/* Event card animations */
+.event-card {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+/* Form input and group styles */
+.form-group {
+  @apply relative;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-zinc-300 mb-2 font-['Proza_Libre3'];
+}
+
+.form-input {
+  @apply w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 font-['Proza_Libre1'];
+}
+
+.form-input:hover {
+  @apply border-zinc-600;
+}
+
+.form-input:focus {
+  @apply bg-zinc-900/70;
+}
+
+/* Form validation styles */
+.form-input:invalid:not(:placeholder-shown) {
+  @apply border-red-500;
+}
+
+.form-input:valid:not(:placeholder-shown) {
+  @apply border-green-500;
 }

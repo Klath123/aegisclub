@@ -5,6 +5,7 @@ import Home from "./pages/Home.tsx";
 import Sandbox from "./pages/Sandbox";
 import Glitchcraft from "./pages/Glitchcraft.tsx";
 import EventsGallery from "./pages/Gallery.tsx";
+import Register from "./pages/Register.tsx";
 import NotFound from "./pages/NotFound";
 import GlitchCraft2 from './pages/GlitchCraft2';
 
@@ -52,6 +53,7 @@ function App() {
           <Route path="glitchcraft" element={<Glitchcraft />} />
           <Route path="/glitchcraft-2.0" element={<GlitchCraft2 />} />
           <Route path="gallery" element={<EventsGallery />} />
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
