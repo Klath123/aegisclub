@@ -1356,7 +1356,7 @@ export const members: Member[] = [
   name: "Adyuth V",
   position: "Member",
   role: "Student",
-  team: undefined,
+  team: "Cultural",
   year: "4th",
   imageUrl: "https://res.cloudinary.com/deu1pbsug/image/upload/v1771139963/WhatsApp_Image_2026-02-15_at_11.41.50_AM_yrmgx1.jpg",
   bio: "I am very enthusiastic and fun loving",
