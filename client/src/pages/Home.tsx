@@ -93,7 +93,7 @@ const Home = () => {
                                     {/* GLITCHCRAFT Banner - Left Side */}
                                     {showEventBanners && (
                                         <Link
-                                            to="/glitchcraft"
+                                            to="/glitchcraft-2.0"
                                             className="absolute left-1/2 -translate-x-1/2 top-auto bottom-[-260px] md:left-8 md:bottom-auto md:top-1/2 md:-translate-x-0 md:-translate-y-1/2 md:-rotate-[8deg] lg:left-10 xl:left-2 w-52 h-28 sm:w-56 sm:h-32 md:w-60 md:h-34 lg:w-72 lg:h-40 xl:w-96 xl:h-48 fade-in-blur cursor-pointer group z-20"
                                             style={{
                                                 transition: 'all 0.3s ease',
