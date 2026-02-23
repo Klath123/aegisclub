@@ -46,6 +46,13 @@ const GlitchCraft2 = () => {
       prize: "₹1,500 Pool"
     },
     {
+      title: "Last Squad Standing",
+      category: "Esports",
+      icon: <Gamepad2 size={18} className="text-orange-400" />,
+      desc: "Drop into a brutal battleground where every second tests your instincts and every decision decides survival. Precision gunplay, aggressive rotations, and flawless team coordination are essential as the play zone tightens. Outsmart rival squads, dominate close-combat encounters, and maintain control under fire. Only the most disciplined and fearless team will endure the chaos and claim victory when the final shot is fired.",
+      prize: "₹1,500 Pool"
+    },
+    {
       title: "Escape the Enigma",
       category: "Mystery",
       icon: <Key size={18} className="text-yellow-400" />,
