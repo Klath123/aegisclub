@@ -929,22 +929,22 @@ export const members: Member[] = [
 //   socialLinks: { email: "sachinic2004@gmail.com" },
 // },
 
-//   {
-//     id: 26,
-//     name: "Satwik",
-//     position: "Member, Aegis",
-//     role: "Student",
-//     team: "Operations",
-//     year: "4th",
-//     imageUrl:
-//       "https://res.cloudinary.com/deu1pbsug/image/upload/v1771163995/1699198491369_kpyij5.jpg",
-//     bio: "Passionate member of Aegis Cyber Club's Operations team.",
-//     socialLinks: {
-//       linkedin:
-//         "https://www.linkedin.com/in/satwik-tomar-58112a215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-//       email: "satwiktomar77@gmail.com",
-//     },
-//   },
+  {
+    id: 26,
+    name: "Satwik",
+    position: "Member",
+    role: "Student",
+    team: "Operations",
+    year: "3rd",
+    imageUrl:
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1771163995/1699198491369_kpyij5.jpg",
+    bio: "Passionate member of Aegis Cyber Club's Operations team.",
+    socialLinks: {
+      linkedin:
+        "https://www.linkedin.com/in/satwik-tomar-58112a215?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      email: "satwiktomar77@gmail.com",
+    },
+  },
 //   {
 //     id: 27,
 //     name: "Vineeth S",
@@ -1099,7 +1099,7 @@ export const members: Member[] = [
   {
     id: 39,
     name: "Afraz Ahmed",
-    position: "co-Lead",
+    position: "Co-Lead",
     role: "Student",
     team: "Media",
     year: "3rd",
@@ -1178,7 +1178,7 @@ export const members: Member[] = [
 
   {
     id: 38,
-    name: "ADIL",
+    name: "Adil",
     position: "Member",
     role: "Student",
     team: "Media",
@@ -1283,7 +1283,7 @@ export const members: Member[] = [
   {
     id: 47,
     name: "Shrestha",
-    position: "Member, Aegis",
+    position: "Member",
     role: "Student",
     team: "Media",
     year: "2nd",
