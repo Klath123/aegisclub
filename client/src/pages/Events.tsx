@@ -49,6 +49,7 @@ const EventsPage = () => {
         'The ultimate 24-hour international hackathon returns! Join brilliant minds from around the globe to build innovative solutions, compete for amazing prizes, and push the boundaries of technology.',
       missionId: 'RECURZIVE-V3',
       showCTA: true,
+      ctaLink: 'https://aegis-sandbox-v.devfolio.co/overview',// added ctaLink for sandbox v2.0 
       icon: Terminal,
       color: {
         primary: 'text-cyan-400',
@@ -78,6 +79,7 @@ const EventsPage = () => {
         'The ultimate 24-hour international hackathon returns! Join brilliant minds from around the globe to build innovative solutions, compete for amazing prizes, and push the boundaries of technology.',
       missionId: 'RECURZIVE-V2',
       showCTA: true,
+      ctaLink: '/sandbox',
       icon: Terminal,
       color: {
         primary: 'text-cyan-400',

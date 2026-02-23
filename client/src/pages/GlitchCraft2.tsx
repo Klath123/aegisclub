@@ -46,6 +46,13 @@ const GlitchCraft2 = () => {
       prize: "₹1,500 Pool"
     },
     {
+      title: "Last Squad Standing - BGMI",
+      category: "Esports",
+      icon: <Gamepad2 size={18} className="text-orange-400" />,
+      desc: "Drop into a brutal battleground where every second tests your instincts and every decision decides survival. Last Squad Standing is an uncompromising BGMI esports clash designed for squads that refuse to back down. Precision gunplay, aggressive rotations, and flawless team coordination are essential as the play zone tightens and pressure escalates. Outsmart rival squads, dominate close-combat encounters, and maintain control under fire. Only the most disciplined and fearless team will endure the chaos and claim victory when the final shot is fired.",
+      prize: "₹1,500 Pool"
+    },
+    {
       title: "Escape the Enigma",
       category: "Mystery",
       icon: <Key size={18} className="text-yellow-400" />,
@@ -164,7 +171,7 @@ const GlitchCraft2 = () => {
           {/* 3. Stats (4 cols, 2 rows) */}
           <div className="sm:col-span-2 lg:col-span-4 lg:row-span-2 bg-zinc-900 border border-blue-500/20 hover:border-blue-500/40 transition rounded-2xl p-5 grid grid-cols-2 gap-4 min-h-[240px]">
             {[
-              { label: 'Events', value: '06' },
+              { label: 'Events', value: '07' },
               { label: 'Days', value: '02' },
               { label: 'Teams', value: '50+' },
               { label: 'Energy', value: '100%' }
