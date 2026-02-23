@@ -157,7 +157,7 @@ export const RegisterForm: React.FC = () => {
             }
 
             // Insert into Supabase
-            const { error } = await supabase
+            const { error } = await supabase!
                 .from(tableName)
                 .insert([dbData])
                 .select();

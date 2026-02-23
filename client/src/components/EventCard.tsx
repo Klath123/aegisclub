@@ -110,13 +110,13 @@ const EventCard = ({ event, onHover, onLeave }: EventCardProps) => {
               whileHover={!event.disableCTA ? { y: -1 } : {}}
               whileTap={!event.disableCTA ? { scale: 0.98 } : {}}
               onClick={() => {
-              if (event.disableCTA) return;
-              if (event.ctaLink) {
-                window.open(event.ctaLink, '_blank', 'noopener,noreferrer');
-              } else {
-                navigate(`/${event.title.toLowerCase().replace(' ', '-')}`);
-              }
-            }}
+                if (event.disableCTA) return;
+                if (event.ctaLink) {
+                  window.open(event.ctaLink, '_blank', 'noopener,noreferrer');
+                } else {
+                  navigate(`/${event.title.toLowerCase().replace(' ', '-')}`);
+                }
+              }}
               disabled={event.disableCTA}
               className={`
                 mt-auto w-full py-2.5
