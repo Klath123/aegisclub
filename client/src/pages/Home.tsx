@@ -131,7 +131,7 @@ const Home = () => {
                                     {/* SANDBOX Banner - Right Side */}
                                     {showEventBanners && (
                                         <a
-                                            href="https://aegis-sandbox-v.devfolio.co/"
+                                            href="https://sandbox.aegisclub.site/"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="absolute left-1/2 -translate-x-1/2 top-auto bottom-[-400px] md:left-auto md:right-8 md:bottom-auto md:top-1/2 md:translate-x-0 md:-translate-y-1/2 md:rotate-[8deg] lg:right-10 xl:right-2 w-52 h-28 sm:w-56 sm:h-32 md:w-60 md:h-34 lg:w-72 lg:h-40 xl:w-80 xl:h-48 fade-in-blur cursor-pointer group z-20"
