@@ -15,7 +15,8 @@ const EVENTS: Event[] = [
     { id: "lens-and-lore", name: "Lens & Lore", type: "SOLO_OR_PAIR" },
     { id: "popcorn-panic", name: "Popcorn Panic", type: "GROUP", teamSize: 3 },
     { id: "escape-enigma", name: "Escape the Enigma", type: "GROUP", teamSize: 4 },
-    { id: "valorant-tournament", name: "VALORANT Tournament", type: "GROUP", teamSize: 5 },
+    { id: "valorant-tournament", name: "Valorant Battle", type: "GROUP", teamSize: 5 },
+    { id: "bgmi-lss", name: "BGMI - Last Squad Standing", type: "GROUP", teamSize: 4 },
 ];
 
 // Table name mapping
@@ -26,6 +27,7 @@ const TABLE_NAMES: Record<string, string> = {
     "popcorn-panic": "Popcorn_Panic",
     "escape-enigma": "Escape_the_Enigma",
     "valorant-tournament": "VALORANT_Tournament",
+    "bgmi-lss": "BGMI_Last_Squad_Standing",
 };
 
 // Form data interface
@@ -207,20 +209,16 @@ export const RegisterForm: React.FC = () => {
                             Choose an event to register for Glitchcraft
                         </p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {EVENTS.map((event, index) => (
+                        {/* Row 1: 4 events */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                            {EVENTS.slice(0, 4).map((event, index) => (
                                 <button
                                     key={event.id}
                                     onClick={() => handleEventSelect(event)}
-                                    className="event-card glass-card rounded-xl p-6 text-left group relative overflow-hidden"
-                                    style={{
-                                        animationDelay: `${index * 0.1}s`,
-                                    }}
+                                    className="event-card glass-card rounded-xl p-6 text-left group relative overflow-hidden flex flex-col justify-between"
+                                    style={{ animationDelay: `${index * 0.1}s`, minHeight: '170px' }}
                                 >
-                                    {/* Animated border effect */}
                                     <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-blue-500/20 via-pink-500/20 to-blue-400/20"></div>
-
-                                    {/* Event type badge */}
                                     <div className="flex items-center justify-between mb-4">
                                         <span
                                             className={`px-3 py-1 rounded-full text-xs font-semibold ${event.type === "SOLO"
@@ -235,31 +233,56 @@ export const RegisterForm: React.FC = () => {
                                             {event.type === "GROUP" && event.teamSize && ` (${event.teamSize})`}
                                         </span>
                                     </div>
-
-                                    {/* Event name */}
-                                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-300 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300" style={{ fontFamily: '"Ikaros", sans-serif' }}>
+                                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-300 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300" style={{ fontFamily: '"Ikaros", sans-serif' }}>
                                         {event.name}
                                     </h3>
-
-                                    {/* Arrow indicator */}
                                     <div className="flex items-center text-white/60 group-hover:text-pink-300 transition-colors duration-300" style={{ fontFamily: '"Proza Libre", sans-serif' }}>
                                         <span className="text-sm mr-2">Register Now</span>
-                                        <svg
-                                            className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                            />
+                                        <svg className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                         </svg>
                                     </div>
                                 </button>
                             ))}
+                        </div>
+
+                        {/* Row 2: 3 events — centred via w-3/4 mx-auto wrapper */}
+                        <div className="w-full lg:w-3/4 lg:mx-auto">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {EVENTS.slice(4).map((event, index) => (
+                                    <button
+                                        key={event.id}
+                                        onClick={() => handleEventSelect(event)}
+                                        className="event-card glass-card rounded-xl p-6 text-left group relative overflow-hidden flex flex-col justify-between"
+                                        style={{ animationDelay: `${(index + 4) * 0.1}s`, minHeight: '170px' }}
+                                    >
+                                        <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-blue-500/20 via-pink-500/20 to-blue-400/20"></div>
+                                        <div className="flex items-center justify-between mb-4">
+                                            <span
+                                                className={`px-3 py-1 rounded-full text-xs font-semibold ${event.type === "SOLO"
+                                                    ? "bg-blue-500/20 text-blue-300 border border-blue-400/30"
+                                                    : event.type === "SOLO_OR_PAIR"
+                                                        ? "bg-pink-500/20 text-pink-300 border border-pink-400/30"
+                                                        : "bg-blue-600/20 text-blue-200 border border-blue-500/30"
+                                                    }`}
+                                                style={{ fontFamily: '"Proza Libre", sans-serif' }}
+                                            >
+                                                {event.type === "SOLO_OR_PAIR" ? "SOLO/PAIR" : event.type}
+                                                {event.type === "GROUP" && event.teamSize && ` (${event.teamSize})`}
+                                            </span>
+                                        </div>
+                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-300 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300" style={{ fontFamily: '"Ikaros", sans-serif' }}>
+                                            {event.name}
+                                        </h3>
+                                        <div className="flex items-center text-white/60 group-hover:text-pink-300 transition-colors duration-300" style={{ fontFamily: '"Proza Libre", sans-serif' }}>
+                                            <span className="text-sm mr-2">Register Now</span>
+                                            <svg className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </div>
+                                    </button>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ) : (
