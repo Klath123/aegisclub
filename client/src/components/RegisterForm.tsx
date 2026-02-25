@@ -19,7 +19,7 @@ const EVENTS: Event[] = [
     { id: "valorant-tournament", name: "Valorant Battle", type: "GROUP", teamSize: 5 },
     { id: "bgmi-lss", name: "BGMI - Last Squad Standing", type: "GROUP", teamSize: 4 },
 ];
-// just add "closed: true" to disable registration for an event
+// add "closed: true" to disable registration for an event
 
 // Table name mapping
 const TABLE_NAMES: Record<string, string> = {
