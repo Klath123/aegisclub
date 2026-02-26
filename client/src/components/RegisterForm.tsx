@@ -11,7 +11,7 @@ interface Event {
 }
 
 const EVENTS: Event[] = [
-    { id: "pitch-pe-paisa", name: "Pitch Pe Paisa", type: "GROUP", teamSize: 4},
+    { id: "pitch-pe-paisa", name: "Pitch Pe Paisa", type: "GROUP", teamSize: 4,closed: true},
     { id: "decipher-blitz", name: "Decipher Blitz", type: "SOLO" },
     { id: "lens-and-lore", name: "Lens & Lore", type: "SOLO_OR_PAIR" },
     { id: "popcorn-panic", name: "Popcorn Panic", type: "GROUP", teamSize: 3 },
