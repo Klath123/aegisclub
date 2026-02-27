@@ -1513,7 +1513,7 @@ export const members: Member[] = [
     imageUrl:
       "https://res.cloudinary.com/deu1pbsug/image/upload/v1772124413/IMG_20251224_181303_-_Riya_Sisodiya_q0vnkx.jpg",
     bio: "Part of the cultural team, keen to learn anchoring and public speaking",
-    socialLinks: {},
+    socialLinks: {  email: "riyasisodiya31@gmail.com"  },
   },
 
   {
