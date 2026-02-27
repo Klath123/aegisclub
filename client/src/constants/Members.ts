@@ -1504,6 +1504,19 @@ export const members: Member[] = [
   // },
   // 2nd Year Members
   {
+    id: 59,
+    name: "Riya Sisodiya",
+    position: "Member",
+    role: "Student",
+    team: "Cultural",
+    year: "2nd",
+    imageUrl:
+      "https://res.cloudinary.com/deu1pbsug/image/upload/v1772124413/IMG_20251224_181303_-_Riya_Sisodiya_q0vnkx.jpg",
+    bio: "Part of the cultural team, keen to learn anchoring and public speaking",
+    socialLinks: {},
+  },
+
+  {
     id: 60,
     name: "Kazim Raza",
     position: "Member",
