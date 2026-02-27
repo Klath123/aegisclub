@@ -21,6 +21,16 @@ const SandboxDetail = lazy(() => import("./pages/Sandbox.tsx"));
 const GlitchcraftDetail = lazy(() => import("./components/GlitchcraftDetail.tsx"));
 // const EventsPage = lazy(() => import("./pages/Events.tsx"));
 
+// Dashboard pages (lazy loaded)
+const Dashboard = lazy(() => import("./pages/Dashboard.tsx"));
+const PitchPePaisa = lazy(() => import("./pages/dashboard/PitchPePaisa.tsx"));
+const DecipherBlitz = lazy(() => import("./pages/dashboard/DecipherBlitz.tsx"));
+const LensAndLore = lazy(() => import("./pages/dashboard/LensAndLore.tsx"));
+const PopcornPanic = lazy(() => import("./pages/dashboard/PopcornPanic.tsx"));
+const EscapeEnigma = lazy(() => import("./pages/dashboard/EscapeEnigma.tsx"));
+const ValorantBattle = lazy(() => import("./pages/dashboard/ValorantBattle.tsx"));
+const BGMILastSquad = lazy(() => import("./pages/dashboard/BGMILastSquad.tsx"));
+
 // Loader fallback
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen bg-[#0a0a0f]">
@@ -56,6 +66,16 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+
+        {/* Dashboard — outside Layout (no navbar/footer) */}
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="dashboard/pitch-pe-paisa" element={<PitchPePaisa />} />
+        <Route path="dashboard/decipher-blitz" element={<DecipherBlitz />} />
+        <Route path="dashboard/lens-and-lore" element={<LensAndLore />} />
+        <Route path="dashboard/popcorn-panic" element={<PopcornPanic />} />
+        <Route path="dashboard/escape-enigma" element={<EscapeEnigma />} />
+        <Route path="dashboard/valorant-battle" element={<ValorantBattle />} />
+        <Route path="dashboard/bgmi-lss" element={<BGMILastSquad />} />
       </Routes>
     </Suspense>
   );

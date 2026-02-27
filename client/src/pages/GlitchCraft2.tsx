@@ -10,69 +10,117 @@ import {
   Film,
   Video,
   UserPlus,
-  DollarSign, 
+  DollarSign,
 } from 'lucide-react';
+
+interface Coordinator {
+  name: string;
+  phone: string;
+}
+
+interface Event {
+  title: string;
+  category: string;
+  icon: React.ReactNode;
+  desc: string;
+  prize: string;
+  coordinators: Coordinator[];
+}
 
 const GlitchCraft2 = () => {
   const [currentImg, setCurrentImg] = useState(0);
 
   const images = [
     "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334195/13/part_1/b6f701fe-c302-48ac-a0d5-2f3b68ab3e33.webp",
-        "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334517/13/part_1/img_4940.webp",
-        "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334294/13/part_1/img_1242.webp",
-        "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334325/13/part_1/img_4841.webp",
+    "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334517/13/part_1/img_4940.webp",
+    "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334294/13/part_1/img_1242.webp",
+    "https://res.cloudinary.com/dyiohvauq/image/upload/v1769334325/13/part_1/img_4841.webp",
   ];
 
   useEffect(() => {
-  const timer = setInterval(() => {
-    setCurrentImg((prev) => (prev + 1) % images.length);
-  }, 3000);
-  return () => clearInterval(timer);
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
   }, [images.length]);
 
-  const eventsList = [
+  const eventsList: Event[] = [
     {
       title: "Decipher Blitz",
       category: "Cybersecurity",
       icon: <Terminal size={18} className="text-blue-400" />,
       desc: "Are you ready to test your cybersecurity skills? Think fast, solve puzzles, and capture flags in a high-stakes battle. Compete in Standard CTF and Rapid-Fire Challenge, racing against time and rivals to claim victory!",
-      prize: "₹1,500 Pool"
+      prize: "₹1,500 Pool",
+      coordinators: [
+        { name: "Devansh Pateriya", phone: "+91 72619 21863" },
+        { name: "Keshav Lath", phone: "+91 91536 23331" },
+      ],
     },
     {
       title: "Valorant Battle",
       category: "Esports",
       icon: <Gamepad2 size={18} className="text-purple-400" />,
       desc: "VALORANT is a tactical 5v5 FPS where precision shooting meets strategic ability usage. Every round is a test of teamwork, map control, and clutch decision-making.The Aegis club is organizing a competitive VALORANT tournament open to teams ready to battle it out for glory.",
-      prize: "₹1,500 Pool"
+      prize: "₹1,500 Pool",
+      coordinators: [
+        { name: "Dhruthi", phone: "+91 9901497915" },
+        { name: "Abhinav", phone: "+91 9901497915" },
+      ],
+    },
+    {
+      title: "Last Squad Standing - BGMI",
+      category: "Esports",
+      icon: <Gamepad2 size={18} className="text-orange-400" />,
+      desc: "Drop into a brutal battleground where every second tests your instincts and every decision decides survival. Last Squad Standing is an uncompromising BGMI esports clash designed for squads that refuse to back down. Precision gunplay, aggressive rotations, and flawless team coordination are essential as the play zone tightens and pressure escalates. Outsmart rival squads, dominate close-combat encounters, and maintain control under fire. Only the most disciplined and fearless team will endure the chaos and claim victory when the final shot is fired.",
+      prize: "₹1,500 Pool",
+      coordinators: [
+        { name: "Kanishk Singh", phone: "+91 8318169685" },
+        { name: "Lochan Arun", phone: "+91 9980470040" },
+      ],
     },
     {
       title: "Escape the Enigma",
       category: "Mystery",
       icon: <Key size={18} className="text-yellow-400" />,
-      desc: "Think fast. Move faster. The door locks behind you, the timer starts, and it’s game on. This escape room throws you into an intense, immersive challenge packed with clever puzzles, hidden clues, and unexpected twists. Team up with your friends, test your logic, and see who keeps their cool under pressure. You’ll need sharp minds, bold moves, and strong teamwork to beat the clock. Bragging rights included — if you escape in time",
-      prize: "₹1,500 Pool"
+      desc: "Think fast. Move faster. The door locks behind you, the timer starts, and it's game on. This escape room throws you into an intense, immersive challenge packed with clever puzzles, hidden clues, and unexpected twists. Team up with your friends, test your logic, and see who keeps their cool under pressure. You'll need sharp minds, bold moves, and strong teamwork to beat the clock. Bragging rights included — if you escape in time",
+      prize: "₹1,500 Pool",
+      coordinators: [
+        { name: "Lochan Arun", phone: "+91 9980470040" },
+      ],
     },
     {
       title: "Lens & Lore",
       category: "Media",
       icon: <Film size={18} className="text-red-400" />,
-      desc: "Every corner has a story waiting to be told. Lens & Lore challenges you to capture the spirit, emotions, and unseen narratives of our campus through your creative vision. In just two hours, you must imagine, shoot, and craft a compelling visual story, either through a powerful photo sequence or a short cinematic video. It’s not about fancy gear; it’s about perspective, storytelling, and the magic you create within the moment.",
-      prize: "₹1,500 Pool"
+      desc: "Every corner has a story waiting to be told. Lens & Lore challenges you to capture the spirit, emotions, and unseen narratives of our campus through your creative vision. In just two hours, you must imagine, shoot, and craft a compelling visual story, either through a powerful photo sequence or a short cinematic video. It's not about fancy gear; it's about perspective, storytelling, and the magic you create within the moment.",
+      prize: "₹1,500 Pool",
+      coordinators: [
+        { name: "Shrestha Chandra", phone: "+91 9284083761" },
+        { name: "Teja K", phone: "+91 9113691853" },
+      ],
     },
     {
       title: "Pitch Pe Paisa",
       category: "Auction",
       icon: <DollarSign size={18} className="text-pink-400" />,
       desc: "Step into the thrill of the IPL with our high-energy IPL-Style Player Auction! Each team gets a fixed virtual budget and battles it out in a live bidding war to build the ultimate cricket squad. Strategy, smart spending, and sharp decision-making will decide who creates the most powerful lineup. Outbid, outsmart, and outplay– Only the smart bidders will lead the leaderboard Paisa bhi, Planning nhi, Pressure bhi!",
-      prize: "₹1,500 Pool"
+      prize: "₹1,500 Pool",
+      coordinators: [
+        { name: "Manyu", phone: "+91 8296479899" },
+        { name: "Srushti", phone: "+91 9513241343" },
+      ],
     },
     {
       title: "Popcorn Panic",
       category: "Quiz",
       icon: <Video size={18} className="text-green-400" />,
       desc: "Get ready to put your binge-watching skills to the test! This exciting movie & series quiz will challenge your knowledge across genres, characters, dialogues, and iconic scenes. Team up with your friends and compete against fellow cinephiles.",
-      prize: "₹1,500 Pool"
-    }
+      prize: "₹1,500 Pool",
+      coordinators: [
+        { name: "Poojitha", phone: "+91 8309779133" },
+        { name: "Pragathi", phone: "+91 7022478745" },
+      ],
+    },
   ];
 
   return (
@@ -115,7 +163,7 @@ const GlitchCraft2 = () => {
           </div>
 
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
-            A four-day festival unique convergence of technology and creativity, featuring carefully curated events that challenge both technical prowess and artistic expression. 
+            A four-day festival unique convergence of technology and creativity, featuring carefully curated events that challenge both technical prowess and artistic expression.
           </p>
         </header>
 
@@ -164,7 +212,7 @@ const GlitchCraft2 = () => {
           {/* 3. Stats (4 cols, 2 rows) */}
           <div className="sm:col-span-2 lg:col-span-4 lg:row-span-2 bg-zinc-900 border border-blue-500/20 hover:border-blue-500/40 transition rounded-2xl p-5 grid grid-cols-2 gap-4 min-h-[240px]">
             {[
-              { label: 'Events', value: '06' },
+              { label: 'Events', value: '07' },
               { label: 'Days', value: '02' },
               { label: 'Teams', value: '50+' },
               { label: 'Energy', value: '100%' }
@@ -184,8 +232,8 @@ const GlitchCraft2 = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {eventsList.map((event, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="group flex flex-col justify-between p-5 rounded-xl bg-zinc-800/30 border border-zinc-700/50 transition duration-300 min-h-[220px]"
                 >
                   <div>
@@ -197,7 +245,7 @@ const GlitchCraft2 = () => {
                         {event.category}
                       </span>
                     </div>
-                    
+
                     <h4 className="text-base font-bold text-white mb-2 transition-colors">
                       {event.title}
                     </h4>
@@ -206,46 +254,71 @@ const GlitchCraft2 = () => {
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-white/5 flex items-center justify-between mt-auto">
-                    <span className="text-[10px] font-mono text-slate-500">Prize</span>
-                    <span className="text-xs font-bold text-white  transition-colors">
-                      {event.prize}
-                    </span>
+                  {/* Footer: Coordinators + Prize */}
+                  <div className="pt-3 border-t border-white/5 flex flex-col gap-2 mt-auto">
+
+                    {/* Coordinators */}
+                    {event.coordinators.map((c, i) => (
+                      <div key={i} className="flex items-center justify-between">
+                        <span className="text-[10px] font-mono text-slate-500">
+                          {i === 0 ? "Coordinators" : ""}
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[11px] font-semibold text-slate-300">{c.name}</span>
+                          <a
+                            href={`tel:${c.phone.replace(/\s/g, '')}`}
+                            className="text-[11px] font-mono text-blue-400 hover:text-blue-300 transition-colors"
+                          >
+                            {c.phone}
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+
+                    {/* Prize */}
+                    <div className="flex items-center justify-between pt-2 border-t border-white/5">
+                      <span className="text-[10px] font-mono text-slate-500">Prize</span>
+                      <span className="text-xs font-bold text-white transition-colors">
+                        {event.prize}
+                      </span>
+                    </div>
+
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* 5. Registation  (3 cols, 2 rows) */}
+          {/* 5. Registration (3 cols, 2 rows) */}
           <a
             href="/register"
-          className="group sm:col-span-2 lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/40 hover:border-blue-400 transition-all duration-500 rounded-2xl p-8 flex flex-col justify-center items-center gap-5 min-h-[240px] cursor-pointer relative overflow-hidden hover:shadow-[0_0_50px_rgba(59,130,246,0.4)]"
-        >
-          {/* Animated background pulse */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
-          
-          {/* Icon with scale and glow - NO ROTATION */}
-          <div className="relative p-4 rounded-full bg-blue-500/20 border border-blue-400/30 group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.6)]">
-            <UserPlus size={32} className="text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
-          </div>
-          
-          {/* Text with slide up */}
-          <div className="text-center relative z-10">
-            <p className="text-3xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-              Register Now
-            </p>
-            <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
-              Secure your spot for GlitchCraft 2.0
-            </p>
-          </div>
-          
-          {/* CTA with arrow animation */}
-          <div className="flex items-center gap-2 text-blue-400 text-sm font-medium relative z-10">
-            <span className="group-hover:tracking-wider transition-all duration-300">Join the mission</span>
-            <ArrowUpRight size={16} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-300" />
-          </div>
-        </a>
+            className="group sm:col-span-2 lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/40 hover:border-blue-400 transition-all duration-500 rounded-2xl p-8 flex flex-col justify-center items-center gap-5 min-h-[240px] cursor-pointer relative overflow-hidden hover:shadow-[0_0_50px_rgba(59,130,246,0.4)]"
+          >
+            {/* Animated background pulse */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
+
+            {/* Icon with scale and glow */}
+            <div className="relative p-4 rounded-full bg-blue-500/20 border border-blue-400/30 group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.6)]">
+              <UserPlus size={32} className="text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+            </div>
+
+            {/* Text */}
+            <div className="text-center relative z-10">
+              <p className="text-3xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+                Register Now
+              </p>
+              <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+                Secure your spot for GlitchCraft 2.0
+              </p>
+            </div>
+
+            {/* CTA */}
+            <div className="flex items-center gap-2 text-blue-400 text-sm font-medium relative z-10">
+              <span className="group-hover:tracking-wider transition-all duration-300">Join the mission</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-300" />
+            </div>
+          </a>
+
         </div>
 
         {/* Footer */}

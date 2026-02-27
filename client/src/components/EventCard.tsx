@@ -18,6 +18,7 @@ interface Event {
   icon: any;
   showCTA?: boolean;   // controls visibility
   disableCTA?: boolean; // controls disabled state (optional)
+  ctaLink?: string;
   color: {
     primary: string;
     secondary: string;
@@ -108,10 +109,14 @@ const EventCard = ({ event, onHover, onLeave }: EventCardProps) => {
             <motion.button
               whileHover={!event.disableCTA ? { y: -1 } : {}}
               whileTap={!event.disableCTA ? { scale: 0.98 } : {}}
-              onClick={() =>
-                !event.disableCTA &&
-                navigate(`/${event.title.toLowerCase().replace(' ', '-')}`)
-              }
+              onClick={() => {
+                if (event.disableCTA) return;
+                if (event.ctaLink) {
+                  window.open(event.ctaLink, '_blank', 'noopener,noreferrer');
+                } else {
+                  navigate(`/${event.title.toLowerCase().replace(' ', '-')}`);
+                }
+              }}
               disabled={event.disableCTA}
               className={`
                 mt-auto w-full py-2.5
