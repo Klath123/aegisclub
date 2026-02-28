@@ -1,0 +1,117 @@
+{
+  "startedAt": "2026-02-28T15:02:36.183Z",
+  "events": {
+    "pitch-pe-paisa": {
+      "supabaseTable": "Pitch_Pe_Paisa",
+      "mongoEventId": "pitch-pe-paisa",
+      "fetched": 21,
+      "inserted": 21,
+      "skipped": 0,
+      "errors": 0,
+      "rowWarnings": [],
+      "rowErrors": []
+    },
+    "decipher-blitz": {
+      "supabaseTable": "Decipher_Blitz",
+      "mongoEventId": "decipher-blitz",
+      "fetched": 41,
+      "inserted": 39,
+      "skipped": 2,
+      "errors": 0,
+      "rowWarnings": [],
+      "rowErrors": []
+    },
+    "lens-and-lore": {
+      "supabaseTable": "Lens_& _Lore",
+      "mongoEventId": "lens-and-lore",
+      "fetched": 9,
+      "inserted": 2,
+      "skipped": 0,
+      "errors": 7,
+      "rowWarnings": [],
+      "rowErrors": [
+        {
+          "rowIndex": 3,
+          "error": "Duplicate key – {\"eventId\":\"lens-and-lore\",\"participants.usn\":\"NULL\"}"
+        },
+        {
+          "rowIndex": 4,
+          "error": "Duplicate key – {\"eventId\":\"lens-and-lore\",\"participants.usn\":\"NULL\"}"
+        },
+        {
+          "rowIndex": 5,
+          "error": "Duplicate key – {\"eventId\":\"lens-and-lore\",\"participants.usn\":\"NULL\"}"
+        },
+        {
+          "rowIndex": 6,
+          "error": "Duplicate key – {\"eventId\":\"lens-and-lore\",\"participants.usn\":\"NULL\"}"
+        },
+        {
+          "rowIndex": 7,
+          "error": "Duplicate key – {\"eventId\":\"lens-and-lore\",\"participants.usn\":\"NULL\"}"
+        },
+        {
+          "rowIndex": 8,
+          "error": "Duplicate key – {\"eventId\":\"lens-and-lore\",\"participants.usn\":\"NULL\"}"
+        },
+        {
+          "rowIndex": 9,
+          "error": "Duplicate key – {\"eventId\":\"lens-and-lore\",\"participants.usn\":\"NULL\"}"
+        }
+      ]
+    },
+    "popcorn-panic": {
+      "supabaseTable": "Popcorn_Panic",
+      "mongoEventId": "popcorn-panic",
+      "fetched": 10,
+      "inserted": 10,
+      "skipped": 0,
+      "errors": 0,
+      "rowWarnings": [],
+      "rowErrors": []
+    },
+    "escape-enigma": {
+      "supabaseTable": "Escape_the_Enigma",
+      "mongoEventId": "escape-enigma",
+      "fetched": 14,
+      "inserted": 13,
+      "skipped": 1,
+      "errors": 0,
+      "rowWarnings": [],
+      "rowErrors": []
+    },
+    "valorant-tournament": {
+      "supabaseTable": "VALORANT_Tournament",
+      "mongoEventId": "valorant-tournament",
+      "fetched": 7,
+      "inserted": 5,
+      "skipped": 1,
+      "errors": 1,
+      "rowWarnings": [],
+      "rowErrors": [
+        {
+          "rowIndex": 6,
+          "error": "Duplicate key – {\"eventId\":\"valorant-tournament\",\"participants.usn\":\"1DS24CY041\"}"
+        }
+      ]
+    },
+    "bgmi-lss": {
+      "supabaseTable": "BGMI_Last_Squad_Standing",
+      "mongoEventId": "bgmi-lss",
+      "fetched": 1,
+      "inserted": 1,
+      "skipped": 0,
+      "errors": 0,
+      "rowWarnings": [],
+      "rowErrors": []
+    }
+  },
+  "totals": {
+    "fetched": 103,
+    "inserted": 91,
+    "skipped": 4,
+    "errors": 8,
+    "warnings": 0
+  },
+  "finishedAt": "2026-02-28T15:02:57.177Z"
+}
