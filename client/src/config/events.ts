@@ -24,7 +24,7 @@ export const EVENTS: EventConfig[] = [
   { id: "decipher-blitz", name: "Decipher Blitz", type: "SOLO", closed: false },
   { id: "lens-and-lore", name: "Lens & Lore", type: "SOLO_OR_PAIR", closed: false },
   { id: "popcorn-panic", name: "Popcorn Panic", type: "GROUP", teamSize: 3, closed: true },
-  { id: "escape-enigma", name: "Escape the Enigma", type: "GROUP", teamSize: 4, closed: false },
+  { id: "escape-enigma", name: "Escape the Enigma", type: "GROUP", teamSize: 4, closed: true },
   { id: "valorant-tournament", name: "Valorant Battle", type: "GROUP", teamSize: 5, closed: false },
   { id: "bgmi-lss", name: "BGMI - Last Squad Standing", type: "GROUP", teamSize: 4, closed: true },
 ];
