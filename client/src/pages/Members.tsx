@@ -10,7 +10,12 @@ import {
   dividerVariants,
 } from "@/styles/Animations";
 
-type MainCategory = "Faculty" | "Founder Leads" | "Team" | null;
+type MainCategory =
+  | "Faculty"
+  | "Founder Leads"
+  | "Team"
+  | "Alumni"
+  | null;
 type TeamCategory = "Tech" | "Operations" | "Media" | "Cultural";
 
 const Members = () => {
@@ -36,6 +41,12 @@ const Members = () => {
 
     if (mainCategory === "Founder Leads") {
       return members.filter((member) => member.role === "Founder Leads");
+    }
+
+    if (mainCategory === "Alumni") {
+      return members.filter(
+        (member) => member.role === "Student" && member.year === "Alumni",
+      );
     }
 
     if (mainCategory === "Team") {
@@ -123,7 +134,7 @@ const Members = () => {
               viewport={{ once: true }}
               variants={simpleFadeIn}
             >
-              {(["Faculty", "Founder Leads", "Team"] as MainCategory[]).map(
+              {(["Faculty", "Founder Leads", "Team", "Alumni"] as MainCategory[]).map(
                 (category) => (
                   <button
                     key={category}
@@ -383,7 +394,61 @@ const Members = () => {
               </div>
             )}
 
-            {/* 4. Team Sections */}
+            {/* 4. Alumni View */}
+            {mainCategory === "Alumni" && (
+              <div className="space-y-20">
+                {(["Tech", "Operations", "Media", "Cultural"] as TeamCategory[]).map(
+                  (team) => {
+                    const teamAlumni = filteredMembers.filter(
+                      (member) => member.team === team,
+                    );
+
+                    if (teamAlumni.length === 0) return null;
+
+                    return (
+                      <div key={team} className="w-full">
+                        <motion.h3
+                          className="text-3xl font-bold text-white mb-10 text-center relative inline-block left-1/2 -translate-x-1/2"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                        >
+                          {team}
+                          <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded-full"></span>
+                        </motion.h3>
+
+                        <motion.div
+                          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                          variants={container}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true, amount: 0.1 }}
+                        >
+                          {teamAlumni.map((member) => (
+                            <motion.div
+                              key={member.id}
+                              className="h-full"
+                              variants={item}
+                              whileHover="hover"
+                            >
+                              <MemberCard member={member} />
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      </div>
+                    );
+                  },
+                )}
+
+                {filteredMembers.length === 0 && (
+                  <div className="text-center text-gray-400 text-lg py-12">
+                    No alumni found.
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* 5. Team Sections */}
             {mainCategory === "Team" && teamCategory && (
               <div className="space-y-20">
                 {/* Leads Section */}
