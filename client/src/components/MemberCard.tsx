@@ -27,6 +27,12 @@ const MailIcon = () => (
   </svg>
 );
 
+const InstagramIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.247 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.247-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.247-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.516 2.567 5.783 2.295 7.15 2.233 8.416 2.175 8.796 2.163 12 2.163zm0 3.675a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+  </svg>
+);
+
 const SocialLink: React.FC<SocialLinkProps> = ({ href, aria, icon }) => (
   <a
     href={href}
@@ -52,7 +58,10 @@ const SocialFooter: React.FC<{ socialLinks: Member["socialLinks"] }> = ({ social
       {socialLinks?.email && (
         <SocialLink href={`mailto:${socialLinks.email}`} aria="Email" icon={<MailIcon />} />
       )}
-      {!socialLinks?.linkedin && !socialLinks?.github && !socialLinks?.email && (
+      {socialLinks?.instagram && (
+        <SocialLink href={socialLinks.instagram} aria="Instagram" icon={<InstagramIcon />} />
+      )}
+      {!socialLinks?.linkedin && !socialLinks?.github && !socialLinks?.email && !socialLinks?.instagram && (
         <span className="text-xs text-gray-500">No social links available</span>
       )}
     </div>

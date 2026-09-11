@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom"; // used by the hidden event banners
 import LetterGlitch from "../components/LetterGlitch";
 import DecryptedText from "../components/DecryptedText";
 // import { Terminal, TypingAnimation, AnimatedSpan } from "../components/terminal";
@@ -11,7 +11,7 @@ const Home = () => {
     const [showNeonGlow, setShowNeonGlow] = useState(false);
     // const [showNavbarElements, setShowNavbarElements] = useState(false);
     const [showTagline, setShowTagline] = useState(false);
-    const [showEventBanners, setShowEventBanners] = useState(false);
+    // const [showEventBanners, setShowEventBanners] = useState(false); // used by the hidden event banners
 
     useEffect(() => {
         // Phase 1: Welcome to appears, breathes, and fades (2 seconds total)
@@ -29,7 +29,7 @@ const Home = () => {
             const neonTimer = setTimeout(() => {
                 setShowNeonGlow(true);
                 setShowTagline(true);
-                setShowEventBanners(true); // Show event banners after welcome animation
+                // setShowEventBanners(true); // Show event banners after welcome animation
                 setAnimationPhase('complete');
             }, 0);
 
@@ -90,7 +90,7 @@ const Home = () => {
                             {/* Phase 2: "AEGIS" appears with fade-in-blur effect and optional neon glow */}
                             {(animationPhase === 'aegis' || animationPhase === 'complete') && (
                                 <>
-                                    {/* GLITCHCRAFT Banner - Left Side */}
+                                    {/* GLITCHCRAFT Banner - Left Side (hidden)
                                     {showEventBanners && (
                                         <Link
                                             to="/glitchcraft-2.0"
@@ -119,6 +119,7 @@ const Home = () => {
                                             </div>
                                         </Link>
                                     )}
+                                    */}
 
                                     <h1
                                         className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl sm:text-[10rem] md:text-[12rem] lg:text-[14rem] xl:text-[16rem] 2xl:text-[18rem] font-black tracking-tighter text-white text-center leading-none transition-all duration-1000 drop-shadow-[0_0_2px_rgba(255,255,255,0.2)] fade-in-blur ${showNeonGlow ? 'neon-glow-active' : ''
@@ -128,7 +129,7 @@ const Home = () => {
                                         AEGIS
                                     </h1>
 
-                                    {/* SANDBOX Banner - Right Side */}
+                                    {/* SANDBOX Banner - Right Side (hidden)
                                     {showEventBanners && (
                                         <a
                                             href="https://sandbox.aegisclub.site/"
@@ -159,6 +160,7 @@ const Home = () => {
                                             </div>
                                         </a>
                                     )}
+                                    */}
                                 </>
                             )}
                         </div>
