@@ -9,7 +9,7 @@ import {
   Key,
   Film,
   Video,
-  UserPlus,
+  Lock,
   DollarSign,
 } from 'lucide-react';
 
@@ -289,35 +289,25 @@ const GlitchCraft2 = () => {
             </div>
           </div>
 
-          {/* 5. Registration (3 cols, 2 rows) */}
-          <a
-            href="/register"
-            className="group sm:col-span-2 lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 hover:from-blue-600/30 hover:to-cyan-600/30 border border-blue-500/40 hover:border-blue-400 transition-all duration-500 rounded-2xl p-8 flex flex-col justify-center items-center gap-5 min-h-[240px] cursor-pointer relative overflow-hidden hover:shadow-[0_0_50px_rgba(59,130,246,0.4)]"
+          {/* 5. Registration (3 cols, 2 rows) - registrations closed */}
+          <div
+            className="sm:col-span-2 lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-slate-700/20 to-slate-600/20 border border-slate-500/40 rounded-2xl p-8 flex flex-col justify-center items-center gap-5 min-h-[240px] relative overflow-hidden"
           >
-            {/* Animated background pulse */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-cyan-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
-
-            {/* Icon with scale and glow */}
-            <div className="relative p-4 rounded-full bg-blue-500/20 border border-blue-400/30 group-hover:scale-110 transition-all duration-500 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.6)]">
-              <UserPlus size={32} className="text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />
+            {/* Icon */}
+            <div className="relative p-4 rounded-full bg-slate-500/20 border border-slate-400/30">
+              <Lock size={32} className="text-slate-400" />
             </div>
 
             {/* Text */}
             <div className="text-center relative z-10">
-              <p className="text-3xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-                Register Now
+              <p className="text-3xl font-bold text-slate-300 mb-2">
+                Registrations Closed
               </p>
-              <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
-                Secure your spot for GlitchCraft 2.0
+              <p className="text-sm text-slate-500">
+                Registrations for GlitchCraft 2.0 are now closed
               </p>
             </div>
-
-            {/* CTA */}
-            <div className="flex items-center gap-2 text-blue-400 text-sm font-medium relative z-10">
-              <span className="group-hover:tracking-wider transition-all duration-300">Join the mission</span>
-              <ArrowUpRight size={16} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-300" />
-            </div>
-          </a>
+          </div>
 
         </div>
 
