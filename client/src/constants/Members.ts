@@ -777,6 +777,20 @@ export const members: Member[] = [
       instagram: "https://www.instagram.com/abhinav_byte",
     },
   },
+  {
+    id: 5006,
+    name: "Abhishek Magadum",
+    position: "Member",
+    role: "Student",
+    team: "Operations",
+    year: "3rd",
+    imageUrl:
+      "https://res.cloudinary.com/hsv21gpq/image/upload/v1789850141/abhishekm.webp",
+    bio: "Newbies",
+    socialLinks: {
+      email: "magadumabhishek5@gmail.com",
+    },
+  },
   // Alumni
   {
     id: 30, // Amareshwar Sai
@@ -1044,6 +1058,21 @@ export const members: Member[] = [
     socialLinks: {
       github: "https://github.com/Sourajit1120",
       email: "sourajitsengupta1@gmail.com",
+    },
+  },
+  {
+    id: 570,
+    name: "Sampadha",
+    position: "Co-Lead",
+    role: "Student",
+    team: "Cultural",
+    year: "3rd",
+    imageUrl:
+      "",
+    bio: "",
+    socialLinks: {
+      github: "",
+      email: "",
     },
   },
   // 4th Year Members
