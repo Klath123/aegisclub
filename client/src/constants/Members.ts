@@ -491,8 +491,8 @@ export const members: Member[] = [
     team: "Tech",
     year: "3rd",
     imageUrl:
-      "https://res.cloudinary.com/dbe8rhiyq/image/upload/v1789184656/WhatsApp_Image_2026-09-12_at_9.10.44_AM_hfusg3.jpg",
-    bio: "I'm Vinay from 3rd year.",
+      "https://res.cloudinary.com/hsv21gpq/image/upload/v1789756738/vinay.webp",
+    bio: "Cybersecurity Enthusiast • Exploring Emerging Tech",
     socialLinks: {
       linkedin: "https://www.linkedin.com/in/vinay-madival-ab9059320",
       github: "https://github.com/VINAYMADIVAL",
@@ -777,6 +777,20 @@ export const members: Member[] = [
       instagram: "https://www.instagram.com/abhinav_byte",
     },
   },
+  {
+    id: 5006,
+    name: "Abhishek Magadum",
+    position: "Member",
+    role: "Student",
+    team: "Operations",
+    year: "3rd",
+    imageUrl:
+      "https://res.cloudinary.com/hsv21gpq/image/upload/v1789850141/abhishekm.webp",
+    bio: "Newbies",
+    socialLinks: {
+      email: "magadumabhishek5@gmail.com",
+    },
+  },
   // Alumni
   {
     id: 30, // Amareshwar Sai
@@ -1044,6 +1058,21 @@ export const members: Member[] = [
     socialLinks: {
       github: "https://github.com/Sourajit1120",
       email: "sourajitsengupta1@gmail.com",
+    },
+  },
+  {
+    id: 570,
+    name: "Sampadha",
+    position: "Co-Lead",
+    role: "Student",
+    team: "Cultural",
+    year: "3rd",
+    imageUrl:
+      "",
+    bio: "",
+    socialLinks: {
+      github: "",
+      email: "",
     },
   },
   // 4th Year Members
